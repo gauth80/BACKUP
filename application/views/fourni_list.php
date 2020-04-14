@@ -1,21 +1,5 @@
-<?php
-    if(empty($fournisseur))
-    {
-    ?>
-        <h1>tableaux vide</h1>
-        <p>pour le remplir</p>
-    <a href="<?= site_url('');?>"><button><i class="fas fa-pencil-alt"></i></button></a>
-    
-        <?php
-    }
-    else
-    {
-        ?>
-        <h1>Fournisseur</h1>
-        <p>pour ajouter un nouveau fournisseur</p>
-    <a href="<?= site_url('');?>"><button><i class="fas fa-pencil-alt"></i></button></a>
-    <hr>
-    <table>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-bordered">
     <thead>
     <tr>
         <th> </th>
@@ -31,28 +15,67 @@
     </tr>
     </thead>
     <tbody>
-<?php
-        foreach($fournisseur as $fourni)
-        {
-            ?>
-                <tr>
-                    <td><a href="<?= site_url(''.$fourni->fourni_id);?>"><button><i class="fas fa-pencil-alt"></i></button></a><a href="<?= site_url(''.$fourni->fourni_id);?>"><button><i class="fas fa-trash-alt"></i></button></a></td>
-                    <td><?=$fourni->fourni_id?></td>
-                    <td><?=$fourni->fourni_nom?></td>
-                    <td><?=$fourni->fourni_tel?></td>
-                    <td><?=$fourni->fourni_mail?></td>
-                    <td><?=$fourni->fourni_siret?></td>
-                    <td><?=$fourni->fourni_adresse?></td>
-                    <td><?=$fourni->fourni_ville?></td>
-                    <td><?=$fourni->fourni_pers_join?></td>
-                    <td><?=$fourni->fourni_prix?></td>
 
-                </tr>
-            <?php
-        }
-?>
+        <tr class="table-active">
+            <td><a href="<?php echo site_url("fournisseurs/fourniAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("fournisseurs/fourniModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
+            <td>5</td>
+            <td>Exemple</td>
+            <td>0632254800</td>
+            <td>exemple@gmail.com</td>
+            <td>1254789654</td>
+            <td>85 rue des exemples</td>
+            <td>Paris</td>
+            <td>M.exemple</td>
+            <td>120</td>
+        </tr>
+        <tr class="table-active">
+            <td><a href="<?php echo site_url("fournisseurs/fourniAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("fournisseurs/fourniModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
+            <td>5</td>
+            <td>Exemple</td>
+            <td>0632254800</td>
+            <td>exemple@gmail.com</td>
+            <td>1254789654</td>
+            <td>85 rue des exemples</td>
+            <td>Paris</td>
+            <td>M.exemple</td>
+            <td>120</td>
+        </tr>
+        <tr class="table-active">
+            <td><a href="<?php echo site_url("fournisseurs/fourniAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("fournisseurs/fourniModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
+            <td>5</td>
+            <td>Exemple</td>
+            <td>0632254800</td>
+            <td>exemple@gmail.com</td>
+            <td>1254789654</td>
+            <td>85 rue des exemples</td>
+            <td>Paris</td>
+            <td>M.exemple</td>
+            <td>120</td>
+        </tr>
+        <tr class="table-active">
+            <td><a href="<?php echo site_url("fournisseurs/fourniAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("fournisseurs/fourniModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
+            <td>5</td>
+            <td>Exemple</td>
+            <td>0632254800</td>
+            <td>exemple@gmail.com</td>
+            <td>1254789654</td>
+            <td>85 rue des exemples</td>
+            <td>Paris</td>
+            <td>M.exemple</td>
+            <td>120</td>
+        </tr>
+        <tr class="table-active">
+            <td><a href="<?php echo site_url("fournisseurs/fourniAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("fournisseurs/fourniModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
+            <td>5</td>
+            <td>Exemple</td>
+            <td>0632254800</td>
+            <td>exemple@gmail.com</td>
+            <td>1254789654</td>
+            <td>85 rue des exemples</td>
+            <td>Paris</td>
+            <td>M.exemple</td>
+            <td>120</td>
+        </tr>
 </tbody>
 </table>
-<?php
-    }
-?>
+</div>

@@ -40,7 +40,7 @@
                 <input type="text" id="prix" name="prix" class="form-control fontAwesome" placeholder="prix..." >
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
-                <input type="submit" id="ok" name="ok" value="ajouter">
+                <input type="submit" id="ok" name="ok" value="modifier">
                 </div>
             </div>
         </fieldset>
