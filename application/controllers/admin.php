@@ -8,9 +8,9 @@ class Admin extends CI_Controller
      * \author Grillet Stéphane
      * \date 
      */
-    public function liste()
+    public function adminAccueil()
     {
-        $this->templates->display('liste');
+        $this->templates->display('adminAccueil');
     }
     /**
      * \brief 
@@ -18,18 +18,9 @@ class Admin extends CI_Controller
      * \author Grillet Stéphane
      * \date 
      */
-    public function connexion()
+    public function connexionAdmin()
     {
-        $this->templates->display('connexion');
+        $this->templates->display('connexionAdmin');
     }
-    /**
-     * \brief 
-     * \return  
-     * \author Grillet Stéphane
-     * \date 
-     */
-    public function inscription()
-    {
-        $this->templates->display('inscription');
-    }
+
 }
