@@ -8,11 +8,11 @@ class Structure extends CI_Controller
     */
   public function acceuil ()
   {
-      $this->template->display('acceuil');
+      $this->templates->display('acceuil');
   }
   
   public function liste ()
   {
-      $this->template->display('liste');
+      $this->templates->display('liste');
   }
 }
