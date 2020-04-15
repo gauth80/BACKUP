@@ -1,5 +1,5 @@
 <div class="container-fluid"> 
-            <div class="row"> <!-- row = pour faire une rangée-->
+            <div class="row"> 
                 <div class="col-12 col-sm-6 col-md-6 col-lg-8 col-xl-12">
                     <div class="d-sm-none d-lg-inline">
                     <h1 class="text-dark">Partie Admin</h1>

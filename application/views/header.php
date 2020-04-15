@@ -57,7 +57,7 @@
 
                                     <!--STORE-->
                                     <li class="nav-item col-2 pr-5">
-                                        <a class="nav-link active" href="/">
+                                        <a class="nav-link active" href="<?php echo site_url("admin/Panier");?>">
                                             <img title="boutique de Village Green" src="<?= base_url('assets/img/').'icon/picto_panier.png'?>" alt="boutique">
                                         </a>
                                     </li>
