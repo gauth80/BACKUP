@@ -11,4 +11,8 @@ class Structure extends CI_Controller
       $this->template->display('acceuil');
   }
   
+  public function liste ()
+  {
+      $this->template->display('liste');
+  }
 }
