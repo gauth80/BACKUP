@@ -1,7 +1,6 @@
 <div class="container-fluid"> 
             <div class="row"> 
                 <div class="col-12 col-sm-6 col-md-6 col-lg-8 col-xl-12">
-                    <div class="d-sm-none d-lg-inline">
                     <h1 class="text-dark">Partie Admin</h1>
                     <section>
                         <article>
@@ -38,7 +37,6 @@
                             <a href="<?php echo site_url("personnels/pers_list");?>" class="btn btn-dark offset-3" target="_blank"> Personnel</a>
                         </article>
                     </section>
-</div>
 </div>
 </div>
 </div>
