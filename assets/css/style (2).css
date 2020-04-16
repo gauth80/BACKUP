@@ -1,0 +1,355 @@
+/*
+
+<!> Doublons possibles, à purgée a la fin
+
+	=0 racine, import, etc
+	=1 logo accueil
+	=2 Navbar
+	=3 Dropbox - Modal
+	=4 Footer
+	=A1 @Media
+	=B1 Notes
+*/
+
+/*=0*/
+.fontAwesome{font-family:Helvetica,'FontAwesome',sans-serif;}
+.root{
+	/*couleur associer au wireframe demander . ou :root*/
+	--new-c-primary: navy;
+	--new-c-second: #b55500;
+	--new-c-third: #4d4d4d;
+	--new-b-primary:#b3b3b3;
+	--new-b-second:#e6e6e6;}
+
+.container {
+		width: 100%;
+		min-width: 100%;
+	}
+body {
+	overflow-x:hidden;
+	background: url("assets/img/background_village.png");
+	background-repeat: no-repeat;
+	z-index: 1;}
+
+	.wrap {
+	background-color:var(--new-b-second);
+	z-index: 2;}
+
+
+/*=1 logo accueil*/
+	figure{
+		z-index:1;
+		margin:0;
+		padding:0;
+		top:0;
+		position: relative;
+		display:block;
+	}
+
+	[title="logo"]{
+		width:125%;
+		height:auto;
+		position: absolute;
+		top:0;
+	}
+
+/*=2 Navbar*/
+	.firstNav,.secondNav,.thirdNav{
+		top: -10px;
+	}
+
+	[href="#"] {
+		display: inline-block;
+		width:0;
+		height:0;
+		margin:0;
+	}
+
+	.navbar{padding-top:0 !important;}
+
+
+	.secondNav{background:#666666;}
+	.thirdNav{background: #303030;
+		padding:0;
+}
+
+
+
+/*=3 Dropbox*/
+	/*general*/
+	[data-toggle="dropdown"]{
+		padding:0;
+		margin:0;
+		background:transparent;
+		border:none;
+		font-size:calc(100% + .25px); 
+
+	}
+
+	.drop-link {
+		font-weight:400;
+		font-size:.75rem;
+		color:#000;
+	}
+
+	/*dropbox client*/
+	.firstNav .dropdown-menu{
+		padding:5px;
+		border-radius:4px;
+		background-color:var(--new-b-second);
+		width:480px;
+		height:auto;
+		column-count:2;
+		box-shadow:5px 5px 5px var(--new-b-primary);
+		left:-155px} /*pour left, écrasez la val de bootstrap*/
+
+		.firstNav [data-toggle="dropdown"] {
+			color:var(--new-c-second);
+		}
+
+		.drop-connexion{
+			border-right:1px solid var(--new-b-primary);
+		}
+
+		.drop-inscription,.drop-connexion{
+			padding:10px;
+		}
+
+		.drop-inscription,.drop-connexion>label,input,span{
+			font-size:.85rem;
+		}
+
+		.drop-connexion,.drop-inscription:not(input):not([for="always"]):not([name="always"]){
+			text-align:center;
+		}
+
+		form>button{
+			width:100%;
+		}
+
+		form>p{
+			font-size:.75rem;
+			text-align:left;
+		}
+
+		form>span{
+			display:inline-flex;
+			text-align:center;
+			padding-bottom:10px;
+		}
+
+	/*dropbox produits*/
+	.thirdNav .dropdown-menu:nth-of-type(1){
+		padding:10px;
+		border-radius:4px;
+		background-color: var(--new-b-second);
+		width:160px;
+		height:auto;
+		column-count:1;
+		box-shadow:5px 5px 5px var(--new-b-primary);
+		left:-25px;
+	}
+
+	.thirdNav [data-toggle="dropdown"] {
+		color:whitesmoke;
+	}
+
+/*	Typographie	*/
+	h1,h2 {
+		text-indent:30px;
+		color:navy;
+		font-size:2rem;
+		color:navy;
+		
+	}
+	/*	images	*/
+	[alt] {
+	transition:all .2s;
+	display: inline-flex;
+	}
+
+	[alt="Gibson Ibanez -15%"],[alt="conditions"] {
+		width: 100%;
+	}
+	[alt="information livraison"] {
+		width: 128%;
+	}
+	[alt='partenaires'] {
+		width: 97%;
+	}
+	[title="top guitare" ],[title="top saxo"],[title="top piano"] {
+		width: 100%;
+	}
+
+
+/*	=4 footer	*/
+	
+	footer {box-shadow:0 0 3px 3px #222;}
+	footer>section {
+		display:flex;
+	}
+
+
+	.btn-custom {
+		background-color: var(--new-c-second);
+		color:white;
+	}
+	.btn-custom:hover{
+		color:white !important;
+		box-shadow:inset 0 0 7px 3px #f3a93b;
+	}
+	.c-custom {color:var(--new-c-second);}
+	[for="newsletter"],.text-follow {color:white;}
+	[for="newsletter"],.c-custom,.text-follow {font-size:1.25rem;font-weight:700;}
+
+	.annexe,.cite,.marque>p,h3,li,.par-ann {
+		color:whitesmoke;
+	}
+	.marque>h3 {
+		text-align:center;
+		font-size:calc(100% - .3rem);
+	}
+	.annexe>p {
+		word-break:break-all;
+		width:100%;
+	}
+	.annexe>ul,li {
+		list-style-type:none;
+		word-break:break-all;
+	}
+	.txt-bold {
+		font-weight:900;
+	}
+	.txt-light {
+		font-weight:100;
+	}
+	[aria-label="Breadcrumb"].fil-arianne li{
+		display:inline;
+	}
+	.link-arianne {
+		color:var(--primary);
+		transition:all .5s;
+	}
+		.link-arianne:hover {
+		text-decoration:none;
+		color:var(--new-c-second);
+	}
+	.cite>p {
+		font-size:calc(100% - .3rem);
+		text-align:center;
+		margin-bottom:0;
+	}
+
+	.marque,.marque>p {
+		background-color:#000;
+		margin-left:0;
+		margin-right:0;
+		text-align:center;
+	}
+
+
+
+/**=A1************************************ Media query ********************************************/
+
+@media (min-width: 1200px) and (max-width: 1920px) {
+	.container {
+		width: 100%;
+		max-width: 1250px;
+	}
+	header>.container {
+	margin-left:auto !important;
+	margin-right:auto !important;
+	padding-right:15px;
+	padding-left:15px;
+	}
+
+	[alt="information livraison"] {
+		width:126%;
+	}
+
+	[alt="partenaires"] {
+		width: 81%;
+	}
+
+}
+
+/*Là où Bootstraps ne passe pas*/
+
+@media (min-width: 992px) and (max-width: 1199px) { 
+	[alt="information livraison"] {
+	width: 132%;
+	}
+	
+	[title="top guitare"],[title="top saxo"],[title="top piano"] {
+		width: 113%;
+	}
+
+	[alt="partenaires"] {
+		width: 87%;
+	}
+
+
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) { 
+	[alt="information livraison"] {
+	width: 143%;
+	}
+	
+	[title="top guitare"],[title="top saxo"],[title="top piano"] {
+		width: 120%;
+	}
+	
+	[alt="partenaires"] {
+		width: 87%;
+	}
+
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+	.container {
+		width: 100%;
+		max-width: 100vw;
+	}
+	[alt="information livraison"] {
+	width: 161%;}
+
+	[title="top guitare"],[title="top saxo"],[title="top piano"] {
+		width:132%;
+	}
+
+	[alt="partenaires"] {
+		width: 87%;
+	}
+	.section-categories>figure>a img {
+		width:80%;
+	}
+	h2 {
+		font-size: 1rem;
+	}
+
+}
+
+
+/*
+	=B1
+
+	class="void":
+	N'as rien à voir avec void que l'ont trouve dans le C++ etc, ici c'est juste pour me rappeler
+	de ne rien mettre entre le span, ce span empeche l'esthétique du button de se formée tout en conservant
+	ces attributs.	
+
+	style:background:<?php echo base_url...?>:
+	Ici je place les images servants aux décords, la raison est que je ne veut pas les instancier dans 
+	la structure HTML afin d'évité un éventuel target des outils réservée aux personnes handicapée,
+	de plus il est inutile de les tagger pour le SEO. La structure du MVC empèche de les instancier dans
+	un simple fichier CSS. l'autre façon de les instanciers serait de faire de php un préprocesseur.
+
+
+	font-size:calc(100% + .25px):
+	Ce base sur les autres mesures des liens et rajoute 0.25x;
+	Le pourquoi ? Raligne le contenue dans le cas présent. 
+*/
+
+
