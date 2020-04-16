@@ -5,8 +5,8 @@
 <div class=" container col-8">
     <div class="col-12">
             <fieldset class="row">
-                <legend>Ajouts</legend> 
-                                     
+                <legend>Paiement</legend> 
+                <form action="" method="POST">
                  <div  class="form-group text-center offset-1.5 w-100">
                 <label for="cb">Numéro carte bancaire :</label>
                 <input type="number" id="nom" name="nom" class="form-control fontAwesome" placeholder="Numéro..." >
@@ -23,12 +23,12 @@
                 <label for="adresse">Adresse de facturation :</label>
                 <input type="text" id="adresse" name="adresse" class="form-control fontAwesome" placeholder="Adresse..." >
                 </div>
+                </form>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <a href="<?php echo site_url("admin/BonLiv");?>" class="btn btn-dark offset-1.5" target="_blank"> Valider le paiement</a>
-                </div>
-            </div>
-        </fieldset>
-       <br>
-    </div>
+                </fieldset>
+</div>
+</div>    
+</div>
 </div>
 

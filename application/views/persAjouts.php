@@ -6,7 +6,7 @@
     <div class="col-12">
             <fieldset class="row">
                 <legend>Ajouts</legend> 
-                                     
+                <form action="" method="POST">                   
                  <div  class="form-group text-center offset-1.5 w-100">
                 <label for="reference">Nom :</label>
                 <input type="text" id="nom" name="nom" class="form-control fontAwesome" placeholder="Nom..." >
@@ -16,8 +16,8 @@
                 <input type="number" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom..." >
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
-                    <label for="mail">E-mail :</label>
-                    <input type="text" id="mail" name="mail" class="form-control fontAwesome" placeholder="Mail..." >
+                <label for="mail">E-mail :</label>
+                <input type="text" id="mail" name="mail" class="form-control fontAwesome" placeholder="Mail..." >
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="telephone">Téléphone :</label>
@@ -31,6 +31,7 @@
                 <label for="prix">Mot de passe :</label>
                 <input type="text" id="mdp" name="mdp" class="form-control fontAwesome" placeholder="mdp..." >
                 </div>
+                </form>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <input type="submit" id="ok" name="ok" value="ajouter">
                 </div>

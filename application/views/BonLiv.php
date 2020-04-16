@@ -7,7 +7,7 @@
                         <article>
                             <h4 classe="success bg-dark">Bon de livraison</h4>
                             <p>Vous avez achetez un Violon et une guitare
-                               pour le prix de 100€ vous serez livrer sous 24 heures
+                               pour le prix de 1100€ vous serez livrer sous 24 heures
                             </p>
                             <p>Vous serez livrer a l'adresse suivante : 
                                 7 rue des exemples
