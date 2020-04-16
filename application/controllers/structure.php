@@ -6,9 +6,9 @@ class Structure extends CI_Controller
     /*
     --------------------------------------ACCEUIL------------------------------------------------
     */
-  public function acceuil ()
+  public function accueil ()
   {
-      $this->templates->display('acceuil');
+      $this->templates->display('accueil');
   }
   
   public function liste ()
