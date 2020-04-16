@@ -6,7 +6,7 @@
     <div class="col-12">
             <fieldset class="row">
                 <legend>Ajouts</legend> 
-                                     
+                <form action="" method="POST">
                  <div  class="form-group text-center offset-1.5 w-100">
                 <label for="reference">référence :</label>
                 <input type="text" id="ref" name="ref" class="form-control fontAwesome" placeholder="reference..." >
@@ -35,6 +35,7 @@
                 <input type="radio" class="block" name="block" value="0"> oui 
                 <input type="radio" class="block" name="block" value="1" checked> non
                 </p>
+                </form>
                 <br>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <input type="submit" id="ok" name="ok" value="ajouter">

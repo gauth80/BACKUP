@@ -6,7 +6,7 @@
     <div class="col-12">
             <fieldset class="row">
                 <legend>Ajouts</legend> 
-                                     
+                <form action="" method="POST">                 
                  <div  class="form-group text-center offset-1.5 w-100">
                 <label for="reference">référence :</label>
                 <input type="text" id="ref" name="ref" class="form-control fontAwesome" placeholder="reference..." >
@@ -31,6 +31,7 @@
                 <label for="Photo">Insertion image : </label>
                 <input type="file" id="insert" name="insert" placeholder="Insertion de la photo...">
                 </div>
+                </form>
                 <p id="bloquer" class="text-center">Produit bloquer 
                 <input type="radio" class="block" name="block" value="0"> oui 
                 <input type="radio" class="block" name="block" value="1" checked> non
