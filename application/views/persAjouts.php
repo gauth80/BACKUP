@@ -13,7 +13,7 @@
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="siret">Prenom :</label>
-                <input type="number" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom..." >
+                <input type="text" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom..." >
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="mail">E-mail :</label>

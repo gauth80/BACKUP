@@ -13,7 +13,7 @@
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="Prenom">Prenom :</label>
-                <input type="number" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom..." >
+                <input type="text" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom..." >
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="mail">E-mail :</label>
@@ -41,7 +41,7 @@
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="cp">Code postal :</label>
-                <input type="text" id="cp" name="cp" class="form-control fontAwesome" placeholder="Code postal..." >
+                <input type="number" id="cp" name="cp" class="form-control fontAwesome" placeholder="Code postal..." >
                 </div>
                 </form>
                 <div  class="form-group text-center offset-1.5 w-100">

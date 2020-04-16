@@ -13,7 +13,7 @@
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="Prenom">Prenom du titulaire :</label>
-                <input type="number" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom et Nom..." >
+                <input type="text" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom et Nom..." >
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="crypto">Cryptogramme :</label>
