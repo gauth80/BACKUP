@@ -25,7 +25,7 @@
                 </div>
                 <div  class="form-group text-center offset-1.5 w-100">
                 <label for="adresse">Stock :</label>
-                <input type="text" id="Stock" name="Stock" class="form-control fontAwesome" placeholder="Stock..." >
+                <input type="number" id="Stock" name="Stock" class="form-control fontAwesome" placeholder="Stock..." >
                 </div>
                 <div  class="form-group text-center offset-.5 w-100">
                 <label for="Photo">Insertion image : </label>
