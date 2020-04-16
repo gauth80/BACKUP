@@ -70,7 +70,7 @@
                             <nav class="navbar navbar-expand-sm navbar-dark secondNav pr-0 pl-0 ">
                                 <ul class="navbar-nav ml-auto pl-0 pr-0">
                                     <li class="nav-item active col-xs-3"><a class="nav-link" href="<?php echo site_url("admin/adminAccueil");?>">Administration</a></li>
-                                    <li class="nav-item active col-xs-3"><a class="nav-link" href="">Produits</a></li>
+                                    <li class="nav-item active col-xs-3"><a class="nav-link" href="<?php echo site_url("produits/liste");?>">Produits</a></li>
                                     <li class="nav-item active col-xs-3"><a class="nav-link" href="">Service</a></li>
                                     <li class="nav-item active col-xs-3"><a class="nav-link" href="">Aide</a></li>
                                     <li class="nav-item active col-xs-3"><a class="nav-link" href="<?=site_url('path/info');?>">A propos</a>

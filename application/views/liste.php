@@ -25,6 +25,48 @@
                 <td>125</td>
                 <td>85</td>
             </tr>
+            <tr class="table-active">
+                <td>ref252525</td>
+                <td>lintest</td>
+                <td>un produit</td>
+                <td>125</td>
+                <td>85</td>
+            </tr>
+            <tr class="table-active">
+                <td>ref252525</td>
+                <td>lintest</td>
+                <td>un produit</td>
+                <td>125</td>
+                <td>85</td>
+            </tr>
+            <tr class="table-active">
+                <td>ref252525</td>
+                <td>lintest</td>
+                <td>un produit</td>
+                <td>125</td>
+                <td>85</td>
+            </tr>
+            <tr class="table-active">
+                <td>ref252525</td>
+                <td>lintest</td>
+                <td>un produit</td>
+                <td>125</td>
+                <td>85</td>
+            </tr>
+            <tr class="table-active">
+                <td>ref252525</td>
+                <td>lintest</td>
+                <td>un produit</td>
+                <td>125</td>
+                <td>85</td>
+            </tr>
+            <tr class="table-active">
+                <td>ref252525</td>
+                <td>lintest</td>
+                <td>un produit</td>
+                <td>125</td>
+                <td>85</td>
+            </tr>
 
         </tbody>
     </table>

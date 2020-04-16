@@ -32,4 +32,14 @@ class Produits extends CI_Controller
   {
     $this->templates->display('proModif');
   }
+  /**
+   * \brief 
+   * \return  
+   * \author GRILLET Stéphane
+   * \date 16/04/2020
+   */
+  public function liste()
+  {
+    $this->templates->display('liste');
+  }
 }
