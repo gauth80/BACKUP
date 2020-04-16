@@ -42,4 +42,14 @@ class Produits extends CI_Controller
   {
     $this->templates->display('liste');
   }
+  /**
+   * \brief 
+   * \return  
+   * \author GRILLET Stéphane
+   * \date 16/04/2020
+   */
+  public function detail()
+  {
+    $this->templates->display('detail');
+  }
 }
