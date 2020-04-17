@@ -26,43 +26,43 @@
         </div>
         <div class="row my-4 section-categories">
             <figure class="col-sm-6 col-lg-4 text-center col-xl-3 py-0 px-0">
-                <a class="ventes-link" href="/">
+                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
                     <img src="<?php echo base_url('assets/img/produits/cat_gui.png'); ?>" onmouseover="this.src='assets/img/wrapper/cat_h_gui.png'" onmouseout="this.src='assets/img/produits/cat_gui.png'" title="catégorie guitare" alt="catégorie guitare" class="thumbnail">
                 </a>
             </figure>
             <figure class="col-sm-6 col-lg-4 text-center col-xl-3 py-0 px-0">
-                <a class="ventes-link" href="/">
+                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
                     <img src="<?php echo base_url('assets/img/produits/cat_bat.png'); ?>" onmouseover="this.src='assets/img/wrapper/cat_h_bat.png'" onmouseout="this.src='assets/img/produits/cat_bat.png'" title="catégorie batterie" alt="catégorie batterie" class="thumbnail">
                 </a>
             </figure>
             <figure class="col-sm-6 col-lg-4 text-center col-xl-3 py-0 px-0">
-                <a class="ventes-link" href="/">
+                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
                     <img src="<?php echo base_url('assets/img/produits/cat_pia.png'); ?>" onmouseover="this.src='assets/img/wrapper/cat_h_pia.png'" onmouseout="this.src='assets/img/produits/cat_pia.png'" title="catégorie piano" alt="catégorie piano" class="thumbnail">
                 </a>
             </figure>
             <figure class="col-sm-6 col-lg-4 text-center col-xl-3 py-0 px-0">
-                <a class="ventes-link" href="/">
+                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
                     <img src="<?php echo base_url('assets/img/produits/cat_mic.png'); ?>" onmouseover="this.src='assets/img/wrapper/cat_h_mic.png'" onmouseout="this.src='assets/img/produits/cat_mic.png'" title="catégorie micro" alt="catégorie micro" class="thumbnail">
                 </a>
             </figure>
             <!--range2-->
             <figure class="col-sm-6 col-lg-4 text-center col-xl-3 py-0 px-0">
-                <a class="ventes-link" href="/">
+                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
                     <img src="<?php echo base_url('assets/img/produits/cat_son.png'); ?>" onmouseover="this.src='assets/img/wrapper/cat_h_son.png'" onmouseout="this.src='assets/img/produits/cat_son.png'" title="catégorie sono" alt="catégorie sono" class="thumbnail">
                 </a>
             </figure>
             <figure class="col-sm-6 col-lg-4 text-center col-xl-3 py-0 px-0">
-                <a class="ventes-link" href="/">
+                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
                     <img src="<?php echo base_url('assets/img/produits/cat_cas.png'); ?>" onmouseover="this.src='assets/img/wrapper/cat_h_cas.png'" onmouseout="this.src='assets/img/produits/cat_cas.png'" title="catégorie cases" alt="catégorie cases" class="thumbnail">
                 </a>
             </figure>
             <figure class="col-sm-6 col-lg-4 text-center col-xl-3 py-0 px-0">
-                <a class="ventes-link" href="/">
+                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
                     <img src="<?php echo base_url('assets/img/produits/cat_acc.png'); ?>" onmouseover="this.src='assets/img/wrapper/cat_h_acc.png'" onmouseout="this.src='assets/img/produits/cat_acc.png'" title="catégorie accessoire" alt="catégorie accessoire" class="thumbnail">
                 </a>
             </figure>
             <figure class="col-sm-6 col-lg-4 text-center col-xl-3 py-0 px-0">
-                <a class="ventes-link" href="/">
+                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
                     <img src="<?php echo base_url('assets/img/produits/cat_sax.png'); ?>" onmouseover="this.src='assets/img/wrapper/cat_h_sax.png'" onmouseout="this.src='assets/img/produits/cat_sax.png'" title="catégorie saxo" alt="catégorie saxo" class="thumbnail">
                 </a>
             </figure>
