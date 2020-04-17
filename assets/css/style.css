@@ -314,8 +314,37 @@ li {
 
 
 /**=A1************************************ Media query ********************************************/
+@media (min-width: 1281px) and (max-width: 2000px) {
+	.container {
+		width: 100%;
+		min-width: 78%;
+		max-width: 1500px;
+	}
 
-@media (min-width: 1200px) and (max-width: 1920px) {
+	header>.container {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+
+	[alt="information livraison"] {
+		width: 126%;
+	}
+
+	[alt="partenaires"] {
+		width: 81%;
+	}
+	.thumbnail {
+		width:90%;
+	}
+	.nav-link {
+		font-size:calc(100% + .2rem);
+	}
+
+}
+
+@media (min-width: 1200px) and (max-width: 1280px) {
 	.container {
 		width: 100%;
 		max-width: 1250px;
@@ -396,8 +425,8 @@ li {
 		width: 87%;
 	}
 
-	.section-categories>figure>a img {
-		width: 80%;
+	.thumbnail {
+		width:98%;
 	}
 
 	h2 {
