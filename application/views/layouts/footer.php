@@ -1,12 +1,15 @@
 		<footer class="" style="background:url('<?php echo base_url('assets/img/background_village.png');?>')">
-			<div class="row pl-2">
+			<div class="row pl-2 pt-sm-3">
 				<form class="form-group col-sm-4" action="/" method="POST">
 					<label class="col-sm-12 pl-2" for="newsletter">Recevez&nbsp;<span class="c-custom">nos ofres exclusives</span></label>
-					<div class="row ml-1">
-						<input class="col-sm-12 col-md-12 col-lg-6 mr-1 form-control" type="text" placeholder="Entre votre adresse mail" id="newsletter">
-						<button type="submit" class="mt-sm-1 mt-lg-0 col-sm-12 col-md-6 col-lg-4 btn btn-custom">S'abonnez</button>		
+					<div class="row ml-1 form-group">
+						<input class="col-auto col-sm-12 col-md-12 col-lg-6 mr-1 form-control" type="text" placeholder="Entre votre adresse mail" id="newsletter">
+						<button type="submit" class="mt-sm-1 mt-lg-0 col-auto col-sm-12 col-md-6 col-lg-4 btn btn-custom">S'abonnez</button>		
 					</div>
 				</form>
+
+				<hr class="d-sm-none d-sm-block">
+
 				<div class="block-follow col-sm-4 text-center">
 					<p class="text-follow">Suivez nous&nbsp;<span class="c-custom">par ici !</span></p>
 					<a href="https://fr-fr.facebook.com" rel="nofollow" target="_blank" class="px-2">
@@ -16,14 +19,16 @@
 						<img src="<?php echo base_url('assets/img/icon/picto_twitter.png')?>" alt="twitter" title="nous suivre sur twitter">		
 					</a>
 				</div>
-				<div class="block-logo col-sm-4">
+
+				<div class="d-none d-sm-block block-logo col-sm-4">
 					<img class="img-fluid" src="<?php echo base_url('assets/img/icon/visa.png')?>" alt="visa">
 					<img class="img-fluid" src="<?php echo base_url('assets/img/icon/paypal3.png')?>" alt="paypal">
 					<img class="img-fluid" src="<?php echo base_url('assets/img/icon/chrono_poste.png')?>" alt="chrono poste">
 				</div>
 			</div>
-			<section clas="row">
-				<div class="col-sm-3 annexe">
+
+			<section class="row res-other ml-1">
+				<div class="d-none d-sm-block col-sm-6 col-md-3 annexe">
 					<h3>Contactez nous !</h3>
 					<ul class="pl-0">
 						<li class="txt-bold">Conseil • Commande téléphone</li>
@@ -53,7 +58,7 @@
 						<li class="txt-light">contact[at]villagegreen[dot]com</li>
 					</ul>
 				</div>
-				<div class="col-sm-3 annexe">
+				<div class="d-none d-sm-block col-sm-6 col-md-3 annexe">
 					<h3>Village Green Stores</h3>
 					<ul class="pl-0">
 						<li class="txt-bold">Ouverts de 10h à 19h30 non-stop.</li>
@@ -87,7 +92,7 @@
 						</ul>
 					</nav>
 				</div>
-				<div class="col-sm-3 annexe">
+				<div class="d-none d-md-block col-md-3 annexe">
 					<h3>Utiles&nbsp;!</h3>
 					<p class="txt-light">Qui sommes nous&nbsp;?</p>
 					<p class="txt-light">F.A.Q</p>
@@ -102,14 +107,15 @@
 					<p class="txt-light">Assurance Woodbrass[dot]com</p>
 					<p class="txt-light">Location d'instruments de musique</p>
 				</div>
-				<div class="col-sm-3 annexe">
+				<div class="d-none d-md-block col-md-3 annexe">
 					<h3>Village Green Preservation Society</h3>
 					<p class="txt-light">Toute l'actualité musicale</p>
 					<p class="txt-light">Voir l'avis des musiciens</p>
 					<p class="txt-light">Concours : inscription et résultat... à vous de jouer&nbsp;!</p>
 				</div>
 			</section>
-			<section class="row cite mt-4">
+
+			<section class="row cite pt-sm-2 pt-md-0 mt-4">
 				<p class="col-sm-12">Village Green est une entreprise 100% Made in France&nbsp;!</p>
 				<p class="col-sm-12">Magasin de musique - Achat / Vente instruments de musique - Location instruments de musique - Atelier de réparation - Vente accessoires de musique au meilleur prix.</p>
 				<p class="col-sm-12">1989-2016 - RCS Paris B 222 333 444 Déclaration CNIL : 12345678.</p>
