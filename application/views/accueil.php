@@ -74,18 +74,18 @@
         </div>
         <div class="row my-0 my-sm-4 res-top">
             <figure class="col-auto col-sm-2">
-                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
+                <a class="ventes-link" href="<?php echo site_url("produits/detail");?>">
                     <img class="mx-4" src="<?php echo base_url('assets/img/produits/TOP_VENTES_guitare.png'); ?>" onmouseover="this.src='assets/img/TOP_VENTES_ROLL_OVER_guitare.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_guitare.png'" title="top guitare" alt="">
                 </a>
             </figure>
             <figure class="col-auto col-sm-2">
-                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
+                <a class="ventes-link" href="<?php echo site_url("produits/detail");?>">
                     <img class="mx-4" src="<?= base_url('assets/img/produits/TOP_VENTES_saxo.png') ?>" onmouseover="this.src='assets/img/TOP_VENTES_ROLL_OVER_saxo.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_saxo.png'" title="top saxo" alt="">
                 </a>
             </figure>
 
             <figure class="col-auto col-sm-2">
-                <a class="ventes-link" href="<?php echo site_url("produits/liste");?>">
+                <a class="ventes-link" href="<?php echo site_url("produits/detail");?>">
                     <img class="mx-4" src="<?= base_url('assets/img/produits/TOP_VENTES_piano.png'); ?>" onmouseover="this.src='assets/img/TOP_VENTES_ROLL_OVER_piano.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_piano.png'" title="top piano" alt="">
                 </a>
             </figure>
