@@ -1,10 +1,10 @@
 <?php
-
+/*
 defined('BASEPATH') or exit('No direct script access allowed');
 /*
  * 	sert a instancier la vue de base
  *	@string {nomDeLaPage} 
-*/
+*//*
 
 class Path extends CI_Controller {
 
@@ -21,4 +21,4 @@ class Path extends CI_Controller {
 
 
   
-}
+}*/

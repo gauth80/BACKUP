@@ -1,6 +1,6 @@
 		<footer class="" style="background:url('<?php echo base_url('assets/img/background_village.png');?>')">
 			<div class="row pl-2 pt-sm-3">
-				<form class="form-group col-sm-4" action="/" method="POST">
+				<form class="form-group col-sm-4" action="" method="POST">
 					<label class="col-sm-12 pl-2" for="newsletter">Recevez&nbsp;<span class="c-custom">nos ofres exclusives</span></label>
 					<div class="row ml-1 form-group">
 						<input class="col-auto col-sm-12 col-md-12 col-lg-6 mr-1 form-control" type="text" placeholder="Entre votre adresse mail" id="newsletter">
@@ -131,12 +131,3 @@
 
 </body>
 </html>
-
-<!--
-	#	soucie a corriger
-
-	2 <li> dans le footer non responsive
-	img logo a rogner sur gimp
-
-	#   responsive general a revoir
--->
