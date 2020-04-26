@@ -54,7 +54,7 @@ figure {
 }
 
 [title="logo"] {
-	width: 125%;
+	width: 105%;
 	height: auto;
 	position: absolute;
 	top: 0;
@@ -345,6 +345,29 @@ nav:not(.firstNav) .nav-link:hover {
 	background: #00000090;
 	color:white !important;
 }
+/*_________________________ Form inscription _____________________*/
+:valid {
+
+}
+label {
+	color:orange;
+}
+input:invalid {
+	background-color:#666666;
+	color:#666666;}
+
+.bk-form-ins{
+	background-color:#333;
+	margin-top:-1rem !important;}
+.wrap-form {
+	border-radius:50% 0 0 50%;
+	width:100%;
+	box-shadow:-20px 0px 20px -5px #404040;
+	}
+
+
+/*__________________________ Euh Panier ? _________________________*/
+
 
 	/*les media query se place toujours a la fin augustin :) */
 .Panier {

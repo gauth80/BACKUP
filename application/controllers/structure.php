@@ -15,4 +15,32 @@ class Structure extends CI_Controller
   {
       $this->templates->display('liste');
   }
+  public function  assistance()
+  {
+      $this->templates->display('service');
+  }
+  public function  aide()
+  {
+      $this->templates->display('aide');
+  }
+  public function  propos()
+  {
+      $this->templates->display('propos');
+  }
+  public function  info()
+  {
+      $this->templates->display('info');
+  }
+
+
+  public function inscription() {
+    $this->load->helper("form")
+               ->library("form_validation");
+
+    if($this->form_validation->run()) {
+      $this->accueil();
+    } else {
+      $this->templates->display('inscription');
+    }
+  }
 }

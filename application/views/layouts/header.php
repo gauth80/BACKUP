@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eos voluptatem sit quasi fugit reiciendis repudiandae at placeat optio quos minima aspernatur nobis corrupti ea nostrum, voluptas modi veritatis! Accusantium, cumque neque quasi voluptas facilis esse omnis laboriosam quo commodi placeat maxime eius incidunt praesentium ullam quia dolore, tempore doloremque.."/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo base_url("assets/css/")."style.css" ;?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/")."style.css";?>">
     <title>v green</title>
 </head>
 
@@ -32,7 +32,7 @@
                                 <div class="collapse navbar-collapse pl-0" id="target1">
                                     <ul class="navbar-nav ml-auto pt-3 mr-2">
                                         <li class="nav-item col-3 nav-link active pl-4">
-                                            <a class="" href="" title="Information du site">infos</a>
+                                            <a class="" href="<?php echo site_url('structure/info') ?>" title="Information du site">infos</a>
                                         </li>
                                    
                                         <div class="dropdown nav-link active col-5">
@@ -48,6 +48,7 @@
                                                     <label for="always_connexion">Rester connectée ?</label>
                                                     <button name="connexion" class="btn btn-success">Se connecter maintenant</button>
                                                     <label  class="text-center" for="connexion">
+
                                                         <a href="#" title="mot de passe perdue?">Vous avez oublié votre mot de passe?</a>
                                                     </label>
                                                 </form>
@@ -55,7 +56,7 @@
                                                     <!--Cotée Droite-->
                                                     <span>Vous n'êtes pas encore inscript ?</span>
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
-                                                    <a href="<?php echo base_url('contact/inscription') ?>" name="inscription" class="btn btn-success">S'inscrire</a>
+                                                    <a href="<?php echo site_url('structure/inscription') ?>" name="inscription" class="btn btn-success">S'inscrire</a>
                                                     <label class="text-center" for="inscription">
                                                         <a href="#" title="plus d'information sur les modalitées d'inscription">Plus d'information</a>
                                                     </label>
@@ -87,11 +88,16 @@
                                     <div class="collapse navbar-collapse pl-0" id="target2">
                                         <ul class="navbar-nav ml-auto pl-0 pr-0">
                                             <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("admin/adminAccueil");?>">Administration</a></li>
+
                                             <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>">Produits</a></li>
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="">Service</a></li>
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="">Aide</a></li>
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="">A propos</a>
-                                            </li>
+
+                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("structure/assistance");?>">Service</a></li>
+
+                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("structure/aide");?>">Aide</a></li>
+
+                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?=site_url('structure/propos');?>">A propos</a></li>
+
+                                       
                                         </ul>
                                     </div>
                                 </nav>
