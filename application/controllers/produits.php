@@ -48,8 +48,30 @@ class Produits extends CI_Controller
    * \author GRILLET Stéphane
    * \date 16/04/2020
    */
+
+
+
   public function detail()
   {
     $this->templates->display('detail');
+  }
+
+
+
+
+
+  
+    public function __construct() {
+    parent::__construct();
+    $this->load->model('Produits_model');
+  }
+
+  public function index() {
+    //sub - option
+    $produits = new Produits_model;
+
+    $data['data']= $this->produits_model->get_produits();
+
+    $this->templates->display('produits/index', $data);
   }
 }

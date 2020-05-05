@@ -1,0 +1,33 @@
+
+section .titre-assistance:before {
+	content:'♫';
+	pointer-events:none;
+	font-size:calc(100% + .75rem);
+	transform:skew(-8deg);}
+section .titre-assistance:after {
+	content:'♪';
+	pointer-events:none;
+	font-size:calc(100% + .75rem);
+	transform:skew(8deg);}
+section .titre-assistance, .section-info div h3 {
+	color: orange;
+	font-size:1.25rem;
+	font-weight:500;
+	max-width:min-content;
+	border-bottom:1px solid orange;
+	font-family: 'Chewy', cursive;
+	letter-spacing:.33em;}
+
+section .titre-assistance:first-letter, .section-info div h3:first-letter {
+	color: orangered;
+	font-size:calc(100% + .25rem);}
+
+.section-info article p {
+	text-indent:1.5rem;
+	color:gray;
+	word-break:break-all;}
+
+.section-info img {
+	border-radius: 8px;
+	padding:0;
+	margin:0;}
