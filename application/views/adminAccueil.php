@@ -20,7 +20,7 @@
                         <article>
                             <h4 classe="success bg-dark">Les catégories</h4>
                             <p>Ici vous trouverez tous se qu'il y a à savoir sur les catégories en cliquant sur le boutton ci-dessous</p>
-                            <a href="<?php echo site_url("categorie/cat_list");?>" class="btn btn-dark offset-3" target="_blank"> Categories</a>
+                            <a href="<?php echo site_url("categories/cat_list");?>" class="btn btn-dark offset-3" target="_blank"> Categories</a>
                         </article>
                     </section>
                     <section>

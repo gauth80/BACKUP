@@ -41,15 +41,18 @@ body{
 
 
 /*	Typographie	*/
+
 h1,h2{
 	text-indent:30px;
 	color:navy;font-size:2rem;}
+
+
 
 [alt]{
 	transition:all .2s;
 	display:inline-flex;}
 
-	/*les media query se place toujours a la fin augustin :) */
+/*les media query se place toujours a la fin augustin :) */
 .Panier {
 	max-width: 12.5%;
 	height: auto;
@@ -81,11 +84,13 @@ h1,h2{
 	[alt="partenaires"] {
 		width: 81%;
 	}
+
 	.thumbnail {
-		width:90%;
+		width: 90%;
 	}
+
 	.nav-link {
-		font-size:calc(100% + .2rem);
+		font-size: calc(100% + .2rem);
 	}
 
 }
@@ -174,71 +179,84 @@ h1,h2{
 
 	[alt="partenaires"] {
 		width: 94%;
-		height:auto;
+		height: auto;
 	}
 
 
 	h2 {
 		font-size: 1.5rem;
 	}
+
 	.annexe>h3 {
-		font-size:100%;
+		font-size: 100%;
 		margin-top: .5rem;
 		line-height: 1.3rem;
 	}
 
 }
+
 /*cotée mobile*/
 @media (min-width:320px) and (max-width:575px) {
-	
-	.d-bk {
-		background-image:none !important;
-		background-color: #d6d6d6 !important;}
 
-	.res-vitrine,.res-offre,.res-top,.res-top>figure,h2 {
-		padding:0 !important;
-		margin:0 !important;}
+	.d-bk {
+		background-image: none !important;
+		background-color: #d6d6d6 !important;
+	}
+
+	.res-vitrine,
+	.res-offre,
+	.res-top,
+	.res-top>figure,
+	h2 {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
 
 	[title="top guitare"],
 	[title="top saxo"],
 	[title="top piano"] {
-		width:100%;
-		margin:0 !important;
+		width: 100%;
+		margin: 0 !important;
 	}
 
 	.res-condition {
-		margin-top:1rem !important;
-		margin-bottom:1rem !important;}
-	
-	.res-title,h2 {
-		font-size:1.5rem;
-		text-align:center;
+		margin-top: 1rem !important;
+		margin-bottom: 1rem !important;
 	}
+
+	.res-title,
+	h2 {
+		font-size: 1.5rem;
+		text-align: center;
+	}
+
 	footer {
-		padding-top:1rem;
-		margin-top:1rem;
+		padding-top: 1rem;
+		margin-top: 1rem;
 	}
+
 	.form-control {
-		max-width:90%;
+		max-width: 90%;
 	}
+
 	.form-group {
-		margin-bottom:.5rem;
+		margin-bottom: .5rem;
 	}
+
 	[type="submit"] {
-		min-width:45%;
-		margin:5% 22.5% 0% 22.5%;	
+		min-width: 45%;
+		margin: 5% 22.5% 0% 22.5%;
 	}
+
 	hr {
-		display:block;
+		display: block;
 		width: 50%;
 		background: orange;
 		margin: 5% 22.5%;
 	}
+
 	.res-other {
-		margin-top:1.5rem;
+		margin-top: 1.5rem;
 	}
 }
-
-
-
 
