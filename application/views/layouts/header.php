@@ -40,7 +40,7 @@
                                             <button type="button" data-toggle="dropdown" class="nav-link pl-4">Espace Client<span class="void"></span>
                                             </button>                   
                                             <div class="dropdown-menu">
-                                                <form class="drop-connexion" method="post" action="/">
+                                                <form class="drop-connexion" method="post" action="#">
                                                     <!--Cotée Gauche-->
                                                     <span>Êtes-vous déjà clients chez nous ?</span>
                                                     <input class="form-control" type="text" name="mail" placeholder="Adresse E-mail">
@@ -49,16 +49,17 @@
                                                     <label for="always_connexion">Rester connectée ?</label>
                                                     <button name="connexion" class="btn btn-success">Se connecter maintenant</button>
                                                     <label  class="text-center" for="connexion">
-                                                        <a href="" title="mot de passe perdue?">Vous avez oublié votre mot de passe?</a>
+
+                                                        <a href="#" title="mot de passe perdue?">Vous avez oublié votre mot de passe?</a>
                                                     </label>
                                                 </form>
-                                                <form class="drop-inscription" method="post" action="/">
+                                                <form class="drop-inscription" method="post" action="#">
                                                     <!--Cotée Droite-->
                                                     <span>Vous n'êtes pas encore inscript ?</span>
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
                                                     <a href="<?php echo site_url('structure/inscription') ?>" name="inscription" class="btn btn-success">S'inscrire</a>
                                                     <label class="text-center" for="inscription">
-                                                        <a href="/" title="plus d'information sur les modalitées d'inscription">Plus d'information</a>
+                                                        <a href="#" title="plus d'information sur les modalitées d'inscription">Plus d'information</a>
                                                     </label>
                                                 </form> 
                                             </div>
@@ -95,8 +96,9 @@
 
                                             <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("structure/aide");?>">Aide</a></li>
 
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?=site_url('structure/propos');?>">A propos</a>
-                                            </li>
+                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?=site_url('structure/propos');?>">A propos</a></li>
+
+                                       
                                         </ul>
                                     </div>
                                 </nav>
@@ -119,24 +121,24 @@
                                             <span class="void"></span>
                                         </button>
                                         <ul class="dropdown-menu col-md-1 px-2">
-                                            <li class="nav-item active"><a class="drop-link" href="/" title="Guitares Electriques">Guitares Electriques</a></li>
-                                            <li class="nav-item active"><a class="drop-link" href="/" title="Guitares classiques">Guitares classiques</a></li>
-                                            <li class="nav-item active"><a class="drop-link" href="/" title="Guitares Acoustiques & Electro-Acoustiques">Guitares Acoustiques et Electro-Acoustiques</a></li>
-                                            <li class="nav-item active"><a class="drop-link" href="/" title="Basses Electriques">Basses Electriques</a></li>
-                                            <li class="nav-item active"><a class="drop-link" href="/" title="Basses Acoustiques">Basses Acoustiques</a></li>
-                                            <li class="nav-item active"><a class="drop-link" href="/" title="Basses Semi-Acoustiques">Basses Semi-Acoustiques</a></li>
-                                            <li class="nav-item active"><a class="drop-link" href="/" title="Ukulélés">Ukulélés</a></li>
-                                            <li class="nav-item active"><a class="drop-link" href="/" title="Autres instruments à cordes pincées">Autres instruments à cordes pincées</a></li>
+                                            <li class="nav-item active"><a class="drop-link" href="<?php echo site_url("produits/liste");?>" title="Guitares Electriques">Guitares Electriques</a></li>
+                                            <li class="nav-item active"><a class="drop-link" href="<?php echo site_url("produits/liste");?>" title="Guitares classiques">Guitares classiques</a></li>
+                                            <li class="nav-item active"><a class="drop-link" href="<?php echo site_url("produits/liste");?>" title="Guitares Acoustiques & Electro-Acoustiques">Guitares Acoustiques et Electro-Acoustiques</a></li>
+                                            <li class="nav-item active"><a class="drop-link" href="<?php echo site_url("produits/liste");?>" title="Basses Electriques">Basses Electriques</a></li>
+                                            <li class="nav-item active"><a class="drop-link" href="<?php echo site_url("produits/liste");?>" title="Basses Acoustiques">Basses Acoustiques</a></li>
+                                            <li class="nav-item active"><a class="drop-link" href="<?php echo site_url("produits/liste");?>" title="Basses Semi-Acoustiques">Basses Semi-Acoustiques</a></li>
+                                            <li class="nav-item active"><a class="drop-link" href="<?php echo site_url("produits/liste");?>" title="Ukulélés">Ukulélés</a></li>
+                                            <li class="nav-item active"><a class="drop-link" href="<?php echo site_url("produits/liste");?>" title="Autres instruments à cordes pincées">Autres instruments à cordes pincées</a></li>
                                         </ul>
                                     </div>    
-                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="/" title="Batteries">Batteries</a></li>
-                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="/" title="Clavier">Clavier</a></li>
-                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="/" title="Studio">Studio</a></li>
-                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="/" title="Eclairage">Eclairage</a> </li>
-                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="/" title="DJ">DJ</a></li>
-                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="/" title="Cases">Cases</a></li>
-                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="/" title="Accessoires">Accessoires</a></li>
-                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="/" title="Accessoires">Instrument à vent</a>
+                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>" title="Batteries">Batteries</a></li>
+                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>" title="Clavier">Clavier</a></li>
+                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>" title="Studio">Studio</a></li>
+                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>" title="Eclairage">Eclairage</a> </li>
+                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>" title="DJ">DJ</a></li>
+                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>" title="Cases">Cases</a></li>
+                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>" title="Accessoires">Accessoires</a></li>
+                                    <li class="nav-item active col-xs-1"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>" title="Accessoires">Instrument à vent</a>
                                     </li>
                                 </ul>
                             </div>
