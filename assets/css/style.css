@@ -260,7 +260,7 @@ li,
 
 .marque>h3 {
 	text-align: center;
-	font-size:calc(100% + .1rem);
+	font-size: calc(100% + .1rem);
 }
 
 .annexe>p {
@@ -311,65 +311,77 @@ li {
 	line-height: 1rem;
 	font-size: small;
 }
+
 .thumbnail {
-	width:98%;
+	width: 98%;
 }
+
 /*a changer icon avec img, plus tard*/
 .c-icon {
-	border-radius:25%;
-	background:#ccc;}
+	border-radius: 25%;
+	background: #ccc;
+}
 
 .c-icon-button {
-	background: #666;}
+	background: #666;
+}
 
 .title-nav-produits,
 .title-nav-service,
 .title-nav-aide {
-	font-size:calc(100% + .25rem);
-	font-weight:400;
-	transform:skew(-9deg);
-	text-shadow:1px 0 3px #000;
-	color:white;
+	font-size: calc(100% + .25rem);
+	font-weight: 400;
+	transform: skew(-9deg);
+	text-shadow: 1px 0 3px #000;
+	color: white;
 }
 
-.secondNav .nav-link{
-	border-bottom:.25px solid gray;}
-.thirdNav .nav-link{
-	border-bottom:.25px solid #585858;}
+.secondNav .nav-link {
+	border-bottom: .25px solid gray;
+}
+
+.thirdNav .nav-link {
+	border-bottom: .25px solid #585858;
+}
 
 nav:not(.firstNav) .nav-link:hover {
 	background: #ffffff90;
 	color: black !important;
 }
+
 .firstNav .nav-link:hover {
 	background: #00000090;
-	color:white !important;
+	color: white !important;
 }
+
 /*_________________________ Form inscription _____________________*/
-:valid {
+:valid {}
 
-}
 label {
-	color:orange;
+	color: orange;
 }
-input:invalid {
-	background-color:#666666;
-	color:#666666;}
 
-.bk-form-ins{
-	background-color:#333;
-	margin-top:-1rem !important;}
+input:invalid {
+	background-color: #666666;
+	color: #666666;
+}
+
+.bk-form-ins {
+	background-color: #333;
+	margin-top: -1rem !important;
+}
+
 .wrap-form {
-	border-radius:50% 0 0 50%;
-	width:100%;
-	box-shadow:-20px 0px 20px -5px #404040;
-	}
+	border-radius: 50% 0 0 50%;
+	width: 100%;
+	box-shadow: -20px 0px 20px -5px #404040;
+}
 
 
 /*__________________________ Euh Panier ? _________________________*/
 
 
-	/*les media query se place toujours a la fin augustin :) */
+/*les media query se place toujours a la fin augustin :) */
 .Panier {
 	max-width: 12.5%;
 	height: auto;
@@ -397,11 +409,13 @@ input:invalid {
 	[alt="partenaires"] {
 		width: 81%;
 	}
+
 	.thumbnail {
-		width:90%;
+		width: 90%;
 	}
+
 	.nav-link {
-		font-size:calc(100% + .2rem);
+		font-size: calc(100% + .2rem);
 	}
 
 }
@@ -486,68 +500,84 @@ input:invalid {
 
 	[alt="partenaires"] {
 		width: 94%;
-		height:auto;
+		height: auto;
 	}
 
 
 	h2 {
 		font-size: 1.5rem;
 	}
+
 	.annexe>h3 {
-		font-size:100%;
+		font-size: 100%;
 		margin-top: .5rem;
 		line-height: 1.3rem;
 	}
 
 }
+
 /*cotée mobile*/
 @media (min-width:320px) and (max-width:575px) {
-	
-	.d-bk {
-		background-image:none !important;
-		background-color: #d6d6d6 !important;}
 
-	.res-vitrine,.res-offre,.res-top,.res-top>figure,h2 {
-		padding:0 !important;
-		margin:0 !important;}
+	.d-bk {
+		background-image: none !important;
+		background-color: #d6d6d6 !important;
+	}
+
+	.res-vitrine,
+	.res-offre,
+	.res-top,
+	.res-top>figure,
+	h2 {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
 
 	[title="top guitare"],
 	[title="top saxo"],
 	[title="top piano"] {
-		width:100%;
-		margin:0 !important;
+		width: 100%;
+		margin: 0 !important;
 	}
 
 	.res-condition {
-		margin-top:1rem !important;
-		margin-bottom:1rem !important;}
-	
-	.res-title,h2 {
-		font-size:1.5rem;
-		text-align:center;
+		margin-top: 1rem !important;
+		margin-bottom: 1rem !important;
 	}
+
+	.res-title,
+	h2 {
+		font-size: 1.5rem;
+		text-align: center;
+	}
+
 	footer {
-		padding-top:1rem;
-		margin-top:1rem;
+		padding-top: 1rem;
+		margin-top: 1rem;
 	}
+
 	.form-control {
-		max-width:90%;
+		max-width: 90%;
 	}
+
 	.form-group {
-		margin-bottom:.5rem;
+		margin-bottom: .5rem;
 	}
+
 	[type="submit"] {
-		min-width:45%;
-		margin:5% 22.5% 0% 22.5%;	
+		min-width: 45%;
+		margin: 5% 22.5% 0% 22.5%;
 	}
+
 	hr {
-		display:block;
+		display: block;
 		width: 50%;
 		background: orange;
 		margin: 5% 22.5%;
 	}
+
 	.res-other {
-		margin-top:1.5rem;
+		margin-top: 1.5rem;
 	}
 
 	/*}
@@ -582,6 +612,7 @@ input:invalid {
 	}*/
 
 }
+
 /*
 	=B1
 
@@ -601,6 +632,3 @@ input:invalid {
 	Ce base sur les autres mesures des liens et rajoute 0.25x;
 	Le pourquoi ? Raligne le contenue dans le cas présent. 
 */
-
-
-
