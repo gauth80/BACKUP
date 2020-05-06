@@ -2,6 +2,15 @@
         <div class="vitrine">
             <div class="row pl-4 my-4 res-vitrine">
                 <figure class="col-12 col-sm-9 res-offre">
+<<<<<<< HEAD
+                    <a class="" href="/">
+                        <img src="<?php echo base_url('assets/img/accueil/pub_guitare.png'); ?>" alt="Gibson Ibanez -15%" title="Réduction sur les Gibson">
+                    </a>
+                </figure>
+                <figure class="col-2 d-none d-sm-block">
+                    <a href="/">
+                        <img src="<?php echo base_url('assets/img/accueil/banniere_droite_prix.png'); ?>" alt="information livraison" title="Livraison gratuite à partir de 19€ d'achat">
+=======
                     <a class="" href="<?php echo site_url("produits/liste");?>">
                         <img src="<?php echo base_url('assets\img\pub_guitare.png'); ?>" alt="Gibson Ibanez -15%" title="Réduction sur les Gibson">
                     </a>
@@ -9,13 +18,19 @@
                 <figure class="col-2 d-none d-sm-block">
                     <a href="">
                         <img src="<?php echo base_url('assets\img\banniere_droite_prix.png'); ?>" alt="information livraison" title="Livraison gratuite à partir de 19€ d'achat">
+>>>>>>> 8b0e907dcd2798c1deb807bcd639fd339c8110ab
                     </a>
                 </figure>
             </div>
             <div class="row">
                 <figure class="col-sm-12 my-5 p-0 res-condition">
+<<<<<<< HEAD
+                    <a href="/">
+                        <img src="<?= base_url('assets/img/accueil/') . 'banniere_centre_4_pictos' ?>" alt="conditions">
+=======
                     <a href="">
                         <img src="<?= base_url('assets/img/') . 'banniere_centre_4_pictos' ?>" alt="conditions">
+>>>>>>> 8b0e907dcd2798c1deb807bcd639fd339c8110ab
                     </a>
                 </figure>
             </div>
@@ -74,6 +89,15 @@
         </div>
         <div class="row my-0 my-sm-4 res-top">
             <figure class="col-auto col-sm-2">
+<<<<<<< HEAD
+                <a class="ventes-link" href="/">
+                    <img class="mx-4" src="<?php echo base_url('assets/img/produits/TOP_VENTES_guitare.png'); ?>" onmouseover="this.src='assets/img/wrapper/TOP_VENTES_ROLL_OVER_guitare.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_guitare.png'" title="top guitare" alt="">
+                </a>
+            </figure>
+            <figure class="col-auto col-sm-2">
+                <a class="ventes-link" href="/">
+                    <img class="mx-4" src="<?= base_url('assets/img/produits/TOP_VENTES_saxo.png') ?>" onmouseover="this.src='assets/img/wrapper/TOP_VENTES_ROLL_OVER_saxo.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_saxo.png'" title="top saxo" alt="">
+=======
                 <a class="ventes-link" href="<?php echo site_url("produits/detail");?>">
                     <img class="mx-4" src="<?php echo base_url('assets/img/produits/TOP_VENTES_guitare.png'); ?>" onmouseover="this.src='assets/img/TOP_VENTES_ROLL_OVER_guitare.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_guitare.png'" title="top guitare" alt="">
                 </a>
@@ -81,10 +105,20 @@
             <figure class="col-auto col-sm-2">
                 <a class="ventes-link" href="<?php echo site_url("produits/detail");?>">
                     <img class="mx-4" src="<?= base_url('assets/img/produits/TOP_VENTES_saxo.png') ?>" onmouseover="this.src='assets/img/TOP_VENTES_ROLL_OVER_saxo.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_saxo.png'" title="top saxo" alt="">
+>>>>>>> 8b0e907dcd2798c1deb807bcd639fd339c8110ab
                 </a>
             </figure>
 
             <figure class="col-auto col-sm-2">
+<<<<<<< HEAD
+                <a class="ventes-link" href="/">
+                    <img class="mx-4" src="<?= base_url('assets/img/produits/TOP_VENTES_piano.png'); ?>" onmouseover="this.src='assets/img/wrapper/TOP_VENTES_ROLL_OVER_piano.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_piano.png'" title="top piano" alt="">
+                </a>
+            </figure>
+            <figure class="d-none d-sm-block col-sm-6">
+                <a class="partenaires-link" href="/">
+                    <img class="mx-4" src="<?= base_url('assets/img/accueil/partenaires_4_logos.png'); ?>" title="nos partenaires" alt="partenaires" ref="nofollow">
+=======
                 <a class="ventes-link" href="<?php echo site_url("produits/detail");?>">
                     <img class="mx-4" src="<?= base_url('assets/img/produits/TOP_VENTES_piano.png'); ?>" onmouseover="this.src='assets/img/TOP_VENTES_ROLL_OVER_piano.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_piano.png'" title="top piano" alt="">
                 </a>
@@ -92,6 +126,7 @@
             <figure class="d-none d-sm-block col-sm-6">
                 <a class="partenaires-link" href="">
                     <img class="mx-4" src="<?= base_url('assets/img/partenaires_4_logos.png'); ?>" title="nos partenaires" alt="partenaires" ref="nofollow">
+>>>>>>> 8b0e907dcd2798c1deb807bcd639fd339c8110ab
                 </a>
             </figure>
         </div>

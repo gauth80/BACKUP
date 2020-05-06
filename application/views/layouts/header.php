@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eos voluptatem sit quasi fugit reiciendis repudiandae at placeat optio quos minima aspernatur nobis corrupti ea nostrum, voluptas modi veritatis! Accusantium, cumque neque quasi voluptas facilis esse omnis laboriosam quo commodi placeat maxime eius incidunt praesentium ullam quia dolore, tempore doloremque.."/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon-min.png");?>" />
     <link rel="stylesheet" href="<?php echo base_url("assets/css/")."style.css";?>">
     <title>v green</title>
 </head>
 
-<body class="container root" style="background:url('<?php echo base_url('assets/img/background_village.png');?>')">
+<body class="container root" style="background:url('<?php echo base_url('assets/img/accueil/background_village.png');?>')">
     <div class="wrap m-0 p-0">
         <header class="col-12 px-0">
             <div class="container p-0">
                 <div class="col-12 p-0">
-                    <div class="row m-0 d-bk" style="background:url('<?php echo base_url('assets/img/3_bandes.png');?>');">
+                    <div class="row m-0 d-bk" style="background:url('<?php echo base_url('assets/img/header/3_bandes.png');?>');">
                         <figure class="col-md-2 col-lg-2 d-none d-md-block p-0 ">
                             <a class="navbar-brand" href="<?php echo base_url();?>" title="Vers l'accueil de Village Green">
-                                <img class="d-inline-blocks" src="<?= base_url('assets/img/').'logo_village_green.png'?>" alt="logo de l'entreprise village green" title="logo">
+                                <img class="d-inline-blocks" src="<?= base_url('assets/img/header/').'logo_village_green.png'?>" alt="logo de l'entreprise village green" title="logo">
                             </a>
                         </figure>
                         <div class="col-md-9 col-xs-12 p-0 ml-auto d-sm-none d-sm-block">
@@ -67,12 +68,12 @@
                                         <!--STORE-->
                                         <li class="nav-item col-2 pr-5 nav-link active pl-4">
                                             <a class="" href="<?php echo site_url("admin/Panier");?>">
-                                                <img title="boutique de Village Green" src="<?= base_url('assets/img/').'icon/picto_panier.png'?>" alt="boutique">
+                                                <img title="boutique de Village Green" src="<?= base_url('assets/img/header/').'picto_panier.png'?>" alt="boutique">
                                             </a>
                                         </li>
                                         <!--menue bootstap lang-->
                                         <li class="nav-link active px-4 col-2">
-                                            <img title="choisir sa langue" src="<?= base_url('assets/img/').'picto_pays.png'?>" alt="choisir sa langue">
+                                            <img title="choisir sa langue" src="<?= base_url('assets/img/header/').'picto_pays.png'?>" alt="choisir sa langue">
                                         </li>
                                     </ul>
                                 </div>
@@ -89,7 +90,7 @@
                                         <ul class="navbar-nav ml-auto pl-0 pr-0">
                                             <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("admin/adminAccueil");?>">Administration</a></li>
 
-                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("produits/liste");?>">Produits</a></li>
+                                            <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("produits/index");?>">Produits</a></li>
 
                                             <li class="nav-item active col-xs-3"><a class="nav-link pl-4" href="<?php echo site_url("structure/assistance");?>">Service</a></li>
 

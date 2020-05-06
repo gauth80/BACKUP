@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 30 avr. 2020 à 14:13
+-- Généré le :  mar. 05 mai 2020 à 14:33
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.4.0
 
@@ -55,10 +55,28 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `CAT_LIBELLE` varchar(50) DEFAULT NULL,
   `Cat_cat_id` int(11) NOT NULL,
   `PER_ID` int(11) NOT NULL,
+  `CAT_D_AJOUT` date DEFAULT NULL,
+  `CAT_D_MODIF` date DEFAULT NULL,
   PRIMARY KEY (`CAT_ID`),
   KEY `FK_cat_cat_id` (`Cat_cat_id`),
   KEY `FK_per_id` (`PER_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `categorie`
+--
+
+INSERT INTO `categorie` (`CAT_ID`, `CAT_LIBELLE`, `Cat_cat_id`, `PER_ID`, `CAT_D_AJOUT`, `CAT_D_MODIF`) VALUES
+(1, 'guitare', 1, 1, NULL, NULL),
+(2, 'batterie', 2, 2, NULL, NULL),
+(3, 'piano', 3, 3, NULL, NULL),
+(4, 'studio', 4, 4, NULL, NULL),
+(5, 'eclairage', 5, 5, NULL, NULL),
+(6, 'dj', 6, 6, NULL, NULL),
+(7, 'cases', 7, 7, NULL, NULL),
+(8, 'accessoires', 8, 8, NULL, NULL),
+(9, 'instrument a vent', 9, 9, NULL, NULL),
+(10, 'instrument a corde', 10, 10, '2020-05-05', NULL);
 
 -- --------------------------------------------------------
 
@@ -285,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `produits` (
   `PRO_STOCK_ALERTE` int(11) DEFAULT NULL,
   PRIMARY KEY (`PRO_ID`),
   KEY `FK_cat_id` (`CAT_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `produits`
@@ -293,7 +311,41 @@ CREATE TABLE IF NOT EXISTS `produits` (
 
 INSERT INTO `produits` (`PRO_ID`, `CAT_ID`, `PRO_LIBELLE`, `PRO_REF`, `PRO_DESCRIPTION`, `PRO_PRIX_ACHAT`, `PRO_PHOTO`, `PRO_STOCK_PHYSIQUE`, `PRO_STOCK_ALERTE`) VALUES
 (1, 1, 'libelle001', NULL, 'exemple_desc', 100, NULL, 10, 5),
-(2, 1, 'libelle001', NULL, 'exemple_desc', 100, NULL, 10, 5);
+(2, 1, 'libelle001', NULL, 'exemple_desc', 100, NULL, 10, 5),
+(3, 1, 'Harley Benton', 'gui000', 'Harley Benton est une marque créée pour et distribuée par le détaillant allemand Thomann. Créée en 19971, elle propose des guitares, basses, banjos, mandolines, microphones, amplificateurs, pédales d\'effet, des cordes, des médiators, des pièces détachées, etc.', 75, 'png', 6, NULL),
+(4, 1, 'Delson Sevilla', 'gui001', 'La manche et la table de ce modèle d\'instrument sont faites en épicéa de Californie avec un dos et côté en érable', 39.55, 'png', 2, NULL),
+(5, 1, 'Gibson ES 335', 'gui003', 'L\'ES-335 était une tentative de trouver un terrain d\'entente: un ton plus chaud qu\'un corps solide produit avec presque aussi peu de rétroaction', 267.5, 'png', 2, NULL),
+(6, 1, 'Gibson Thunderbird', 'bass000', 'Le Thunderbird a été conçu par le concepteur automobile américain Raymond H. Dietrich (Chrysler, Lincoln, Checker)', 1999.99, 'png', 1, NULL),
+(7, 1, 'Gibson Lespaul', 'bass001', 'Le premier modèle simplement appelé \"Les Paul Bass\", avait quelques caractéristiques intéressantes, notamment des circuits basse impédance, spécialement conçus pour l\'enregistrement en studio.\r\n', 2039, 'png', 0, NULL),
+(8, 1, 'Gipson pat martino', 'bass002', 'Basse semi acoustique en l\'honneur de Pat Martino.', 3449.99, 'png', 0, NULL),
+(9, 1, 'SpongeBob', 'uku000', 'Who lives in a pineapple under the sea?\r\nSpongebob Squarepant!', 14.99, 'png', 0, NULL),
+(10, 1, 'Stentor SR1500', 'vio000', 'Le violon est un instrument de musique à cordes frottées. Constitué de 71 éléments de bois collés ou assemblés les uns aux autres..', 155, 'png', 3, NULL),
+(11, 2, 'Pearl', 'bat000', 'Les batteries pour débutants.', 550.5, 'png', 1, NULL),
+(12, 3, 'Kawai ES-8 B', 'pia000', 'Un clavier électronique, un clavier portable ou un clavier numérique est un instrument de musique électronique.', 1256, 'png', 2, NULL),
+(13, 4, 'Trident audio', 'stu000', 'Les consoles analogiques de la série 68 ont été développées pour fournir l\'ensemble de fonctionnalités de base le plus souvent nécessaire pour l\'enregistrement analogique.', 9999.99, 'png', 1, NULL),
+(14, 5, 'Projecteur LED DMX512', 'ecl000', 'éclairage led dmx512 classique.', 56.75, 'png', 4, NULL),
+(15, 6, 'FF-4000', 'tab000', 'une table de dj, houlala vive la description..', 1429, 'png', 1, NULL),
+(16, 7, 'Flyht pro case', 'cas000', 'c\'est une boite, voila.', 129, 'png', 4, NULL),
+(17, 8, 'Shure sm7b', 'acc000', 'etrange outil porteur de maladie mais qui permet d\'être audible, après tout dépend de celui qui l\'utilise.', 366.66, 'png', 6, NULL),
+(18, 8, 'Cordial cfu 1.5', 'acc001', 'Un câble d’amplis', 14.99, 'png', 12, NULL),
+(19, 9, 'Startone', 'ven000', 'Le saxophone est un instrument de musique à vent appartenant à la famille des bois. Il a été inventé par le Belge Adolphe Sax et breveté à Paris le 21 mars 1846.', 620, 'png', 4, NULL),
+(20, 1, 'Harley Benton', 'gui000', 'Harley Benton est une marque créée pour et distribuée par le détaillant allemand Thomann. Créée en 19971, elle propose des guitares, basses, banjos, mandolines, microphones, amplificateurs, pédales d\'effet, des cordes, des médiators, des pièces détachées, etc.', 75, 'png', 6, NULL),
+(21, 1, 'Delson Sevilla', 'gui001', 'La manche et la table de ce modèle d\'instrument sont faites en épicéa de Californie avec un dos et côté en érable', 39.55, 'png', 2, NULL),
+(22, 1, 'Gibson ES 335', 'gui003', 'L\'ES-335 était une tentative de trouver un terrain d\'entente: un ton plus chaud qu\'un corps solide produit avec presque aussi peu de rétroaction', 267.5, 'png', 2, NULL),
+(23, 1, 'Gibson Thunderbird', 'bass000', 'Le Thunderbird a été conçu par le concepteur automobile américain Raymond H. Dietrich (Chrysler, Lincoln, Checker)', 1999.99, 'png', 1, NULL),
+(24, 1, 'Gibson Lespaul', 'bass001', 'Le premier modèle simplement appelé \"Les Paul Bass\", avait quelques caractéristiques intéressantes, notamment des circuits basse impédance, spécialement conçus pour l\'enregistrement en studio.\r\n', 2039, 'png', 0, NULL),
+(25, 1, 'Gipson pat martino', 'bass002', 'Basse semi acoustique en l\'honneur de Pat Martino.', 3449.99, 'png', 0, NULL),
+(26, 1, 'SpongeBob', 'uku000', 'Who lives in a pineapple under the sea?\r\nSpongebob Squarepant!', 14.99, 'png', 0, NULL),
+(27, 1, 'Stentor SR1500', 'vio000', 'Le violon est un instrument de musique à cordes frottées. Constitué de 71 éléments de bois collés ou assemblés les uns aux autres..', 155, 'png', 3, NULL),
+(28, 2, 'Pearl', 'bat000', 'Les batteries pour débutants.', 550.5, 'png', 1, NULL),
+(29, 3, 'Kawai ES-8 B', 'pia000', 'Un clavier électronique, un clavier portable ou un clavier numérique est un instrument de musique électronique.', 1256, 'png', 2, NULL),
+(30, 4, 'Trident audio', 'stu000', 'Les consoles analogiques de la série 68 ont été développées pour fournir l\'ensemble de fonctionnalités de base le plus souvent nécessaire pour l\'enregistrement analogique.', 9999.99, 'png', 1, NULL),
+(31, 5, 'Projecteur LED DMX512', 'ecl000', 'éclairage led dmx512 classique.', 56.75, 'png', 4, NULL),
+(32, 6, 'FF-4000', 'tab000', 'une table de dj, houlala vive la description..', 1429, 'png', 1, NULL),
+(33, 7, 'Flyht pro case', 'cas000', 'c\'est une boite, voila.', 129, 'png', 4, NULL),
+(34, 8, 'Shure sm7b', 'acc000', 'etrange outil porteur de maladie mais qui permet d\'être audible, après tout dépend de celui qui l\'utilise.', 366.66, 'png', 6, NULL),
+(35, 8, 'Cordial cfu 1.5', 'acc001', 'Un câble d’amplis', 14.99, 'png', 12, NULL),
+(36, 9, 'Startone', 'ven000', 'Le saxophone est un instrument de musique à vent appartenant à la famille des bois. Il a été inventé par le Belge Adolphe Sax et breveté à Paris le 21 mars 1846.', 620, 'png', 4, NULL);
 
 -- --------------------------------------------------------
 

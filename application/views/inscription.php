@@ -61,6 +61,6 @@
     <?= form_close(); ?>
 
     <figure class="row d-sm-none d-lg-flex col-md-8 p-0 m-0">
-        <img class="wrap-form img-fluid" src="<?php echo base_url('assets/img/note.png')?>">   
+        <img class="wrap-form img-fluid" src="<?php echo base_url('assets/img/form/note.png')?>">   
     </figure>
 </div>
