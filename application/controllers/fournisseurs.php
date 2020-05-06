@@ -49,8 +49,8 @@ class Fournisseurs extends CI_Controller
         }  
   }
   /**
-   * \brief 
-   * \return  
+   * \brief page de modification d'un fournisseur
+   * \return  page formulaire de modification d'un fournisseur
    * \author LEGRIS Augustin
    * \date 14/04/2020
    */
@@ -71,30 +71,31 @@ class Fournisseurs extends CI_Controller
 
       if($this->form_validation->run() == FALSE)
       {
-          $this->templates->display('fourniModif', $data);
+          $this->templates->display('fourniModif',$data);
       }
       else
       {
           $res=$this->input->post();
-          $data=array('FOU_ADRESSE'=> $res['adresse'],
+          $add=array('FOU_ADRESSE'=> $res['adresse'],
                       'FOU_REF'=> $res['ref']
                       );
-          $this->fournisseur->fourniMaj($data);
+          $this->fournisseur->fourniMaj($id,$add);
           redirect('fournisseurs/fourni_list');
       }
     }
     else{
-          $this->templates->display('fourniModif', $data);
+          $this->templates->display('fourniModif',$data);
         }    
   }
     /**
-   * \brief 
-   * \return  
+   * \brief retirer un fournisseurs de la liste
+   * \return  boutton suppression fournisseurs
    * \author LEGRIS Augustin
    * \date 14/04/2020
    */
-  public function fourniDel()
+  public function fourniDel($id)
   {
-
+    $this->fournisseur->Delfourni($id); 
+    redirect('fournisseurs/fourni_list');
   }
 }
