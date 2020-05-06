@@ -2,7 +2,7 @@
 <div class="row">
 
 <!----------------------------------------- Formulaire ajouts--------------------------------------------->
-<?php echo form_open_multipart("fournisseurs/fourniModif".$fournisseurs->FOU_ID, "class='container col-8'"); ?>
+<?php echo form_open_multipart("fournisseurs/fourniModif/".$fournisseurs->FOU_ID, "class='container col-8'"); ?>
 <div class=" container col-8">
     <div class="col-12">
             <fieldset class="row">

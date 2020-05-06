@@ -50,7 +50,7 @@ class Fournisseur extends CI_model
      */
     public function fourniMaj($id,$maj)
     {
-        $this->db->update('fournisseurs', $maj ,'fou_id='.$id);
+        $this->db->update('fournisseurs', $maj ,'FOU_ID='.$id);
     }
     //-----------------------------------------------------------suppression------------
         /**
@@ -61,6 +61,6 @@ class Fournisseur extends CI_model
      */
     public function delFourni($id)
     {
-        $this->db->delete('fournisseurs','fou_id='.$id);
+        $this->db->delete('fournisseurs','FOU_ID='.$id);
     }
 }
