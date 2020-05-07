@@ -6,7 +6,7 @@
         <div class=" container col-8">
                 <div class="col-12">
                         <fieldset class="row">
-                            <legend>Ajouts</legend> 
+                            <legend>Modification</legend> 
                             <div  class="form-group text-center offset-3 w-50">
                                 <label for="adresse">Adresse :</label>
                                 <input type="text" id="adresse" name="adresse" class="form-control fontAwesome" placeholder="Adresse..." value="<?php echo set_value('adresse',$fournisseurs->FOU_ADRESSE); ?>">
