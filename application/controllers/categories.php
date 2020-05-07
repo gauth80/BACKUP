@@ -3,8 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Categories extends CI_Controller
 {
   /**
-   * \brief 
-   * \return  
+   * \brief page de modification d'une catégorie
+   * \return  page formulaire de modification d'une catégorie
    * \author Grillet Stéphane
    * \date 05/05/2020
    */
@@ -16,8 +16,8 @@ class Categories extends CI_Controller
     $this->templates->display('cat_list', $data);
   }
   /**
-   * \brief 
-   * \return  
+   * \brief page de modification d'une catégorie
+   * \return  page formulaire de modification d'une catégorie
    * \author Grillet Stéphane
    * \date 05/05/2020
    */
@@ -44,8 +44,8 @@ class Categories extends CI_Controller
     }
   }
   /**
-   * \brief 
-   * \return  
+   * \brief page de modification d'une catégorie
+   * \return  page formulaire de modification d'une catégorie
    * \author Grillet Stéphane
    * \date 05/05/2020
    */
@@ -76,6 +76,12 @@ class Categories extends CI_Controller
       }
     }
   }
+  /**
+   * \brief page de modification d'une catégorie
+   * \return  page formulaire de modification d'une catégorie
+   * \author Grillet Stéphane
+   * \date 05/05/2020
+   */
   public function catSuppr($id)
   {
     $row = $this->Categorie->detail($id);

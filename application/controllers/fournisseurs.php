@@ -57,7 +57,6 @@ class Fournisseurs extends CI_Controller
   public function fourniModif($id)
   {
 
-    $this->load->model('fournisseur');
     $fourni=$this->fournisseur->fourniTab($id);
     $data["fournisseurs"]=$fourni;
     if($this->input->post())
