@@ -32,7 +32,7 @@ class Fournisseurs extends CI_Controller
 
       if($this->form_validation->run() == FALSE)
       {
-          $this->templates->display('fourniAjouts');
+        $this->templates->display('fourniAjouts');
       }
       else
       {
@@ -47,7 +47,7 @@ class Fournisseurs extends CI_Controller
     else{
           $this->templates->display('fourniAjouts');
         }  
-  }
+   }
   /**
    * \brief page de modification d'un fournisseur
    * \return  page formulaire de modification d'un fournisseur
@@ -86,7 +86,7 @@ class Fournisseurs extends CI_Controller
     else{
           $this->templates->display('fourniModif',$data);
         }    
-  }
+   }
     /**
    * \brief retirer un fournisseurs de la liste
    * \return  boutton suppression fournisseurs
