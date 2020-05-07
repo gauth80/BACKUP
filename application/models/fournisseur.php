@@ -23,9 +23,9 @@ class Fournisseur extends CI_model
      */
     public function FourniTab($id)
     {
-    $detail=$this->db->where("FOU_ID",$id)->get('fournisseurs'); // requêtes
+        $detail=$this->db->where("FOU_ID",$id)->get('fournisseurs'); // requêtes
 
-    return $detail->row();
+        return $detail->row();
     }
     //---------------------------------------------------------ajout----------------------
         /**
