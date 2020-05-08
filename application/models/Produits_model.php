@@ -7,20 +7,27 @@ class Produits_model extends CI_Model {
 	public function __construct() {
 		$this->load->database();
 	}
-
-	public function get_produits() {
+	//affiche les produits dont le stock est différent de zero
+	public function get_produits_for_client() {
 		$this->db->order_by('produits.PRO_ID', 'DESC')
 			     ->join('categorie', 'categorie.CAT_ID = produits.CAT_ID')
-			     //aff produits sinon diff de 0
 				 ->having('PRO_STOCK_PHYSIQUE != 0');
 						  
 		$query = $this->db->get('produits');
 		return $query->result();
 	}
+	//affiche tout les produits existants, dans l'ordre du croissant(plus vieux au plus récents)
+	public function get_produits_for_admin() {
+		$this->db->order_by('produits.PRO_ID', 'ACS')
+			     ->join('categorie', 'categorie.CAT_ID = produits.CAT_ID');
+						  
+		$query = $this->db->get('produits');
+		return $query->result();
+	}
 	
-	/*data => input*/
+
 	public function insert_produits() {
-		//peut etre rajouter 'data' => $this->input->post('pro_lib') selon la view
+
 		$data = array(
 			'PRO_LIBELLE' => 'pro_lib',
 			'PRO_REF' => 'pro_ref',

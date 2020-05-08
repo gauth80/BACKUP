@@ -17,7 +17,7 @@
 				<div class="contenue text-center">
 					<img class="img-fluid" 
 
-					src="<?php echo base_url() ;?>assets/img/produits/listes/<?php echo $pro->PRO_LIBELLE;?>.<?php echo $pro->PRO_PHOTO;?>" alt="<?php echo $pro->PRO_LIBELLE ;?>">
+					src="<?php echo base_url() ;?>assets/img/produits/listes/<?php echo $pro->PRO_ID;?>.<?php echo $pro->PRO_PHOTO;?>" alt="<?php echo $pro->PRO_LIBELLE ;?>">
 
 					<h3><?php echo $pro->PRO_LIBELLE ;?></h3>
 				</div>
