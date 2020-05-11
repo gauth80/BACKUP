@@ -13,7 +13,7 @@
                         <article>
                             <h4 classe="success bg-dark">Les produits</h4>
                             <p>Ici vous trouverez tous se qu'il y a à savoir sur les produits en cliquant sur le boutton ci-dessous</p>
-                            <a href="<?php echo site_url("produits/pro_list");?>" class="btn btn-dark offset-3" target="_blank"> Produits</a>
+                            <a href="<?php echo site_url("produits/list");?>" class="btn btn-dark offset-3"> Produits</a>
                         </article>
                     </section>
                     <section>
