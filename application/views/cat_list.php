@@ -3,7 +3,7 @@
     <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>ID de la catégorie</th>
                 <th>Libellé</th>
                 <th>Modification</th>
                 <th>Suppression</th>

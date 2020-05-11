@@ -10,8 +10,7 @@ class Categories extends CI_Controller
    */
   public function cat_list()
   {
-    $resultlist = $this->Categorie->select_cat();
-    $data["select_cat"] = $resultlist;
+    $data["select_cat"] = $this->Categorie->select_cat();
 
     $this->templates->display('cat_list', $data);
   }
@@ -23,8 +22,8 @@ class Categories extends CI_Controller
    */
   public function catAjouts()
   {
-    $res_cat = $this->Categorie->select_cat();
-    $data["select_cat"] = $res_cat;
+
+    $data["select_cat"] = $this->Categorie->select_cat();
 
     $libelle = "/[0-9a-zA-Z]*/";
 
@@ -54,30 +53,33 @@ class Categories extends CI_Controller
    */
   public function catModif($id)
   {
-    $res_cat = $this->Categorie->select_cat();
-    $data["select_cat"] = $res_cat;
+    $data["select_cat"] = $this->Categorie->select_cat();
+    $data["detail"] = $this->Categorie->detail($id);
 
-    $res_modif = $this->Categorie->detail($id);
-    $data2["detail"] = $res_modif;
+    if ($this->input->post()) {
 
-    $libelle = "/^[0-9a-zA-Z]*$/";
+      $libelle = "/^[0-9a-zA-Z]*$/";
 
-    $resultmodif = $this->input->post();
-    $this->form_validation->set_rules('libelle', 'libelle', "required|regex_match[$libelle]", array('required' => 'Veuillez renseigner ce champ.', 'regex_match' => 'Il faut un %s valide.'));
-    $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
-    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+      $this->form_validation->set_rules('libelle', 'libelle', "required|regex_match[$libelle]", array('required' => 'Veuillez renseigner ce champ.', 'regex_match' => 'Il faut un %s valide.'));
+      $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
+      $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
-    if ($this->form_validation->run() == false) {
-      $this->templates->display('catModif', $data, $data2);
+      if ($this->form_validation->run() == false) {
+        $this->templates->display('catModif', $data);
+      } else {
+        $resultmodif = $this->input->post();
+        $modif = array(
+          'CAT_CAT_ID' => $resultmodif['cat_cat'],
+          'CAT_LIBELLE' => $resultmodif['libelle'],
+          'PER_ID' => $resultmodif['cat_cat'],
+          'CAT_D_MODIF' => date('Y-m-d H-i-s')
+        );
+
+        $this->Categorie->catModif($id, $modif);
+        redirect('categories/cat_list');
+      }
     } else {
-      $modif = array(
-        'CAT_CAT_ID' => $resultmodif['cat_cat'],
-        'CAT_LIBELLE' => $resultmodif['libelle'],
-        'PER_ID' => $resultmodif['cat_cat'],
-        'CAT_D_MODIF' => date('Y-m-d H-i-s')
-      );
-      $this->Categorie->catModif($id, $modif);
-      redirect('categories/cat_list');
+      $this->templates->display('catModif', $data);
     }
   }
   /**
