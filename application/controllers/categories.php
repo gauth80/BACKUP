@@ -43,7 +43,7 @@ class Categories extends CI_Controller
         'CAT_D_AJOUT' => date('Y-m-d')
       );
       $this->Categorie->catAjouts($ajout);
-      redirect('produits/liste');
+      redirect('categories/cat_list');
     }
   }
   /**
@@ -90,6 +90,6 @@ class Categories extends CI_Controller
   {
     $row = $this->Categorie->detail($id);
     $this->Categorie->catSuppr($id);
-    redirect('categorie/cat_list');
+    redirect('categories/cat_list');
   }
 }
