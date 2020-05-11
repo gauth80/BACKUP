@@ -26,9 +26,12 @@ class Categories extends CI_Controller
     $res_cat = $this->Categorie->select_cat();
     $data["select_cat"] = $res_cat;
 
+    $libelle = "/[0-9a-zA-Z]*/";
+
     $resultajout = $this->input->post();
     $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
-    $this->form_validation->set_rules('libelle', 'libelle', 'required', array('required' => 'Veuillez renseigner ce champ.'));
+    $this->form_validation->set_rules('libelle', 'libelle', "required|regex_match[$libelle]", array('required' => 'Veuillez renseigner ce champ.', 'regex_match' => 'Il faut un %s valide.'));
+    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
     if ($this->form_validation->run() == false) {
       $this->templates->display('catAjouts', $data);
@@ -47,7 +50,7 @@ class Categories extends CI_Controller
    * \brief page de modification d'une catégorie
    * \return  page formulaire de modification d'une catégorie
    * \author Grillet Stéphane
-   * \date 05/05/2020
+   * \date 06/05/2020
    */
   public function catModif($id)
   {
@@ -57,30 +60,31 @@ class Categories extends CI_Controller
     $res_modif = $this->Categorie->detail($id);
     $data2["detail"] = $res_modif;
 
-    if ($this->input->post()) {
-      $resultmodif = $this->input->post();
-      $this->form_validation->set_rules('libelle', 'libelle', 'required', array('required' => 'Veuillez renseigner ce champ.'));
-      $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
+    $libelle = "/^[0-9a-zA-Z]*$/";
 
-      if ($this->form_validation->run() == false) {
-        $this->templates->display('catModif', $data, $data2);
-      } else {
-        $modif = array(
-          'CAT_CAT_ID' => $resultmodif['cat_cat'],
-          'CAT_LIBELLE' => $resultmodif['libelle'],
-          'PER_ID' => $resultmodif['cat_cat'],
-          'CAT_D_MODIF' => date('Y-m-d H-i-s')
-        );
-        $this->Categorie->catModif($id, $modif);
-        redirect('categories/cat_list');
-      }
+    $resultmodif = $this->input->post();
+    $this->form_validation->set_rules('libelle', 'libelle', "required|regex_match[$libelle]", array('required' => 'Veuillez renseigner ce champ.', 'regex_match' => 'Il faut un %s valide.'));
+    $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
+    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+
+    if ($this->form_validation->run() == false) {
+      $this->templates->display('catModif', $data, $data2);
+    } else {
+      $modif = array(
+        'CAT_CAT_ID' => $resultmodif['cat_cat'],
+        'CAT_LIBELLE' => $resultmodif['libelle'],
+        'PER_ID' => $resultmodif['cat_cat'],
+        'CAT_D_MODIF' => date('Y-m-d H-i-s')
+      );
+      $this->Categorie->catModif($id, $modif);
+      redirect('categories/cat_list');
     }
   }
   /**
    * \brief page de modification d'une catégorie
    * \return  page formulaire de modification d'une catégorie
    * \author Grillet Stéphane
-   * \date 05/05/2020
+   * \date 11/05/2020
    */
   public function catSuppr($id)
   {

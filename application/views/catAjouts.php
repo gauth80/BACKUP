@@ -10,6 +10,7 @@
                     <div class="form-group text-center">
                         <label for="libelle" class="sr-only">Libellé</label>
                         <input type="text" id="libelle" name="libelle" class="form-control text-center" placeholder="Libellé">
+                        <?php echo form_error('libelle'); ?>
                         <br>
                         <label for="cat_cat" class="sr-only">Catégorie</label>
                         <select class="form-control" name="cat_cat" id="cat_cat">

@@ -17,7 +17,7 @@
                             <?php
                             foreach ($select_cat as $row) {
                             ?>
-                                <option value="<?= $row->cat_id ?>"><?= $row->cat_libelle ?></option>
+                                <option value="<?= $row->CAT_ID ?>"><?= $row->CAT_LIBELLE ?></option>
                             <?php
                             }
                             ?>
