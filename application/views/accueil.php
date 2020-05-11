@@ -2,14 +2,15 @@
         <div class="vitrine">
             <div class="row pl-4 my-4 res-vitrine">
                 <figure class="col-12 col-sm-9 res-offre">
-                    <a class="" href="#">
+
+
+                    <a class="" href="">
                         <img src="<?php echo base_url('assets/img/accueil/pub_guitare.png'); ?>" alt="Gibson Ibanez -15%" title="Réduction sur les Gibson">
                     </a>
                 </figure>
                 <figure class="col-2 d-none d-sm-block">
-                    <a href="#">
+                    <a href="">
                         <img src="<?php echo base_url('assets/img/accueil/banniere_droite_prix.png'); ?>" alt="information livraison" title="Livraison gratuite à partir de 19€ d'achat">
-                    </a>
                 </figure>
             </div>
             <div class="row">
@@ -73,6 +74,7 @@
             <h2 class="d-none d-sm-block col-sm-6 res-title">Nos partenaires</h2>
         </div>
         <div class="row my-0 my-sm-4 res-top">
+
             <figure class="col-auto col-sm-2">
                 <a class="ventes-link" href="<?php echo site_url("produits/detail");?>">
                     <img class="mx-4" src="<?php echo base_url('assets/img/produits/TOP_VENTES_guitare.png'); ?>" onmouseover="this.src='assets/img/TOP_VENTES_ROLL_OVER_guitare.png'" onmouseout="this.src='assets/img/produits/TOP_VENTES_guitare.png'" title="top guitare" alt="">

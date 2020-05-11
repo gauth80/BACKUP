@@ -134,5 +134,7 @@ $autoload['language'] = array();
 */
 
 
+
 $autoload['model'] = array('Categorie','fournisseur','produits_model');
+
 
