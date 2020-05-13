@@ -1,6 +1,7 @@
 
                 <h3>Supprimer un produits</h3>
                 <?= form_open('produits/delete_produits', ["class" => "col-sm-12 col-lg-9 mt-2"]); ?>
+
                 <div class="row">
                     <p><i>PRUDENCE:</i>&nbsp;Il n' y pas de Javascripts pour vous avertir</p>
                 </div>

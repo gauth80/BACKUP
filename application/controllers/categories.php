@@ -59,27 +59,37 @@ class Categories extends CI_Controller
 
       $libelle = "/^[0-9a-zA-Z]*$/";
 
-      $this->form_validation->set_rules('libelle', 'libelle', "required|regex_match[$libelle]", array('required' => 'Veuillez renseigner ce champ.', 'regex_match' => 'Il faut un %s valide.'));
-      $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
-      $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+    $res_modif = $this->Categorie->detail($id);
+    $data["detail"] = $res_modif;
+    if($this->input->post())
+    {
+        $libelle = "/^[0-9a-zA-Z]*$/";
 
-      if ($this->form_validation->run() == false) {
-        $this->templates->display('catModif', $data);
-      } else {
-        $resultmodif = $this->input->post();
-        $modif = array(
-          'CAT_CAT_ID' => $resultmodif['cat_cat'],
-          'CAT_LIBELLE' => $resultmodif['libelle'],
-          'PER_ID' => $resultmodif['cat_cat'],
-          'CAT_D_MODIF' => date('Y-m-d H-i-s')
-        );
+        $this->form_validation->set_rules('libelle', 'libelle', "required|regex_match[$libelle]", array('required' => 'Veuillez renseigner ce champ.', 'regex_match' => 'Il faut un %s valide.'));
+        $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
-        $this->Categorie->catModif($id, $modif);
-        redirect('categories/cat_list');
+        if ($this->form_validation->run() == false) 
+        {
+          $this->templates->display('catModif',$data);
+        } 
+        else 
+        {
+          $resultmodif=$this->input->post();
+          $modif = array(
+                          'CAT_LIBELLE' => $resultmodif['libelle'],
+                          'CAT_CAT_ID' => $resultmodif['cat_cat'],
+                          'PER_ID' => $resultmodif['cat_cat'],
+                          'CAT_D_MODIF' => date('Y-m-d H-i-s')
+                        );
+          $this->Categorie->catModif($id, $modif);
+          redirect('categories/cat_list');
+        }
       }
-    } else {
-      $this->templates->display('catModif', $data);
-    }
+      else
+        {
+          $this->templates->display('catModif', $data);
+        }
   }
   /**
    * \brief page de modification d'une catégorie

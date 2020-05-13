@@ -9,7 +9,8 @@
                     <?= form_open("categories/catModif/" . $detail->CAT_ID, 'class="form_control"'); ?>
                     <div class="form-group text-center">
                         <label for="libelle" class="sr-only">Libellé</label>
-                        <input type="text" id="libelle" name="libelle" class="form-control text-center" value="<?= $detail->CAT_LIBELLE ?>">
+                        <input type="text" id="libelle" name="libelle" class="form-control text-center" value="<?php echo set_value('libelle',$detail->CAT_LIBELLE); ?>">
+                        <?php echo form_error('libelle'); ?>
                         <br>
                         <label for="cat_cat" class="sr-only">Catégorie</label>
                         <select class="form-control" name="cat_cat" id="cat_cat">
