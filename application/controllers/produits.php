@@ -1,7 +1,6 @@
 <?php
 /*  Spec personnel
 *   TODO
-*   <imp> La secu de chaque formulaires (desactiver au build)
 *   <imp> delete aussi l'image lors d'un delete produits, egalement lors d'un update
 *   <imp> & <op> Responsive a faire
 *   <op> Faire un helper upload image et le charger dans les deux methodes
@@ -9,12 +8,7 @@
 *   <op> Image de substitue en cas d'echec d'upload
 
 
-    Note test unitaire
-
-*   <imp> l'update ne change que les champs concernée, soit use un require cotée form_validation soit créer 
-    une conditions
-
-
+//11/05/2020
 *   1]  Si besoin de rensseignement sur l'emplois du code me contacter ou se ref à Devdoc/userGuide CI3
 *   2]  Si code trop verbeux, se posez la question pourquoi il est verbeux ?
 *   3]  $slug est un identifiant référent
@@ -22,6 +16,9 @@
 *   5]  Si aucune redirection fonctionne, se référée au problème 2]
 *   6]  Souvenez vous que c'est Lundi.. 
 
+//13/05/2020
+*   1] en un mot, SORCELERIE..
+*   2] Souvenez vous que c'est Mercredi..
 
 */
 
@@ -74,65 +71,83 @@ class Produits extends CI_Controller
         $this->templates->display('proDelete', $data);
     }
 
-    public function create_produits()
-    {
+    public function create_produits() {
 
-        if ($this->input->post('create_pro')) {
-
-            //todo $this->form_validation->run();
-
-            $config['upload_path'] = './assets/img/produits/listes/';
-            $config['allowed_types'] = 'jpg|png';
-            $config['max_size'] = '800000';
-            $config['max_width'] = '2000';
-            $config['max_height'] = '2000';
-            $slug = url_title($this->input->post('pro_lib'), '_', true);
-            $config['file_name'] = $slug;
-
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
-
-            if (!$this->upload->do_upload($pro_img = 'img', $slug)) {
-                $errors = array('error' => $this->upload->display_errors());
-                $pro_img = 'noimage.jpg';
-                redirect('pro_list');
+        if($this->input->post('create_pro')) {
+            
+            if($this->form_validation->run('create') == FALSE) {
+                //retribution des data
+                $data['data'] = $this->produits_model->get_produits_for_personnal();
+                $data['cat_exist'] = $this->produits_model->get_categories_data();
+                $this->templates->display('proAjouts', $data);
             } else {
+                $config['upload_path'] = './assets/img/produits/listes/';
+                $config['allowed_types'] = 'jpg|png';
+                $config['max_size'] = '800000'; 
+                $config['max_width'] = '2000';
+                $config['max_height'] = '2000';
+                $slug = url_title($this->input->post('pro_lib'), '_', true);
+                $config['file_name'] = $slug;
 
-                $data = array('upload_data' => $this->upload->data());
-                $pro_img = substr($this->upload->data('file_ext'), 1);
-                $this->produits_model->insert_produits($pro_img, $slug);
-                redirect('pro_list');
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+
+                if(!$this->upload->do_upload($pro_img = 'img', $slug)) {
+
+                    $errors = array('error' => $this->upload->display_errors());
+                    $pro_img = 'noimage.jpg';
+                    $data['data'] = $this->produits_model->get_produits_for_personnal();
+                    $data['cat_exist'] = $this->produits_model->get_categories_data();
+                    $this->templates->display('proAjouts', $data);
+
+                } else {
+    
+                    $data = array('upload_data' => $this->upload->data());
+                    $pro_img = substr($this->upload->data('file_ext'), 1);
+                    $this->produits_model->insert_produits($pro_img, $slug);
+                    $data['data'] = $this->produits_model->get_produits_for_personnal();
+                    $data['cat_exist'] = $this->produits_model->get_categories_data();
+                    $this->templates->display('proAjouts', $data);
+                }
             }
         }
     }
 
-    public function modifiez_produits()
-    {
 
-        if ($this->input->post('modifiez_pro')) {
+    public function modifiez_produits() {
 
-            $config['upload_path'] = './assets/img/produits/listes/';
-            $config['allowed_types'] = 'jpg|png';
-            $config['max_size'] = '800000';
-            $config['max_width'] = '2000';
-            $config['max_height'] = '2000';
-            $slug = url_title($this->input->post('pro_lib'), '_', true);
-            $config['file_name'] = $slug;
+        if($this->input->post('modifiez_pro')) {
+       
+            if($this->form_validation->run('update') == FALSE) {
 
-            $this->load->library('upload', $config);
-            $this->upload->initialize($config);
-
-            if (!$this->upload->do_upload($pro_img = 'img', $slug)) {
-                $errors = array('error' => $this->upload->display_errors());
-
-                $pro_img = 'noimage.jpg';
-                redirect('pro_list');
+                $data['data'] = $this->produits_model->get_produits_for_personnal();
+                $data['cat_exist'] = $this->produits_model->get_categories_data();
+                $this->templates->display('proModif', $data);
             } else {
+                $config['upload_path'] = './assets/img/produits/listes/';
+                $config['allowed_types'] = 'jpg|png';
+                $config['max_size'] = '800000'; 
+                $config['max_width'] = '2000';
+                $config['max_height'] = '2000';
+                $slug = url_title($this->input->post('pro_lib'), '_', true);
+                $config['file_name'] = $slug;
 
-                $data = array('upload_data' => $this->upload->data());
-                $pro_img = substr($this->upload->data('file_ext'), 1);
-                $this->produits_model->update_produits($pro_img, $slug);
-                redirect('pro_list');
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+
+                if(!$this->upload->do_upload($pro_img = 'img', $slug)) {
+
+                    $errors = array('error' => $this->upload->display_errors());
+                    $pro_img = 'noimage.jpg';
+                    redirect('proModif');
+
+                } else {
+
+                    $data = array('upload_data' => $this->upload->data());
+                    $pro_img = substr($this->upload->data('file_ext'), 1);
+                    $this->produits_model->update_produits($pro_img, $slug);
+                    redirect('proModif');
+                }
             }
         }
     }
