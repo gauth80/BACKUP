@@ -6,7 +6,7 @@
             <div class="col-12">
                 <fieldset class="row">
                     <legend>Ajout d'une catégorie</legend>
-                    <?= form_open_multipart("categories/catAjouts", 'class="form_control"'); ?>
+                    <?= form_open("categories/catAjouts", 'class="form_control"'); ?>
                     <div class="form-group text-center">
                         <label for="libelle" class="sr-only">Libellé</label>
                         <input type="text" id="libelle" name="libelle" class="form-control text-center" placeholder="Libellé">

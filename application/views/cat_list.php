@@ -3,8 +3,8 @@
     <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
-                <th>ID de la catégorie</th>
-                <th>Libellé</th>
+                <th>Catégorie</th>
+                <th>Catégorie parente</th>
                 <th>Modification</th>
                 <th>Suppression</th>
             </tr>
@@ -12,8 +12,8 @@
         <tbody>
             <?php foreach ($select_cat as $row) : ?>
                 <tr class="table-active">
-                    <td><?= $row->CAT_ID ?></td>
-                    <td><?= $row->CAT_LIBELLE ?></td>
+                    <td><?= $row->CAT_ID ?> <?= $row->CAT_LIBELLE ?></td>
+                    <td><?= $row->CAT_CAT_ID ?></td>
                     <td><a href="<?php echo site_url("categories/catModif/") . $row->CAT_ID; ?>" class="btn btn-dark">Modifier</a>
                     <td>
                         <?= form_open("categories/catSuppr/" . $row->CAT_ID) ?>

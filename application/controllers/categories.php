@@ -55,7 +55,6 @@ class Categories extends CI_Controller
   {
     $data["select_cat"] = $this->Categorie->select_cat();
     $data["detail"] = $this->Categorie->detail($id);
-
     if ($this->input->post()) {
 
       $libelle = "/^[0-9a-zA-Z]*$/";
