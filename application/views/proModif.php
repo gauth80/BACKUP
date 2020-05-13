@@ -1,7 +1,7 @@
   
                 <h3>Mis à jour du produits</h3>
                 <?= form_open_multipart('produits/modifiez_produits', ["class" => "col-sm-12 col-lg-9 mt-2"]); ?>
-
+                <?php validation_errors();?>
                     <div class="form-group row">
                         <label for="proExist" class="offset-sm-1">Choisir un produits existant *</label>
                         <select name="pro_exist" id="proExist" class="form-control w-75 offset-sm-1">

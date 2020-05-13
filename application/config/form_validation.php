@@ -1,72 +1,91 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
-	*	Doc pour les collègues
+*	spec perso
 
-	*	placé ici vos restrictions de formulaires
-	*	chaque tableau contient un path class/method(Ctrl)
-	*	puis ce path contient un tableau multidimensionnel
-	*	chaque tableau définit un input
-	*	field = l'attribut name
-	*	label = le nom de l'erreur du champ visible par le visiteur
-	*	cotée form, has-error est propre à php, pas touche
+*	Produits/create/update
+*	<imp>	# -- passe, a rectifiez
+*	Info:
 
-	*	chercher sur Devdoc pour éventuellement voir d'autres restriction de CI
-	*	@link{https://devdocs.io/codeigniter~3/libraries/form_validation}
+*	Chaque tableau multidimentionel est associer a un path, ce path c'est controller/method référent aux class est charger 	
+	automatiquement, il peut être charger aussi avec un nom et etre appelée dans n'importe quelles form(cas présent)
+*	Une librairy externe a CI a étais installé au début(ci french), elle traduits chaques erreurs de champs en français, inutile 
+	d'utiliser Set_message('')
 
-	*	voir exemple Ctrl->structure
+*	Ce bordel harmonieux compprend aussi les regex et les fonctions, bah en faite c'est une page php quoi..
+
+*	PS: Si cela rentre en conflit avec vos pages (deja tester mais bon ont ces jamais) effacer a souhait.
+
+*	Quizz de la bonne humeur: Il y as une énorme érreurs de logique ^^ à trouver (gain: +15 en sagesse)
+
 */
 
+defined('BASEPATH') or exit('No direct script access allowed');
+
 $config = array(
-	'structure/inscription' => array(
+
+	 'update' => array(
 		array(
-			'field' => 'name',
-			'label' => 'nom',
-			'rules' => array(
-				'required',
-				'min_length[3]',
-				'max_length[15]')
+			'field' => 'pro_lib',
+			'label' => 'libelle',
+			'rules' => 'required|min_length[3]|max_length[50]|alpha_numeric_spaces|trim'
 		),
+
 		array(
-			'field' => 'username',
-			'label' => 'prénom',
-			'rules' => array(
-				'required',
-				'min_length[3]',
-				'max_length[15]')
+			'field' => 'pro_ref',
+			'label' => 'référence',
+			'rules' => 'required|min_length[3]|max_length[7]|alpha_numeric_spaces|trim|is_unique[produits.PRO_REF]'
 		),
+
 		array(
-			'field' => 'city',
-			'label' => 'ville',
-			'rules' => array(
-				'min_length[3]',
-				'max_length[15]',
-				'required')
+			'field' => 'pro_prix',
+			'label' => 'prix',
+			'rules' => 'required|min_length[1]|max_length[7]|decimal|trim'
 		),
+
 		array(
-			'field' => 'mail',
-			'label' => 'email',
-			'rules' => array(
-				'valid_email',
-				'required')
+			'field' => 'pro_stock',
+			'label' => 'stock',
+			'rules' => 'required|min_length[1]|max_length[3]|alpha_numeric|integer|trim'
 		),
+
 		array(
-			'field' => 'password',
-			'label' => 'mot de passe',
-			'rules' => array(
-				'min_length[3]',
-				'max_length[15]',
-				'required')
+			'field' => 'pro_desc',
+			'label' => 'description',
+			'rules' => 'required|min_length[8]|max_length[999]|alpha_numeric_spaces|trim'
+		)
+
+	), 'create' => array(
+		array(
+			'field' => 'pro_lib',
+			'label' => 'libelle',
+			'rules' => 'required|min_length[3]|max_length[50]|alpha_numeric_spaces|trim'
 		),
+
 		array(
-			'field' => 'comfirm_password',
-			'label' => 'comfirmation de mot de passe',
-			'rules' => array(
-				'min_length[3]',
-				'max_length[15]',
-				'required',
-				'matches[password]')
-		
-		
-		)));
+			'field' => 'pro_ref',
+			'label' => 'référence',
+			'rules' => 'required|min_length[3]|max_length[7]|alpha_numeric_spaces|trim|is_unique[produits.PRO_REF]'
+		),
+
+		array(
+			'field' => 'pro_prix',
+			'label' => 'prix',
+			'rules' => 'required|min_length[1]|max_length[7]|decimal|trim'
+		),
+
+		array(
+			'field' => 'pro_stock',
+			'label' => 'stock',
+			'rules' => 'required|min_length[1]|max_length[3]|alpha_numeric|integer|trim'
+		),
+
+		array(
+			'field' => 'pro_desc',
+			'label' => 'description',
+			'rules' => 'required|min_length[8]|max_length[999]|alpha_numeric_spaces|trim'
+		)
+	)
+
+
+);

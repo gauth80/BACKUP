@@ -1,7 +1,7 @@
 
                 <h3>Ajout de produits</h3>
                 <?= form_open_multipart('produits/create_produits', ["class" => "col-sm-12 col-lg-9 mt-2"]); ?>
-
+                <?php validation_errors();?>
                     <div class="form-group row">
 
                         <label for="catExist" class="offset-sm-1">Choisir une catégorie *</label>
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="form-group row <?= empty(form_error('pro_desc')) ? '' : 'has-error';?>">
-                        <label for="desc" class="offset-sm-1">Indiquez une inscription&nbsp;:&nbsp;*</label>
+                        <label for="desc" class="offset-sm-1">Indiquez une description&nbsp;:&nbsp;*</label>
                         <textarea name="pro_desc" id="desc" class="form-control w-75 offset-sm-1" min-size="0" max-size="500" placeholder="Il étais une fois.."></textarea>
                         <span class="text-warning offset-sm-1"><?= form_error('pro_desc');?></span>
                     </div>
