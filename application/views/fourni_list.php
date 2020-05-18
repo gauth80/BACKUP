@@ -1,7 +1,7 @@
 <div class="table-responsive">
     <table class="table table-striped table-hover table-bordered">
 
-        <h1 class="text-dark">Pour ajouter un nouveau produits</h1>
+        <h1 class="text-dark">Pour ajouter un nouveau Fournisseur</h1>
         <a href="<?= site_url('fournisseurs/fourniAjouts/');?>"><button class="btn btn-dark offset-2"><i class="fas fa-pencil-alt"></i> Ajouts</button></a>
         <thead>
             <tr>
