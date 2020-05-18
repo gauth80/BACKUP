@@ -1,43 +1,51 @@
 <div class="col-12">
-<div class="row">
-
-<!----------------------------------------- Formulaire ajouts--------------------------------------------->
-<div class=" container col-8">
-    <div class="col-12">
-            <fieldset class="row">
-                <legend>Ajouts</legend> 
-                <form action="" method="POST">                   
-                 <div  class="form-group text-center offset-1.5 w-100">
-                <label for="reference">Nom :</label>
-                <input type="text" id="nom" name="nom" class="form-control fontAwesome" placeholder="Nom..." >
-                </div>
-                <div  class="form-group text-center offset-1.5 w-100">
-                <label for="siret">Prenom :</label>
-                <input type="text" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom..." >
-                </div>
-                <div  class="form-group text-center offset-1.5 w-100">
-                <label for="mail">E-mail :</label>
-                <input type="text" id="mail" name="mail" class="form-control fontAwesome" placeholder="Mail..." >
-                </div>
-                <div  class="form-group text-center offset-1.5 w-100">
-                <label for="telephone">Téléphone :</label>
-                <input type="text" id="telephone" name="telephone" class="form-control fontAwesome" placeholder="Téléphone..." >
-                </div>
-                <div  class="form-group text-center offset-1.5 w-100">
-                <label for="persJoin">identifiant :</label>
-                <input type="text" id="identifiant" name="identifiant" class="form-control fontAwesome" placeholder="identifiant..." >
-                </div>
-                <div  class="form-group text-center offset-1.5 w-100">
-                <label for="prix">Mot de passe :</label>
-                <input type="text" id="mdp" name="mdp" class="form-control fontAwesome" placeholder="mdp..." >
-                </div>
-                </form>
-                <div  class="form-group text-center offset-1.5 w-100">
-                <input type="submit" id="ok" name="ok" value="ajouter">
-                </div>
+    <div div class="row">
+    <?php echo form_open_multipart("personnels/persAjouts", "class='container col-8'"); ?>
+            <div>
+                <h5>Nom</h5>
+                <input type="text" name="nom" id="nom">
+                <?php echo form_error('nom'); ?>
             </div>
-        </fieldset>
-       <br>
+            <div>
+                <h5>Prénom</h5>
+                <input type="text"name="prenom" id="prenom">
+                <?php echo form_error('prenom'); ?>
+            </div>
+            <div>
+                <h5>Service</h5>
+                <select name="service" id="service">
+                    <option value="comptabilité"> Comptabilité </option>
+                    <option value="gestion"> Gestion </option>
+                    <option value="comercial"> Comercial </option>
+                </select>
+                <?php echo form_error('service'); ?>
+            </div>
+            <div>
+                <h5>E-mail</h5>
+                <input type="text"name="email" id="email">
+                <?php echo form_error('email'); ?>
+            </div>
+             <div>
+                <h5>Matricule</h5>
+                <input type="text"name="matricule" id="matricule">
+                <?php echo form_error('matricule'); ?>
+            </div>
+            <div>
+                <h5>Coefficient</h5>
+                <input type="number"name="coeficient" id="coeficient">
+                <?php echo form_error('coeficient'); ?>
+            </div>
+            <div>
+                <h5>Identifiant</h5>
+                <input type="text"name="identifiant" id="identifiant">
+                <?php echo form_error('identifiant'); ?>
+            </div>
+            <div>
+                <h5>Mot de passe</h5>
+                <input type="text"name="mdp" id="mdp">
+                <?php echo form_error('mdp'); ?>
+            </div>
+            <button>Ajouter</button>
+        <?php echo form_close(); ?>
     </div>
 </div>
-

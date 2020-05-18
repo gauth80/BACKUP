@@ -1,69 +1,39 @@
 <div class="table-responsive">
-<table class="table table-striped table-hover table-bordered">
-    <thead>
-    <tr>
-        <th> </th>
-        <th>id</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Mail</th>
-        <th>Téléphone</th>
-        <th>Identifiant</th>
-        <th>Mdp</th>
-    </tr>
-    </thead>
-    <tbody>
+        <h1 class="text-dark">Pour ajouter du personel</h1>
+        <a href="<?php echo site_url('personnels/persAjouts');?>"><button class="btn btn-dark offset-2"><i class="fas fa-pencil-alt"></i> Ajouts</button></a>
 
-        <tr class="table-active">
-            <td><a href="<?php echo site_url("clients/cliAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("clients/cliModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
-            <td>5</td>
-            <td>jean</td>
-            <td>kevin</td>
-            <td>exemple@gmail.com</td>
-            <td>0651254199</td>
-            <td>Exemple</td>
-            <td>ExempleMDP</td>
-        </tr>
-        <tr class="table-active">
-            <td><a href="<?php echo site_url("clients/cliAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("clients/cliModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
-            <td>5</td>
-            <td>jean</td>
-            <td>kevin</td>
-            <td>exemple@gmail.com</td>
-            <td>0651254199</td>
-            <td>Exemple</td>
-            <td>ExempleMDP</td>
-        </tr>
-        <tr class="table-active">
-            <td><a href="<?php echo site_url("clients/cliAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("clients/cliModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
-            <td>5</td>
-            <td>jean</td>
-            <td>kevin</td>
-            <td>exemple@gmail.com</td>
-            <td>0651254199</td>
-            <td>Exemple</td>
-            <td>ExempleMDP</td>
-        </tr>
-        <tr class="table-active">
-            <td><a href="<?php echo site_url("clients/cliAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("clients/cliModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
-            <td>5</td>
-            <td>jean</td>
-            <td>kevin</td>
-            <td>exemple@gmail.com</td>
-            <td>0651254199</td>
-            <td>Exemple</td>
-            <td>ExempleMDP</td>
-        </tr>
-        <tr class="table-active">
-            <td><a href="<?php echo site_url("clients/cliAjouts");?>" class="btn btn-dark" target="_blank"> Ajouts</a><a href="<?php echo site_url("clients/cliModif");?>" class="btn btn-dark" target="_blank"> modif</a><a href="/" class="btn btn-dark" target="_blank"> supp</a></td>
-            <td>5</td>
-            <td>jean</td>
-            <td>kevin</td>
-            <td>exemple@gmail.com</td>
-            <td>0651254199</td>
-            <td>Exemple</td>
-            <td>ExempleMDP</td>
-        </tr>
-    </tbody>
-</table>
+	<h1 class="text-dark">Liste du personnel</h1>
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <td>ID</td>
+                    <td>Nom</td>
+                    <td>Prenom</td>
+                    <td>Service</td>
+                    <td>email</td>
+                    <td>Matricule</td>
+                    <td>Coeficient</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach ($personnel as $row)
+                    {
+                 ?>
+                        <tr class="table-active">
+                            <td><?php $row->PER_ID ?></td>
+                            <td><?php $row->PER_NOM ?></td>
+                            <td><?php $row->PER_PRENOM ?></td>
+                            <td><?php $row->PER_SERVICE ?></td>
+                            <td><?php $row->PER_EMAIL ?></td>
+                            <td><?php $row->PER_MATRICULE ?></td>
+                            <td><?php $row->PER_COEFICIENT ?></td>
+                            <td><a href=<?php echo site_url('personnels/persDel/'.$row->PER_ID)?>><button class='btn btn-danger'><i class='fas fa-pencil-alt'></i> Supprimer</button></a></td>
+                            <td><a href=<?php echo site_url('personnels/persModif/'.$row->PER_ID)?>><button class='btn btn-dark'><i class='fas fa-pencil-alt'></i> Modification</button></a></td>
+                        </tr>
+                <?php
+                     }
+                ?>
+            </tbody>
+        </table>
 </div>
