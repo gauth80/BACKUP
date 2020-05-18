@@ -6,27 +6,23 @@
 	{
 
 
-		public function liste_personnel()
+		public function pers_list()
 		{
 
-			$resultat["personnel"] = $this->crud_personnel->liste();
-			$this->load->view('header');
-			$this->load->view('liste_personnel',$resultat);
-			$this->load->view('footer');
+			$resultat["personnel"] = $this->Personnel->liste();
+			$this->templates->display('pers_list',$resultat);
 		}
 
-		public function ajouter_personnel()
+		public function persAjouts()
 		{
+			if($this->input->post())
+			{
 			$email = "/.+@.+\..+/";
 			$base = "/^[a-zA-ZÀ-ú\-\s]*/";
 			$chiffreEtLettre = "/^[a-zA-Z0-9_]+$/";
 			$mdp = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$/";
 			$chiffre = "/[0-9]{1,9}/";
-			$this->load->library('form_validation');
 
-			if($this->input->post())
-			{
-				$ajout =$this->input->post();
 				$this->form_validation->set_rules('nom','nom',"required|regex_match[$base]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
 				$this->form_validation->set_rules('prenom','prenom',"required|regex_match[$base]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
 				$this->form_validation->set_rules('service','service',"required|regex_match[$base]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
@@ -39,40 +35,35 @@
 
 				if($this->form_validation->run() == FALSE)
 				{
-					$resultat["personnel"] = $this->crud_personnel->liste();
-					$this->load->view('header');
-					echo "error";
-					$this->load->view('liste_personnel',$resultat);
-					$this->load->view('footer');
+					$this->templates->display('persAjouts');
 				}
 				else
 				{
+
+          $ajout =$this->input->post();
 					$data = array(
 						'PER_NOM' => $ajout['nom'],
 						'PER_PRENOM' => $ajout['prenom'],
 						'PER_SERVICE' => $ajout['service'],
 						'PER_IDENTIFIANT' => $ajout['identifiant'],
-						'PER_MDP' => $ajout['mdp'],
+						'PER_MDP' => password_hash($ajout['mdp'], PASSWORD_DEFAULT),
 						'PER_MATRICULE' => $ajout['matricule'],
 						'PER_EMAIL' => $ajout['email'],
 						'PER_COEFICIENT' => $ajout['coeficient'],
 						'PER_CREATION' => date('Y-m-d')
 					  );
-					$this->crud_personnel->ajouter($data);
-					redirect('personnel/liste_personnel');
+					$this->Personnel->ajouter($data);
+					redirect('personnels/pers_list');
 				}
 			}
 			else
-			{ // 1er appel de la page: affichage du formulaire
-				$resultat["personnel"] = $this->crud_personnel->liste();
-				$this->load->view('header');
-				$this->load->view('liste_personnel',$resultat);
-				$this->load->view('footer');
+			{
+				$this->templates->display('persAjouts');
 			}
 		}
-		public function modifier_personnel($id)
+		public function persModif($id)
 		{
-			$personnel=$this->crud_personnel->personnelID($id);
+			$personnel=$this->Personnel->personnelID($id);
 			$resultat["personnel"]=$personnel;
 			if($this->input->post())
 			{
@@ -94,9 +85,7 @@
 
 				if($this->form_validation->run() == FALSE)
 				{
-					$this->load->view('header');
-					$this->load->view('modification',$resultat);
-					$this->load->view('footer');
+					$this->templates->display('persModif',$resultat);
 				}
 				else
 				{
@@ -106,26 +95,24 @@
 						'PER_PRENOM' => $ajout['prenom'],
 						'PER_SERVICE' => $ajout['service'],
 						'PER_IDENTIFIANT' => $ajout['identifiant'],
-						'PER_MDP' => $ajout['mdp'],
+						'PER_MDP' => password_hash($ajout['mdp'], PASSWORD_DEFAULT),
 						'PER_MATRICULE' => $ajout['matricule'],
 						'PER_EMAIL' => $ajout['email'],
 						'PER_COEFICIENT' => $ajout['coeficient']
 					  );
-					$this->crud_personnel->modification($id,$data);
-					redirect('personnel/liste_personnel');
+					$this->Personnel->modification($id,$data);
+					redirect('personnels/pers_list');
 				}
 			}
 			else
 			{
-				$this->load->view('header');
-				$this->load->view('modification',$resultat);
-				$this->load->view('footer');
+				$this->templates->display('persModif',$resultat);
 			}
 		}
-		public function supprimer_personnel($id)
+		public function persDel($id)
 		{
-			$this->crud_personnel->supprimer($id);
-			redirect('personnel/liste_personnel');
+			$this->Personnel->supprimer($id);
+			redirect('personnels/pers_list');
 		}
 	}
 ?>
