@@ -1,7 +1,5 @@
 <?php
-
 	defined('BASEPATH') OR exit('No direct script access allowed');
-
 	class Personnels extends CI_Controller
 	{
 
@@ -30,7 +28,7 @@
 				$this->form_validation->set_rules('mdp','mdp',"required|regex_match[$mdp]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
 				$this->form_validation->set_rules('matricule','matricule',"required|regex_match[$chiffreEtLettre]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
 				$this->form_validation->set_rules('email','email',"required|regex_match[$email]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
-				$this->form_validation->set_rules('coeficient','coeficient',"required|regex_match[$chiffre]",array('required' => 'La %s manquante','regex_match' => 'La %s incorrect',"is_unique"=>'La %s existe déjà'));
+				$this->form_validation->set_rules('coefficient','coefficient',"required|regex_match[$chiffre]",array('required' => 'La %s manquante','regex_match' => 'La %s incorrect',"is_unique"=>'La %s existe déjà'));
 				$this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
 
 				if($this->form_validation->run() == FALSE)
@@ -49,7 +47,7 @@
 						'PER_MDP' => password_hash($ajout['mdp'], PASSWORD_DEFAULT),
 						'PER_MATRICULE' => $ajout['matricule'],
 						'PER_EMAIL' => $ajout['email'],
-						'PER_COEFICIENT' => $ajout['coeficient'],
+						'PER_COEFICIENT' => $ajout['coefficient'],
 						'PER_CREATION' => date('Y-m-d')
 					  );
 					$this->Personnel->ajouter($data);
@@ -80,7 +78,7 @@
 				$this->form_validation->set_rules('mdp','mdp',"required|regex_match[$mdp]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
 				$this->form_validation->set_rules('matricule','matricule',"required|regex_match[$chiffreEtLettre]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
 				$this->form_validation->set_rules('email','email',"required|regex_match[$email]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
-				$this->form_validation->set_rules('coeficient','coeficient',"required|regex_match[$chiffre]",array('required' => 'La %s manquante','regex_match' => 'La %s incorrect',"is_unique"=>'La %s existe déjà'));
+				$this->form_validation->set_rules('coefficient','coefficient',"required|regex_match[$chiffre]",array('required' => 'La %s manquante','regex_match' => 'La %s incorrect',"is_unique"=>'La %s existe déjà'));
 				$this->form_validation->set_error_delimiters('<div class="alert alert-danger">','</div>');
 
 				if($this->form_validation->run() == FALSE)
@@ -98,7 +96,7 @@
 						'PER_MDP' => password_hash($ajout['mdp'], PASSWORD_DEFAULT),
 						'PER_MATRICULE' => $ajout['matricule'],
 						'PER_EMAIL' => $ajout['email'],
-						'PER_COEFICIENT' => $ajout['coeficient']
+						'PER_COEFICIENT' => $ajout['coefficient']
 					  );
 					$this->Personnel->modification($id,$data);
 					redirect('personnels/pers_list');

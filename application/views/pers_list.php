@@ -8,11 +8,11 @@
                 <tr>
                     <td>ID</td>
                     <td>Nom</td>
-                    <td>Prenom</td>
+                    <td>Prénom</td>
                     <td>Service</td>
-                    <td>email</td>
+                    <td>E-mail</td>
                     <td>Matricule</td>
-                    <td>Coeficient</td>
+                    <td>Coéfficient</td>
                 </tr>
             </thead>
             <tbody>
@@ -21,13 +21,13 @@
                     {
                  ?>
                         <tr class="table-active">
-                            <td><?php $row->PER_ID ?></td>
-                            <td><?php $row->PER_NOM ?></td>
-                            <td><?php $row->PER_PRENOM ?></td>
-                            <td><?php $row->PER_SERVICE ?></td>
-                            <td><?php $row->PER_EMAIL ?></td>
-                            <td><?php $row->PER_MATRICULE ?></td>
-                            <td><?php $row->PER_COEFICIENT ?></td>
+                            <td><?php echo $row->PER_ID ?></td>
+                            <td><?php echo $row->PER_NOM ?></td>
+                            <td><?php echo $row->PER_PRENOM ?></td>
+                            <td><?php echo $row->PER_SERVICE ?></td>
+                            <td><?php echo $row->PER_EMAIL ?></td>
+                            <td><?php echo $row->PER_MATRICULE ?></td>
+                            <td><?php echo $row->PER_COEFICIENT ?></td>
                             <td><a href=<?php echo site_url('personnels/persDel/'.$row->PER_ID)?>><button class='btn btn-danger'><i class='fas fa-pencil-alt'></i> Supprimer</button></a></td>
                             <td><a href=<?php echo site_url('personnels/persModif/'.$row->PER_ID)?>><button class='btn btn-dark'><i class='fas fa-pencil-alt'></i> Modification</button></a></td>
                         </tr>
