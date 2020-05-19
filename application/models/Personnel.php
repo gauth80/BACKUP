@@ -31,7 +31,7 @@ class Personnel extends CI_Model
 	 */
 	public function modification($id,$maj)
 	{
-		$this->db->update($this->table, $maj ,'PER_ID='.$id);
+        $this->db->update('personnels', $maj ,'PER_ID='.$id);
 	}
 
 	/**
@@ -39,8 +39,7 @@ class Personnel extends CI_Model
 	 */
 	public function supprimer($id)
 	{
-		return $this->db->where('PER_ID', (int) $id)
-			->delete($this->table);
+		$this->db->delete('personnels','PER_ID='.$id);
 	}
 
 
