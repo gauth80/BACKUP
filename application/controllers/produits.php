@@ -47,28 +47,28 @@ class Produits extends CI_Controller
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('pro_list', $data);
+        $this->templates->display('produits/pro_list', $data);
     }
 
     public function ajout()
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('proAjouts', $data);
+        $this->templates->display('produits/proAjouts', $data);
     }
 
     public function modif()
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('proModif', $data);
+        $this->templates->display('produits/proModif', $data);
     }
 
     public function del()
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('proDelete', $data);
+        $this->templates->display('produits/proDelete', $data);
     }
 
     public function create_produits() {
@@ -79,7 +79,7 @@ class Produits extends CI_Controller
                 //retribution des data
                 $data['data'] = $this->produits_model->get_produits_for_personnal();
                 $data['cat_exist'] = $this->produits_model->get_categories_data();
-                $this->templates->display('proAjouts', $data);
+                $this->templates->display('produits/proAjouts', $data);
             } else {
                 $config['upload_path'] = './assets/img/produits/listes/';
                 $config['allowed_types'] = 'jpg|png';
@@ -98,7 +98,7 @@ class Produits extends CI_Controller
                     $pro_img = 'noimage.jpg';
                     $data['data'] = $this->produits_model->get_produits_for_personnal();
                     $data['cat_exist'] = $this->produits_model->get_categories_data();
-                    $this->templates->display('proAjouts', $data);
+                    $this->templates->display('produits/proAjouts', $data);
 
                 } else {
     
@@ -107,7 +107,7 @@ class Produits extends CI_Controller
                     $this->produits_model->insert_produits($pro_img, $slug);
                     $data['data'] = $this->produits_model->get_produits_for_personnal();
                     $data['cat_exist'] = $this->produits_model->get_categories_data();
-                    $this->templates->display('proAjouts', $data);
+                    $this->templates->display('produits/proAjouts', $data);
                 }
             }
         }
@@ -122,7 +122,7 @@ class Produits extends CI_Controller
 
                 $data['data'] = $this->produits_model->get_produits_for_personnal();
                 $data['cat_exist'] = $this->produits_model->get_categories_data();
-                $this->templates->display('proModif', $data);
+                $this->templates->display('produits/proModif', $data);
             } else {
                 $config['upload_path'] = './assets/img/produits/listes/';
                 $config['allowed_types'] = 'jpg|png';
@@ -139,14 +139,14 @@ class Produits extends CI_Controller
 
                     $errors = array('error' => $this->upload->display_errors());
                     $pro_img = 'noimage.jpg';
-                    redirect('proModif');
+                    redirect('produits/proModif');
 
                 } else {
 
                     $data = array('upload_data' => $this->upload->data());
                     $pro_img = substr($this->upload->data('file_ext'), 1);
                     $this->produits_model->update_produits($pro_img, $slug);
-                    redirect('proModif');
+                    redirect('produits/proModif');
                 }
             }
         }

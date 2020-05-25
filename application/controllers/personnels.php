@@ -8,7 +8,7 @@
 		{
 
 			$resultat["personnel"] = $this->Personnel->liste();
-			$this->templates->display('pers_list',$resultat);
+			$this->templates->display('personnel/pers_list',$resultat);
 		}
 
 		public function persAjouts()
@@ -33,7 +33,7 @@
 
 				if($this->form_validation->run() == FALSE)
 				{
-					$this->templates->display('persAjouts');
+					$this->templates->display('personnel/persAjouts');
 				}
 				else
 				{
@@ -56,7 +56,7 @@
 			}
 			else
 			{
-				$this->templates->display('persAjouts');
+				$this->templates->display('personnel/persAjouts');
 			}
 		}
 		public function persModif($id)
@@ -83,7 +83,7 @@
 
 				if($this->form_validation->run() == FALSE)
 				{
-					$this->templates->display('persModif',$resultat);
+					$this->templates->display('personnel/persModif',$resultat);
 				}
 				else
 				{
@@ -104,7 +104,7 @@
 			}
 			else
 			{
-				$this->templates->display('persModif',$resultat);
+				$this->templates->display('personnel/persModif',$resultat);
 			}
 		}
 		public function persDel($id)
