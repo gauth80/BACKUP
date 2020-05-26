@@ -1,0 +1,43 @@
+.btnpers{
+    background-color: tan;
+    font-weight:500;
+}
+.btnpers:hover {
+    background-color: rgb(219, 157, 75);
+}
+.img-personnel {
+    width:100vw;
+}
+
+.admin div div section article h4 {
+    color:  darkorange!important;
+}
+
+@media (max-width: 575px){
+    .titre-liste{
+        font-size: 1.2rem !important;
+    }
+    .table thead {
+    display: none;
+    }
+    .table tr{
+    display: block;
+    margin-bottom: 40px;
+    }
+    .table td {
+    display: block;
+    text-align: right;
+    }
+    .table td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+        }
+    [class="btn btn-dark offset-xs-6 offset-sm-6 offset-md-6 offset-lg-6 col-auto"]{
+        left: 44%;
+    }
+    .coucou {
+        display:inline-block !important;
+        color: rgb(3, 3, 3);
+    }
+    } 
