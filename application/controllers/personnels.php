@@ -68,7 +68,7 @@
 				$email = "/.+@.+\..+/";
 				$base = "/^[a-zA-ZÀ-ú\-\s]*/";
 				$chiffreEtLettre = "/^[a-zA-Z0-9_]+$/";
-				$mdp = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{8,15})$/";
+				$mdp = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[+!*$@%_])([+!*$@%_\w]{8,15})$/";
 				$chiffre = "/[0-9]{1,9}/";
 
 				$this->form_validation->set_rules('nom','nom',"required|regex_match[$base]",array('required' => 'Il faut un %s ','regex_match' => 'Il faut un %s '));
