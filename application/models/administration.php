@@ -1,6 +1,5 @@
-
-<?php
-class Admin extends CI_Model
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+class Administration extends CI_Model
 {
     /**
      * \brief Selection de toute la vue infos_contact_client

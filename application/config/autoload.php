@@ -135,4 +135,4 @@ $autoload['language'] = array();
 
 
 
-$autoload['model'] = array('admin', 'Categorie', 'fournisseur', 'produits_model', 'Personnel');
+$autoload['model'] = array('administration', 'Categorie', 'fournisseur', 'produits_model', 'Personnel');
