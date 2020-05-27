@@ -40,35 +40,35 @@ class Produits extends CI_Controller
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('produits/index', $data);
+        $this->templates->display('produits1/index', $data);
     }
 
     public function list()
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('produits/pro_list', $data);
+        $this->templates->display('produits1/pro_list', $data);
     }
 
     public function ajout()
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('produits/proAjouts', $data);
+        $this->templates->display('produits1/proAjouts', $data);
     }
 
     public function modif()
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('produits/proModif', $data);
+        $this->templates->display('produits1/proModif', $data);
     }
 
     public function del()
     {
         $data['data'] = $this->produits_model->get_produits_for_personnal();
         $data['cat_exist'] = $this->produits_model->get_categories_data();
-        $this->templates->display('produits/proDelete', $data);
+        $this->templates->display('produits1/proDelete', $data);
     }
 
     public function create_produits() {
@@ -79,7 +79,7 @@ class Produits extends CI_Controller
                 //retribution des data
                 $data['data'] = $this->produits_model->get_produits_for_personnal();
                 $data['cat_exist'] = $this->produits_model->get_categories_data();
-                $this->templates->display('produits/proAjouts', $data);
+                $this->templates->display('produits1/proAjouts', $data);
             } else {
                 $config['upload_path'] = './assets/img/produits/listes/';
                 $config['allowed_types'] = 'jpg|png';
@@ -98,7 +98,7 @@ class Produits extends CI_Controller
                     $pro_img = 'noimage.jpg';
                     $data['data'] = $this->produits_model->get_produits_for_personnal();
                     $data['cat_exist'] = $this->produits_model->get_categories_data();
-                    $this->templates->display('produits/proAjouts', $data);
+                    $this->templates->display('produits1/proAjouts', $data);
 
                 } else {
     
@@ -107,7 +107,7 @@ class Produits extends CI_Controller
                     $this->produits_model->insert_produits($pro_img, $slug);
                     $data['data'] = $this->produits_model->get_produits_for_personnal();
                     $data['cat_exist'] = $this->produits_model->get_categories_data();
-                    $this->templates->display('produits/proAjouts', $data);
+                    $this->templates->display('produits1/pro_list', $data);
                 }
             }
         }
@@ -122,7 +122,7 @@ class Produits extends CI_Controller
 
                 $data['data'] = $this->produits_model->get_produits_for_personnal();
                 $data['cat_exist'] = $this->produits_model->get_categories_data();
-                $this->templates->display('produits/proModif', $data);
+                $this->templates->display('produits1/proModif', $data);
             } else {
                 $config['upload_path'] = './assets/img/produits/listes/';
                 $config['allowed_types'] = 'jpg|png';
@@ -146,7 +146,7 @@ class Produits extends CI_Controller
                     $data = array('upload_data' => $this->upload->data());
                     $pro_img = substr($this->upload->data('file_ext'), 1);
                     $this->produits_model->update_produits($pro_img, $slug);
-                    redirect('produits/proModif');
+                    redirect('produits/pro_list');
                 }
             }
         }
@@ -158,7 +158,7 @@ class Produits extends CI_Controller
         if ($this->input->post('delete_pro')) {
             $id = $this->input->post('pro_exist');
             $this->produits_model->delete_produits($id);
-            redirect('administration/index');
+            redirect('produits/pro_list');
         }
     }
 }
