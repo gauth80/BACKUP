@@ -1,8 +1,8 @@
 <div class="tableau table-responsive">
     <table class="table table-striped table-hover table-bordered">
 
-        <h1 class="text-dark titre-liste text-center">Pour ajouter un nouveau Fournisseur</h1>
-        <a href="<?= site_url('fournisseurs/fourniAjouts/');?>">
+        <h1 class="text-dark titre-liste text-center py-3 m-0">Pour ajouter un nouveau Fournisseur</h1>
+        <a class="m-3" href="<?= site_url('fournisseurs/fourniAjouts/');?>">
             <button class="btn btnpers offset-xs-6 offset-sm-6 offset-md-6 offset-lg-6 col-auto">
                 <i class="fas fa-pencil-alt"></i> Ajouts
             </button>
@@ -17,7 +17,7 @@
                 <th>Référence</th>
             </tr>
         </thead>
-        <h1 class="text-dark titre-liste text-center"> Consultez le tableau des fournisseurs</h1>
+        <h1 class="text-dark titre-liste text-center py-3 m-0"> Consultez le tableau des fournisseurs</h1>
         <tbody>
             <?php
                 foreach($fournisseurs as $fourni)

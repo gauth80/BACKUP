@@ -106,7 +106,7 @@
                         </div>
                     </div>
         
-                    <div class="row ml-0 mr-0">
+                    <div class="row ml-0 mr-0" style="margin-bottom: -10px;">
                         <!--3reme barre-->
                         <nav class="navbar navbar-expand-xl navbar-dark thirdNav col-xl-12 align-bottom px-0 py-0">
                             <span class="d-sm-none title-nav-produits mr-auto pl-4">Rubrique Produits</span>
