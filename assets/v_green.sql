@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 05 mai 2020 à 14:33
+-- Généré le :  mer. 27 mai 2020 à 06:31
 -- Version du serveur :  10.4.10-MariaDB
--- Version de PHP :  7.4.0
+-- Version de PHP :  7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -22,27 +22,6 @@ SET time_zone = "+00:00";
 -- Base de données :  `v_green`
 --
 
-DELIMITER $$
---
--- Procédures
---
-DROP PROCEDURE IF EXISTS `calcul_ca`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `calcul_ca` ()  BEGIN
-    SELECT `LIG_QUANTITE` * `PRO_PRIX_ACHAT`
-    FROM `produits`
-    JOIN `ligne_de_commande`
-    ON `ligne_de_commande`.`PRO_ID` = `produits`.`PRO_ID`;
-END$$
-
-DROP PROCEDURE IF EXISTS `DelFourniPro`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DelFourniPro` ()  BEGIN 
-DELETE FROM `fournisseurs` 
-WHERE `FOU_ID`=`FOU_ID`;
-
-END$$
-
-DELIMITER ;
-
 -- --------------------------------------------------------
 
 --
@@ -53,20 +32,20 @@ DROP TABLE IF EXISTS `categorie`;
 CREATE TABLE IF NOT EXISTS `categorie` (
   `CAT_ID` int(11) NOT NULL AUTO_INCREMENT,
   `CAT_LIBELLE` varchar(50) DEFAULT NULL,
-  `Cat_cat_id` int(11) NOT NULL,
+  `CAT_CAT_ID` int(11) NOT NULL,
   `PER_ID` int(11) NOT NULL,
   `CAT_D_AJOUT` date DEFAULT NULL,
   `CAT_D_MODIF` date DEFAULT NULL,
   PRIMARY KEY (`CAT_ID`),
-  KEY `FK_cat_cat_id` (`Cat_cat_id`),
+  KEY `FK_cat_cat_id` (`CAT_CAT_ID`),
   KEY `FK_per_id` (`PER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `categorie`
 --
 
-INSERT INTO `categorie` (`CAT_ID`, `CAT_LIBELLE`, `Cat_cat_id`, `PER_ID`, `CAT_D_AJOUT`, `CAT_D_MODIF`) VALUES
+INSERT INTO `categorie` (`CAT_ID`, `CAT_LIBELLE`, `CAT_CAT_ID`, `PER_ID`, `CAT_D_AJOUT`, `CAT_D_MODIF`) VALUES
 (1, 'guitare', 1, 1, NULL, NULL),
 (2, 'batterie', 2, 2, NULL, NULL),
 (3, 'piano', 3, 3, NULL, NULL),
@@ -144,31 +123,13 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Doublure de structure pour la vue `commande_clients`
--- (Voir ci-dessous la vue réelle)
+-- Structure de la table `commande_fournisseurs`
 --
-DROP VIEW IF EXISTS `commande_clients`;
-CREATE TABLE IF NOT EXISTS `commande_clients` (
-`CLI_NOM` varchar(50)
-,`CLI_PRENOM` varchar(50)
-,`CLI_REF` varchar(50)
-,`CLI_TYPE` bit(1)
-,`CLI_MAIL` varchar(50)
-,`COM_ETAT` int(11)
-,`COM_DATE_COMMANDE` int(11)
-,`COM_DATE_PAIEMENT` int(11)
-);
 
--- --------------------------------------------------------
-
---
--- Doublure de structure pour la vue `commande_fournisseurs`
--- (Voir ci-dessous la vue réelle)
---
-DROP VIEW IF EXISTS `commande_fournisseurs`;
+DROP TABLE IF EXISTS `commande_fournisseurs`;
 CREATE TABLE IF NOT EXISTS `commande_fournisseurs` (
-`FOU_REF` varchar(50)
-);
+  `FOU_REF` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -195,7 +156,14 @@ CREATE TABLE IF NOT EXISTS `fournisseurs` (
   `FOU_ADRESSE` varchar(50) DEFAULT NULL,
   `FOU_REF` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`FOU_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `fournisseurs`
+--
+
+INSERT INTO `fournisseurs` (`FOU_ID`, `FOU_ADRESSE`, `FOU_REF`) VALUES
+(2, 'trhtrshtsh', 'hrsthtrshfffff');
 
 -- --------------------------------------------------------
 
@@ -213,17 +181,17 @@ CREATE TABLE IF NOT EXISTS `gerer2` (
 -- --------------------------------------------------------
 
 --
--- Doublure de structure pour la vue `infos_contact_client`
--- (Voir ci-dessous la vue réelle)
+-- Structure de la table `infos_contact_client`
 --
-DROP VIEW IF EXISTS `infos_contact_client`;
+
+DROP TABLE IF EXISTS `infos_contact_client`;
 CREATE TABLE IF NOT EXISTS `infos_contact_client` (
-`CLI_ID` int(11)
-,`CLI_REF` varchar(50)
-,`CLI_TYPE` bit(1)
-,`CLI_MAIL` varchar(50)
-,`CLI_ADRESSE_FACTURATION` varchar(50)
-);
+  `CLI_ID` int(11) DEFAULT NULL,
+  `CLI_REF` varchar(50) DEFAULT NULL,
+  `CLI_TYPE` bit(1) DEFAULT NULL,
+  `CLI_MAIL` varchar(50) DEFAULT NULL,
+  `CLI_ADRESSE_FACTURATION` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -260,14 +228,14 @@ CREATE TABLE IF NOT EXISTS `livraison` (
 -- --------------------------------------------------------
 
 --
--- Doublure de structure pour la vue `livraisonsclients`
--- (Voir ci-dessous la vue réelle)
+-- Structure de la table `livraisonsclients`
 --
-DROP VIEW IF EXISTS `livraisonsclients`;
+
+DROP TABLE IF EXISTS `livraisonsclients`;
 CREATE TABLE IF NOT EXISTS `livraisonsclients` (
-`LIV_DATE` datetime
-,`CLI_REF` varchar(50)
-);
+  `LIV_DATE` datetime DEFAULT NULL,
+  `CLI_REF` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -280,9 +248,15 @@ CREATE TABLE IF NOT EXISTS `personnels` (
   `PER_ID` int(11) NOT NULL AUTO_INCREMENT,
   `PER_MATRICULE` varchar(50) DEFAULT NULL,
   `PER_SERVICE` varchar(50) DEFAULT NULL,
-  `COEFICIENT_COMMERCIAL` float DEFAULT NULL,
+  `PER_COEFICIENT` float DEFAULT NULL,
+  `PER_IDENTIFIANT` varchar(50) DEFAULT NULL,
+  `PER_MDP` varchar(50) DEFAULT NULL,
+  `PER_NOM` varchar(50) DEFAULT NULL,
+  `PER_PRENOM` varchar(50) DEFAULT NULL,
+  `PER_EMAIL` varchar(50) DEFAULT NULL,
+  `PER_CREATION` int(50) DEFAULT NULL,
   PRIMARY KEY (`PER_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -304,132 +278,55 @@ CREATE TABLE IF NOT EXISTS `produits` (
   `PRO_SLUG` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`PRO_ID`),
   KEY `FK_cat_id` (`CAT_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `produits`
 --
 
-INSERT INTO `produits` (`PRO_ID`, `CAT_ID`, `PRO_LIBELLE`, `PRO_REF`, `PRO_DESCRIPTION`, `PRO_PRIX_ACHAT`, `PRO_PHOTO`, `PRO_STOCK_PHYSIQUE`, `PRO_STOCK_ALERTE`) VALUES
-(1, 1, 'libelle001', NULL, 'exemple_desc', 100, NULL, 10, 5),
-(2, 1, 'libelle001', NULL, 'exemple_desc', 100, NULL, 10, 5),
-(3, 1, 'Harley Benton', 'gui000', 'Harley Benton est une marque créée pour et distribuée par le détaillant allemand Thomann. Créée en 19971, elle propose des guitares, basses, banjos, mandolines, microphones, amplificateurs, pédales d\'effet, des cordes, des médiators, des pièces détachées, etc.', 75, 'png', 6, NULL),
-(4, 1, 'Delson Sevilla', 'gui001', 'La manche et la table de ce modèle d\'instrument sont faites en épicéa de Californie avec un dos et côté en érable', 39.55, 'png', 2, NULL),
-(5, 1, 'Gibson ES 335', 'gui003', 'L\'ES-335 était une tentative de trouver un terrain d\'entente: un ton plus chaud qu\'un corps solide produit avec presque aussi peu de rétroaction', 267.5, 'png', 2, NULL),
-(6, 1, 'Gibson Thunderbird', 'bass000', 'Le Thunderbird a été conçu par le concepteur automobile américain Raymond H. Dietrich (Chrysler, Lincoln, Checker)', 1999.99, 'png', 1, NULL),
-(7, 1, 'Gibson Lespaul', 'bass001', 'Le premier modèle simplement appelé \"Les Paul Bass\", avait quelques caractéristiques intéressantes, notamment des circuits basse impédance, spécialement conçus pour l\'enregistrement en studio.\r\n', 2039, 'png', 0, NULL),
-(8, 1, 'Gipson pat martino', 'bass002', 'Basse semi acoustique en l\'honneur de Pat Martino.', 3449.99, 'png', 0, NULL),
-(9, 1, 'SpongeBob', 'uku000', 'Who lives in a pineapple under the sea?\r\nSpongebob Squarepant!', 14.99, 'png', 0, NULL),
-(10, 1, 'Stentor SR1500', 'vio000', 'Le violon est un instrument de musique à cordes frottées. Constitué de 71 éléments de bois collés ou assemblés les uns aux autres..', 155, 'png', 3, NULL),
-(11, 2, 'Pearl', 'bat000', 'Les batteries pour débutants.', 550.5, 'png', 1, NULL),
-(12, 3, 'Kawai ES-8 B', 'pia000', 'Un clavier électronique, un clavier portable ou un clavier numérique est un instrument de musique électronique.', 1256, 'png', 2, NULL),
-(13, 4, 'Trident audio', 'stu000', 'Les consoles analogiques de la série 68 ont été développées pour fournir l\'ensemble de fonctionnalités de base le plus souvent nécessaire pour l\'enregistrement analogique.', 9999.99, 'png', 1, NULL),
-(14, 5, 'Projecteur LED DMX512', 'ecl000', 'éclairage led dmx512 classique.', 56.75, 'png', 4, NULL),
-(15, 6, 'FF-4000', 'tab000', 'une table de dj, houlala vive la description..', 1429, 'png', 1, NULL),
-(16, 7, 'Flyht pro case', 'cas000', 'c\'est une boite, voila.', 129, 'png', 4, NULL),
-(17, 8, 'Shure sm7b', 'acc000', 'etrange outil porteur de maladie mais qui permet d\'être audible, après tout dépend de celui qui l\'utilise.', 366.66, 'png', 6, NULL),
-(18, 8, 'Cordial cfu 1.5', 'acc001', 'Un câble d’amplis', 14.99, 'png', 12, NULL),
-(19, 9, 'Startone', 'ven000', 'Le saxophone est un instrument de musique à vent appartenant à la famille des bois. Il a été inventé par le Belge Adolphe Sax et breveté à Paris le 21 mars 1846.', 620, 'png', 4, NULL),
-(20, 1, 'Harley Benton', 'gui000', 'Harley Benton est une marque créée pour et distribuée par le détaillant allemand Thomann. Créée en 19971, elle propose des guitares, basses, banjos, mandolines, microphones, amplificateurs, pédales d\'effet, des cordes, des médiators, des pièces détachées, etc.', 75, 'png', 6, NULL),
-(21, 1, 'Delson Sevilla', 'gui001', 'La manche et la table de ce modèle d\'instrument sont faites en épicéa de Californie avec un dos et côté en érable', 39.55, 'png', 2, NULL),
-(22, 1, 'Gibson ES 335', 'gui003', 'L\'ES-335 était une tentative de trouver un terrain d\'entente: un ton plus chaud qu\'un corps solide produit avec presque aussi peu de rétroaction', 267.5, 'png', 2, NULL),
-(23, 1, 'Gibson Thunderbird', 'bass000', 'Le Thunderbird a été conçu par le concepteur automobile américain Raymond H. Dietrich (Chrysler, Lincoln, Checker)', 1999.99, 'png', 1, NULL),
-(24, 1, 'Gibson Lespaul', 'bass001', 'Le premier modèle simplement appelé \"Les Paul Bass\", avait quelques caractéristiques intéressantes, notamment des circuits basse impédance, spécialement conçus pour l\'enregistrement en studio.\r\n', 2039, 'png', 0, NULL),
-(25, 1, 'Gipson pat martino', 'bass002', 'Basse semi acoustique en l\'honneur de Pat Martino.', 3449.99, 'png', 0, NULL),
-(26, 1, 'SpongeBob', 'uku000', 'Who lives in a pineapple under the sea?\r\nSpongebob Squarepant!', 14.99, 'png', 0, NULL),
-(27, 1, 'Stentor SR1500', 'vio000', 'Le violon est un instrument de musique à cordes frottées. Constitué de 71 éléments de bois collés ou assemblés les uns aux autres..', 155, 'png', 3, NULL),
-(28, 2, 'Pearl', 'bat000', 'Les batteries pour débutants.', 550.5, 'png', 1, NULL),
-(29, 3, 'Kawai ES-8 B', 'pia000', 'Un clavier électronique, un clavier portable ou un clavier numérique est un instrument de musique électronique.', 1256, 'png', 2, NULL),
-(30, 4, 'Trident audio', 'stu000', 'Les consoles analogiques de la série 68 ont été développées pour fournir l\'ensemble de fonctionnalités de base le plus souvent nécessaire pour l\'enregistrement analogique.', 9999.99, 'png', 1, NULL),
-(31, 5, 'Projecteur LED DMX512', 'ecl000', 'éclairage led dmx512 classique.', 56.75, 'png', 4, NULL),
-(32, 6, 'FF-4000', 'tab000', 'une table de dj, houlala vive la description..', 1429, 'png', 1, NULL),
-(33, 7, 'Flyht pro case', 'cas000', 'c\'est une boite, voila.', 129, 'png', 4, NULL),
-(34, 8, 'Shure sm7b', 'acc000', 'etrange outil porteur de maladie mais qui permet d\'être audible, après tout dépend de celui qui l\'utilise.', 366.66, 'png', 6, NULL),
-(35, 8, 'Cordial cfu 1.5', 'acc001', 'Un câble d’amplis', 14.99, 'png', 12, NULL),
-(36, 9, 'Startone', 'ven000', 'Le saxophone est un instrument de musique à vent appartenant à la famille des bois. Il a été inventé par le Belge Adolphe Sax et breveté à Paris le 21 mars 1846.', 620, 'png', 4, NULL);
+INSERT INTO `produits` (`PRO_ID`, `CAT_ID`, `PRO_LIBELLE`, `PRO_REF`, `PRO_DESCRIPTION`, `PRO_PRIX_ACHAT`, `PRO_PHOTO`, `PRO_STOCK_PHYSIQUE`, `PRO_STOCK_ALERTE`, `PRO_SLUG`) VALUES
+(9, 1, 'Gibson Lespaul', 'bass001', 'Le premier modèle simplement appelé \"Les Paul Bass\", avait quelques caractéristiques intéressantes, notamment des circuits basse impédance, spécialement conçus pour l\'enregistrement en studio.\r\n', 2039, 'png', 1, NULL, 'Gibson_Lespaul'),
+(10, 1, 'Gipson pat martino', 'bass002', 'Basse semi acoustique en l\'honneur de Pat Martino.', 3449.99, 'png', 1, NULL, 'Gipson_pat_martino'),
+(11, 1, 'SpongeBob', 'uku000', 'Who lives in a pineapple under the sea?\r\nSpongebob Squarepant!', 14.99, 'png', 1, NULL, 'SpongeBob'),
+(12, 10, 'Stentor SR1500', 'cor000', 'un instru a vent', 128, 'png', 1, NULL, 'stentor_sr1500'),
+(13, 2, 'Pearl', 'bat000', 'Les batteries pour débutants.', 550.5, 'png', 1, NULL, 'Pearl'),
+(14, 3, 'Kawai ES-8 B', 'pia000', 'Un clavier électronique, un clavier portable ou un clavier numérique est un instrument de musique électronique.', 1256, 'png', 2, NULL, 'Kawai_ES-8_B'),
+(15, 4, 'Trident audio', 'stu000', 'Les consoles analogiques de la série 68 ont été développées pour fournir l\'ensemble de fonctionnalités de base le plus souvent nécessaire pour l\'enregistrement analogique.', 9999.99, 'png', 1, NULL, 'Trident_audio'),
+(16, 5, 'Projecteur LED DMX512', 'ecl000', 'éclairage led dmx512 classique.', 56.75, 'png', 4, NULL, 'Projecteur_LED_DMX512'),
+(17, 6, 'FF-4000', 'tab000', 'une table de dj, houlala vive la description..', 1429, 'png', 1, NULL, 'FF-4000'),
+(18, 7, 'Flyht pro case', 'cas000', 'c\'est une boite, voila.', 129, 'png', 4, NULL, 'Flyht_pro_case'),
+(19, 8, 'Shure sm7b', 'acc000', 'etrange outil porteur de maladie mais qui permet d\'être audible, après tout dépend de celui qui l\'utilise.', 366.66, 'png', 0, NULL, 'Shure_sm7b'),
+(20, 8, 'Cordial cfu 1.5', 'acc001', 'Un câble d’amplis', 14.99, 'png', 0, NULL, 'Cordial_cfu_1.5'),
+(21, 9, 'Startone', 'ven000', 'Le saxophone est un instrument de musique à vent appartenant à la famille des bois. Il a été inventé par le Belge Adolphe Sax et breveté à Paris le 21 mars 1846.', 620, 'png', 4, NULL, 'Startone');
 
 -- --------------------------------------------------------
 
 --
--- Doublure de structure pour la vue `produit_visible_clients`
--- (Voir ci-dessous la vue réelle)
+-- Structure de la table `produit_visible_clients`
 --
-DROP VIEW IF EXISTS `produit_visible_clients`;
-CREATE TABLE IF NOT EXISTS `produit_visible_clients` (
-`PRO_ID` int(11)
-,`PRO_LIBELLE` varchar(50)
-,`PRO_DESCRIPTION` varchar(500)
-,`PRO_PRIX_ACHAT` float
-,`PRO_STOCK_PHYSIQUE` int(11)
-);
 
--- --------------------------------------------------------
-
---
--- Doublure de structure pour la vue `visibilité_stock`
--- (Voir ci-dessous la vue réelle)
---
-DROP VIEW IF EXISTS `visibilité_stock`;
-CREATE TABLE IF NOT EXISTS `visibilité_stock` (
-`PRO_ID` int(11)
-,`PRO_REF` varchar(50)
-,`PRO_STOCK_PHYSIQUE` int(11)
-,`ALERTE` int(1)
-);
-
--- --------------------------------------------------------
-
---
--- Structure de la vue `commande_clients`
---
-DROP TABLE IF EXISTS `commande_clients`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `commande_clients`  AS  select `clients`.`CLI_NOM` AS `CLI_NOM`,`clients`.`CLI_PRENOM` AS `CLI_PRENOM`,`clients`.`CLI_REF` AS `CLI_REF`,`clients`.`CLI_TYPE` AS `CLI_TYPE`,`clients`.`CLI_MAIL` AS `CLI_MAIL`,`commande`.`COM_ETAT` AS `COM_ETAT`,`commande`.`COM_DATE_COMMANDE` AS `COM_DATE_COMMANDE`,`commande`.`COM_DATE_PAIEMENT` AS `COM_DATE_PAIEMENT` from (`clients` join `commande` on(`clients`.`CLI_ID` = `commande`.`CLI_ID` and `clients`.`PER_ID` = `commande`.`PER_ID`)) ;
-
--- --------------------------------------------------------
-
---
--- Structure de la vue `commande_fournisseurs`
---
-DROP TABLE IF EXISTS `commande_fournisseurs`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `commande_fournisseurs`  AS  select `fournisseurs`.`FOU_REF` AS `FOU_REF` from ((((`commande` join `ligne_de_commande` on(`commande`.`COM_ID` = `ligne_de_commande`.`LIG_ID`)) join `produits` on(`produits`.`PRO_ID` = `ligne_de_commande`.`LIG_ID`)) join `fournir` on(`fournir`.`FOU_ID` = `produits`.`PRO_ID`)) join `fournisseurs` on(`fournir`.`FOU_ID` = `fournisseurs`.`FOU_ID`)) where `fournisseurs`.`FOU_REF` <> 0 order by `ligne_de_commande`.`LIG_QUANTITE` desc ;
-
--- --------------------------------------------------------
-
---
--- Structure de la vue `infos_contact_client`
---
-DROP TABLE IF EXISTS `infos_contact_client`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `infos_contact_client`  AS  select `clients`.`CLI_ID` AS `CLI_ID`,`clients`.`CLI_REF` AS `CLI_REF`,`clients`.`CLI_TYPE` AS `CLI_TYPE`,`clients`.`CLI_MAIL` AS `CLI_MAIL`,`clients`.`CLI_ADRESSE_FACTURATION` AS `CLI_ADRESSE_FACTURATION` from `clients` ;
-
--- --------------------------------------------------------
-
---
--- Structure de la vue `livraisonsclients`
---
-DROP TABLE IF EXISTS `livraisonsclients`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `livraisonsclients`  AS  select `livraison`.`LIV_DATE` AS `LIV_DATE`,`clients`.`CLI_REF` AS `CLI_REF` from (`clients` join `livraison` on(`livraison`.`LIV_ID` = `clients`.`CLI_ID`)) ;
-
--- --------------------------------------------------------
-
---
--- Structure de la vue `produit_visible_clients`
---
 DROP TABLE IF EXISTS `produit_visible_clients`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `produit_visible_clients`  AS  select `produits`.`PRO_ID` AS `PRO_ID`,`produits`.`PRO_LIBELLE` AS `PRO_LIBELLE`,`produits`.`PRO_DESCRIPTION` AS `PRO_DESCRIPTION`,`produits`.`PRO_PRIX_ACHAT` AS `PRO_PRIX_ACHAT`,`produits`.`PRO_STOCK_PHYSIQUE` AS `PRO_STOCK_PHYSIQUE` from `produits` ;
+CREATE TABLE IF NOT EXISTS `produit_visible_clients` (
+  `PRO_ID` int(11) DEFAULT NULL,
+  `PRO_LIBELLE` varchar(50) DEFAULT NULL,
+  `PRO_DESCRIPTION` varchar(500) DEFAULT NULL,
+  `PRO_PRIX_ACHAT` float DEFAULT NULL,
+  `PRO_STOCK_PHYSIQUE` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la vue `visibilité_stock`
+-- Structure de la table `visibilité_stock`
 --
-DROP TABLE IF EXISTS `visibilité_stock`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `visibilité_stock`  AS  select `produits`.`PRO_ID` AS `PRO_ID`,`produits`.`PRO_REF` AS `PRO_REF`,`produits`.`PRO_STOCK_PHYSIQUE` AS `PRO_STOCK_PHYSIQUE`,`produits`.`PRO_STOCK_PHYSIQUE` < `produits`.`PRO_STOCK_ALERTE` AS `ALERTE` from `produits` order by `produits`.`PRO_STOCK_PHYSIQUE` < `produits`.`PRO_STOCK_ALERTE` ;
+DROP TABLE IF EXISTS `visibilité_stock`;
+CREATE TABLE IF NOT EXISTS `visibilité_stock` (
+  `PRO_ID` int(11) DEFAULT NULL,
+  `PRO_REF` varchar(50) DEFAULT NULL,
+  `PRO_STOCK_PHYSIQUE` int(11) DEFAULT NULL,
+  `ALERTE` int(1) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Contraintes pour les tables déchargées
@@ -461,12 +358,6 @@ ALTER TABLE `commande`
 ALTER TABLE `ligne_de_commande`
   ADD CONSTRAINT `FK_com_id` FOREIGN KEY (`COM_ID`) REFERENCES `ligne_de_commande` (`LIG_ID`),
   ADD CONSTRAINT `FK_pro_id2` FOREIGN KEY (`PRO_ID`) REFERENCES `ligne_de_commande` (`LIG_ID`);
-
---
--- Contraintes pour la table `produits`
---
-ALTER TABLE `produits`
-  ADD CONSTRAINT `FK_cat_id` FOREIGN KEY (`CAT_ID`) REFERENCES `produits` (`PRO_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
