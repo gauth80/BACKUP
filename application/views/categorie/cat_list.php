@@ -12,7 +12,7 @@
         <tbody>
             <?php foreach ($select_cat as $row) : ?>
                 <tr class="table-active">
-                    <td><?= $row->CAT_ID ?> <?= $row->CAT_LIBELLE ?></td>
+                    <td><?= $row->CAT_ID ?> - <?= $row->CAT_LIBELLE ?></td>
                     <td><?= $row->CAT_CAT_ID ?></td>
                     <td><a href="<?php echo site_url("categories/catModif/") . $row->CAT_ID; ?>" class="btn btn-dark">Modifier</a>
                     <td>

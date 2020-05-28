@@ -15,11 +15,11 @@
         <tbody>
             <?php foreach ($select_cli as $row) : ?>
                 <tr class="table-active">
-                    <td><?php echo $row->CLI_ID ?></td>
-                    <td><?php echo $row->CLI_NOM ?></td>
-                    <td><?php echo $row->CLI_PRENOM ?></td>
-                    <td><?php echo $row->CLI_MAIL ?></td>
-                    <td><?php echo $row->CLI_TEL ?></td>
+                    <td><?= $row->CLI_ID ?></td>
+                    <td><?= $row->CLI_NOM ?></td>
+                    <td><?= $row->CLI_PRENOM ?></td>
+                    <td><?= $row->CLI_MAIL ?></td>
+                    <td><?= $row->CLI_TEL ?></td>
                     <td><a href="<?php echo site_url("Clients/cliModif/") . $row->CLI_ID; ?>" class="btn btn-dark">Modifier</a>
                     <td>
                         <?= form_open("Clients/cliSuppr/" . $row->CLI_ID) ?>

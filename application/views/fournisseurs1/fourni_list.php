@@ -10,8 +10,8 @@
 
         <thead>
             <tr>
-                <th> </th>
-                <th> </th>
+                <th>Modification</th>
+                <th>Suppression</th>
                 <th>id</th>
                 <th>Adresse</th>
                 <th>Référence</th>
@@ -25,7 +25,7 @@
             ?>
                 <tr class="table-active">
                     <td class="text-center"><a href="<?= site_url('fournisseurs/fourniModif/'.$fourni->FOU_ID);?>"><button class="btn btnpers"><i class="fas fa-pencil-alt"></i> Modification</button></a></td>
-                    <td class="text-center"><a href="<?= site_url('fournisseurs/fourniDel/'.$fourni->FOU_ID);?>"><button class="btn btnpers"><i class="fas fa-pencil-alt"></i> supprimer</button></a></td>
+                    <td class="text-center"><a href="<?= site_url('fournisseurs/fourniDel/'.$fourni->FOU_ID);?>"><button class="btn btnpers"><i class="fas fa-pencil-alt"></i> Supprimer</button></a></td>
                     <td data-label="ID"><?=$fourni->FOU_ID?></td>
                     <td data-label="Adresse"><?=$fourni->FOU_ADRESSE?></td>
                     <td data-label="Référence"><?=$fourni->FOU_REF?></td>

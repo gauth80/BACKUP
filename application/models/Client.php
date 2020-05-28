@@ -20,7 +20,7 @@ class Client extends CI_Model
      * \autor Grillet Stéphane
      * \date 28/05/2020
      */
-    public function cli_detail($id)
+    public function detail($id)
     {
         $detail = $this->db->where("CLI_ID", $id)->get('clients');
         return $detail->row();

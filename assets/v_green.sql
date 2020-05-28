@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 28 mai 2020 à 01:43
+-- Généré le :  jeu. 28 mai 2020 à 13:15
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.4.0
 
@@ -88,23 +88,22 @@ INSERT INTO `categorie` (`CAT_ID`, `CAT_LIBELLE`, `CAT_CAT_ID`, `PER_ID`, `CAT_D
 DROP TABLE IF EXISTS `clients`;
 CREATE TABLE IF NOT EXISTS `clients` (
   `CLI_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `PER_ID` int(11) NOT NULL,
+  `PER_ID` int(11) DEFAULT NULL,
   `CLI_NOM` varchar(50) DEFAULT NULL,
   `CLI_PRENOM` varchar(50) DEFAULT NULL,
+  `CLI_VILLE` varchar(255) NOT NULL,
   `CLI_MAIL` varchar(50) DEFAULT NULL,
-  `CLI_DDN` DATE DEFAULT NULL,
-  `CLI_TEL` varchar(14) NOT NULL,
+  `CLI_TEL` varchar(50) NOT NULL,
   `CLI_MDP` varchar(60) DEFAULT NULL,
   `CLI_REF` varchar(50) DEFAULT NULL,
   `CLI_TYPE` bit(1) DEFAULT NULL,
   `CLI_ADRESSE_FACTURATION` varchar(50) DEFAULT NULL,
-  `CLI_VILLE` varchar(100) NOT NULL,
-  `CLI_CP` int(8) NOT NULL,
+  `CLI_CP` varchar(5) NOT NULL,
   `CLI_DATE_INSCRIPTION` datetime DEFAULT NULL,
   `CLI_COEFFICEINT` float DEFAULT NULL,
-  PRIMARY KEY (`CLI_ID`)
-  KEY `FK_per_id3` (`PER_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`CLI_ID`),
+  KEY `fk33_per_id` (`PER_ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -440,12 +439,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 ALTER TABLE `categorie`
   ADD CONSTRAINT `FK_cat_cat_id` FOREIGN KEY (`Cat_cat_id`) REFERENCES `categorie` (`CAT_ID`),
   ADD CONSTRAINT `FK_per_id` FOREIGN KEY (`PER_ID`) REFERENCES `categorie` (`CAT_ID`);
-
---
--- Contraintes pour la table `clients`
---
-ALTER TABLE `clients`
-  ADD CONSTRAINT `FK_per_id3` FOREIGN KEY (`PER_ID`) REFERENCES `clients` (`CLI_ID`);
 
 --
 -- Contraintes pour la table `commande`

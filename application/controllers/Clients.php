@@ -31,7 +31,6 @@ class Clients extends CI_Controller
     $this->form_validation->set_rules('city', 'city', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('street', 'street', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('zipcode', 'zipcode', 'required', array('required' => 'Veuillez renseigner ce champ.'));
-    $this->form_validation->set_rules('ddn', 'date de naissance', 'required', array('required' => 'Veuillez renseigner votre %s.'));
     $this->form_validation->set_rules('cell', 'cell', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('mail', 'mail', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('password', 'password', 'required', array('required' => 'Veuillez renseigner ce champ.'));
@@ -47,7 +46,6 @@ class Clients extends CI_Controller
         'CLI_VILLE' => $resultajout['city'],
         'CLI_ADRESSE_FACTURATION' => $resultajout['street'],
         'CLI_CP' => $resultajout['zipcode'],
-        'CLI_DDN' => $resultajout['ddn'],
         'CLI_TEL' => $resultajout['cell'],
         'CLI_MAIL' => $resultajout['mail'],
         'CLI_MDP' => password_hash($resultajout['password'], PASSWORD_DEFAULT),
@@ -64,9 +62,9 @@ class Clients extends CI_Controller
    */
   public function cliModif($id)
   {
-    $data["select_cli"] = $this->Client->cli_detail($id);
+    $data["detail"] = $this->Client->detail($id);
 
-    $resultmodif = $this->input->post();
+    if ($this->input->post()) {
     $this->form_validation->set_rules('lastname', 'lastname', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('firstname', 'firstname', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('mail', 'mail', 'required', array('required' => 'Veuillez renseigner ce champ.'));
@@ -77,8 +75,9 @@ class Clients extends CI_Controller
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
     if ($this->form_validation->run() == false) {
-      $this->templates->display('clients1/cli_list');
+      $this->templates->display('clients1/cliModif', $data);
     } else {
+      $resultmodif = $this->input->post();
       $modif = array(
         'CLI_NOM' => $resultmodif['lastname'],
         'CLI_PRENOM' => $resultmodif['firstname'],
@@ -89,9 +88,12 @@ class Clients extends CI_Controller
         'CLI_CP' => $resultmodif['zipcode'],
         'CLI_DATE_INSCRIPTION' => date('Y-m-d')
       );
-      $this->Client->cliModif($modif);
-      redirect('clients1/cli_list');
+      $this->Client->cliModif($id, $modif);
+      redirect('Clients/cli_list');
     }
+  } else {
+    $this->templates->display('clients1/cliModif', $data);
+  }
   }
   /**
    * \brief Suppression d'un client
@@ -101,7 +103,7 @@ class Clients extends CI_Controller
    */
   public function cliSuppr($id)
   {
-    $row = $this->Client->cli_detail($id);
+    $this->Client->detail($id);
     $this->Client->cliSuppr($id);
     redirect('Clients/cli_list');
   }
