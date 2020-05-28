@@ -1,0 +1,31 @@
+
+figure{
+	z-index:1;
+	margin:0;padding:0;
+	top:0;
+	position:relative;
+	display:block;}
+
+[title="logo"]{
+	width:125%;
+	height:auto;
+	position:absolute;
+	top:0;}
+
+/*	images	*/
+
+
+[alt="Gibson Ibanez -15%"],
+[alt="conditions"] {
+	width:100%;}
+
+[alt="information livraison"]{
+	width:128%;}
+
+[alt='partenaires']{
+	width: 97%;}
+
+[title="top guitare"],
+[title="top saxo"],
+[title="top piano"]{
+	width:100%;}

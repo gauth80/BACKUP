@@ -1,0 +1,262 @@
+/*
+
+<!> 	Doublons possibles, à purgée a la fin
+<info> 	Page CSS Main, regroupe les règles générale appliquée aux sites
+		Ainsi que les media query
+
+
+*/
+/*=0*/
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cardo&display=swap');
+@import url('pages/form.css');
+@import url('pages/layouts.css');
+@import url('pages/accueil.css');
+@import url('pages/produits.css');
+@import url('pages/assistance.css');
+
+.fontAwesome {
+	font-family: Helvetica, 'FontAwesome', sans-serif;}
+
+.root{
+	--new-c-primary: navy;
+	--new-c-second: #b55500;
+	--new-c-third: #4d4d4d;
+	--new-b-primary: #b3b3b3;
+	--new-b-second: #e6e6e6;}
+
+.container{
+	width:100%;
+	min-width:100%;}
+
+body{
+	overflow-x:hidden;
+	background:url("assets/img/background_village.png");
+	background-repeat:no-repeat;
+	z-index:1;}
+
+.wrap{
+	background-color:var(--new-b-second);
+	z-index:2;}
+
+
+/*	Typographie	*/
+
+h1,h2{
+	text-indent:30px;
+	color:navy;font-size:2rem;}
+
+
+
+[alt]{
+	transition:all .2s;
+	display:inline-flex;}
+
+/*les media query se place toujours a la fin augustin :) */
+.Panier {
+	max-width: 12.5%;
+	height: auto;
+}
+
+/**=A1************************************ Media query ********************************************/
+@media (min-width: 1281px) and (max-width: 2000px) {
+	.container {
+		width: 100%;
+		min-width: 78%;
+		max-width: 1500px;
+	}
+
+	header>.container {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	[title="logo"]{
+		width:100%;
+		height:auto;
+	}
+
+	[alt="information livraison"] {
+		width: 126%;
+	}
+
+	[alt="partenaires"] {
+		width: 81%;
+	}
+
+	.thumbnail {
+		width: 90%;
+	}
+
+	.nav-link {
+		font-size: calc(100% + .2rem);
+	}
+
+}
+
+@media (min-width: 1200px) and (max-width: 1280px) {
+	.container {
+		width: 100%;
+		max-width: 1250px;
+	}
+
+	header>.container {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	[title="logo"]{
+		width:100%;
+		height:auto;
+	}
+
+	[alt="information livraison"] {
+		width: 126%;
+	}
+
+	[alt="partenaires"] {
+		width: 81%;
+	}
+
+}
+
+/*Là où Bootstraps ne passe pas*/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	[alt="information livraison"] {
+		width: 132%;
+	}
+
+	[title="top guitare"],
+	[title="top saxo"],
+	[title="top piano"] {
+		width: 113%;
+	}
+
+	[alt="partenaires"] {
+		width: 87%;
+	}
+
+
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	[alt="information livraison"] {
+		width: 143%;
+	}
+
+	[title="top guitare"],
+	[title="top saxo"],
+	[title="top piano"] {
+		width: 120%;
+	}
+
+	[alt="partenaires"] {
+		width: 87%;
+	}
+
+
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+	.container {
+		width: 100%;
+		max-width: 100vw;
+	}
+
+	[alt="information livraison"] {
+		width: 161%;
+	}
+
+	[title="top guitare"],
+	[title="top saxo"],
+	[title="top piano"] {
+		width: 132%;
+	}
+
+	[alt="partenaires"] {
+		width: 94%;
+		height: auto;
+	}
+
+
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	.annexe>h3 {
+		font-size: 100%;
+		margin-top: .5rem;
+		line-height: 1.3rem;
+	}
+
+}
+
+/*cotée mobile*/
+@media (min-width:320px) and (max-width:575px) {
+
+	.d-bk {
+		background-image: none !important;
+		background-color: #d6d6d6 !important;
+	}
+
+	.res-vitrine,
+	.res-offre,
+	.res-top,
+	.res-top>figure,
+	h2 {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+
+	[title="top guitare"],
+	[title="top saxo"],
+	[title="top piano"] {
+		width: 100%;
+		margin: 0 !important;
+	}
+
+	.res-condition {
+		margin-top: 1rem !important;
+		margin-bottom: 1rem !important;
+	}
+
+	.res-title,
+	h2 {
+		font-size: 1.5rem;
+		text-align: center;
+	}
+
+	footer {
+		padding-top: 1rem;
+		margin-top: 1rem;
+	}
+
+	.form-control {
+		max-width: 90%;
+	}
+
+	.form-group {
+		margin-bottom: .5rem;
+	}
+
+	[type="submit"] {
+		min-width: 45%;
+		margin: 5% 22.5% 0% 22.5%;
+	}
+
+	hr {
+		display: block;
+		width: 50%;
+		background: orange;
+		margin: 5% 22.5%;
+	}
+
+	.res-other {
+		margin-top: 1.5rem;
+	}
+}
+
