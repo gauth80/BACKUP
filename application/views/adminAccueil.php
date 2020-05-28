@@ -27,7 +27,7 @@
                         <article>
                             <h4 >Les Clients</h4>
                             <p>Ici vous trouverez tous se qu'il y a à savoir sur les clients en cliquant sur le boutton ci-dessous</p>
-                            <a href="<?php echo site_url("Client/cli_list");?>" class="btn btnpers offset-2 col-auto ml-5" > Clients</a>
+                            <a href="<?php echo site_url("clients/cli_list");?>" class="btn btnpers offset-2 col-auto ml-5" > Clients</a>
                         </article>
                     </section>
                     <section class="mb-5">
