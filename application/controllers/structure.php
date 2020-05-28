@@ -34,8 +34,6 @@ class Structure extends CI_Controller
 
 
   public function inscription() {
-    $this->load->helper("form")
-               ->library("form_validation");
 
     if($this->form_validation->run()) {
       $this->accueil();

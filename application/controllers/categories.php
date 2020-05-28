@@ -3,12 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Categories extends CI_Controller
 {
   /**
-   * \brief page de modification d'une catégorie
-   * \return  page formulaire de modification d'une catégorie
+   * \brief permetaffichant toute les infos de la table catégorie
+   * \return  permetaffichant toute les infos de la table catégorie
    * \author Grillet Stéphane
    * \date 05/05/2020
-   * 
-   * 
    */
 
   public function cat_list()
@@ -27,11 +25,9 @@ class Categories extends CI_Controller
 
     $data["select_cat"] = $this->Categorie->select_cat();
 
-    $libelle = "/[0-9a-zA-Z]*/";
-
     $resultajout = $this->input->post();
     $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
-    $this->form_validation->set_rules('libelle', 'libelle', "required|regex_match[$libelle]", array('required' => 'Veuillez renseigner ce champ.', 'regex_match' => 'Il faut un %s valide.'));
+    $this->form_validation->set_rules('libelle', 'libelle', "required", array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
     if ($this->form_validation->run() == false) {
@@ -55,35 +51,30 @@ class Categories extends CI_Controller
    */
   public function catModif($id)
   {
-      $data["select_cat"] = $this->Categorie->select_cat();
-      $data["detail"] = $this->Categorie->detail($id);
-      if ($this->input->post()) 
-      {
-          $libelle = "/^[0-9a-zA-Z]*$/";
-          $this->form_validation->set_rules('libelle', 'libelle', "required|regex_match[$libelle]", array('required' => 'Veuillez renseigner ce champ.', 'regex_match' => 'Il faut un %s valide.'));
-          $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
-          $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-  
-          if ($this->form_validation->run() == false) {
-            $this->templates->display('categorie/catModif', $data);
-          } else {
-            
-            $resultmodif = $this->input->post();
-            $modif = array(
-              'CAT_LIBELLE' => $resultmodif['libelle'],
-              'CAT_CAT_ID' => $resultmodif['cat_cat'],
-              'PER_ID' => $resultmodif['cat_cat'],
-              'CAT_D_MODIF' => date('Y-m-d H-i-s')
-            );
-            $this->Categorie->catModif($id, $modif);
-            redirect('categories/cat_list');
-          }
-        } else {
-          $this->templates->display('categorie/catModif', $data);
-        }
-      
-    
+    $data["select_cat"] = $this->Categorie->select_cat();
+    $data["detail"] = $this->Categorie->detail($id);
+    if ($this->input->post()) {
+      $this->form_validation->set_rules('libelle', 'libelle', "required", array('required' => 'Veuillez renseigner ce champ.'));
+      $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
+      $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
+      if ($this->form_validation->run() == false) {
+        $this->templates->display('categorie/catModif', $data);
+      } else {
+
+        $resultmodif = $this->input->post();
+        $modif = array(
+          'CAT_LIBELLE' => $resultmodif['libelle'],
+          'CAT_CAT_ID' => $resultmodif['cat_cat'],
+          'PER_ID' => $resultmodif['cat_cat'],
+          'CAT_D_MODIF' => date('Y-m-d H-i-s')
+        );
+        $this->Categorie->catModif($id, $modif);
+        redirect('categories/cat_list');
+      }
+    } else {
+      $this->templates->display('categorie/catModif', $data);
+    }
   }
   /**
    * \brief page de modification d'une catégorie

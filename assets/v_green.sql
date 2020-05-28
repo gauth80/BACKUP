@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 27 mai 2020 à 13:37
+-- Généré le :  jeu. 28 mai 2020 à 01:43
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.4.0
 
@@ -60,23 +60,24 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   PRIMARY KEY (`CAT_ID`),
   KEY `FK_cat_cat_id` (`CAT_CAT_ID`),
   KEY `FK_per_id` (`PER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `categorie`
 --
 
 INSERT INTO `categorie` (`CAT_ID`, `CAT_LIBELLE`, `CAT_CAT_ID`, `PER_ID`, `CAT_D_AJOUT`, `CAT_D_MODIF`) VALUES
-(1, 'guitare', 1, 1, NULL, NULL),
-(2, 'batterie', 2, 2, NULL, NULL),
-(3, 'piano', 3, 3, NULL, NULL),
-(4, 'studio', 4, 4, NULL, NULL),
-(5, 'eclairage', 5, 5, NULL, NULL),
-(6, 'dj', 6, 6, NULL, NULL),
-(7, 'cases', 7, 7, NULL, NULL),
-(8, 'accessoires', 8, 8, NULL, NULL),
-(9, 'instrument a vent', 9, 9, NULL, NULL),
-(10, 'instrument a corde', 10, 10, '2020-05-05', NULL);
+(1, 'Aucune', 1, 1, '2020-05-27', NULL),
+(2, 'guitare', 1, 1, NULL, NULL),
+(3, 'batterie', 1, 1, NULL, NULL),
+(4, 'piano', 1, 1, NULL, NULL),
+(5, 'studio', 1, 1, NULL, NULL),
+(6, 'eclairage', 1, 1, NULL, NULL),
+(7, 'dj', 1, 1, NULL, NULL),
+(8, 'cases', 1, 1, NULL, NULL),
+(9, 'accessoires', 1, 1, NULL, NULL),
+(10, 'instrument a vent', 1, 1, NULL, NULL),
+(11, 'instrument a corde', 1, 1, '2020-05-27', '2020-05-27');
 
 -- --------------------------------------------------------
 
@@ -91,10 +92,13 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `CLI_NOM` varchar(50) DEFAULT NULL,
   `CLI_PRENOM` varchar(50) DEFAULT NULL,
   `CLI_MAIL` varchar(50) DEFAULT NULL,
+  `CLI_TEL` varchar(14) NOT NULL,
   `CLI_MDP` varchar(60) DEFAULT NULL,
   `CLI_REF` varchar(50) DEFAULT NULL,
   `CLI_TYPE` bit(1) DEFAULT NULL,
   `CLI_ADRESSE_FACTURATION` varchar(50) DEFAULT NULL,
+  `CLI_VILLE` varchar(100) NOT NULL,
+  `CLI_CP` int(8) NOT NULL,
   `CLI_DATE_INSCRIPTION` datetime DEFAULT NULL,
   `CLI_COEFFICEINT` float DEFAULT NULL,
   PRIMARY KEY (`CLI_ID`),
@@ -195,7 +199,14 @@ CREATE TABLE IF NOT EXISTS `fournisseurs` (
   `FOU_ADRESSE` varchar(50) DEFAULT NULL,
   `FOU_REF` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`FOU_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `fournisseurs`
+--
+
+INSERT INTO `fournisseurs` (`FOU_ID`, `FOU_ADRESSE`, `FOU_REF`) VALUES
+(2, '135 rue de Satan', 'Guitoman');
 
 -- --------------------------------------------------------
 
