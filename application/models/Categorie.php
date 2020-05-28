@@ -17,7 +17,7 @@ class Categorie extends CI_Model
     /**
      * \brief Selection du detail
      * \param id = id de la categorie
-     * \return Selection d'un certain produit par appel de son ID dans le formulaire
+     * \return Selection d'une certaine catégorie par appel de son ID dans le formulaire
      * \autor Grillet Stéphane
      * \date 05/05/2020
      */
@@ -54,7 +54,7 @@ class Categorie extends CI_Model
      * \param id = id de la catégorie
      * \return Delete d'une catégorie contenu dans la table
      * \autor Grillet Stéphane
-     * \date11/05/2020
+     * \date 11/05/2020
      */
     public function catSuppr($id)
     {

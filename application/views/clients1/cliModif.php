@@ -1,57 +1,57 @@
 <div class="col-12">
     <div class="row">
 
-        <!----------------------------------------- Formulaire ajouts--------------------------------------------->
         <div class=" container col-8">
             <div class="col-12">
                 <fieldset class="row">
-                    <legend>Ajouts</legend>
-                    <form action="" method="POST">
-                        <div class="form-group text-center offset-1.5 w-100">
-                            <label for="nom">Nom :</label>
-                            <input type="text" id="nom" name="nom" class="form-control fontAwesome" placeholder="Nom...">
-                        </div>
-                        <div class="form-group text-center offset-1.5 w-100">
-                            <label for="Prenom">Prenom :</label>
-                            <input type="text" id="Prenom" name="Prenom" class="form-control fontAwesome" placeholder="Prenom...">
-                        </div>
-                        <div class="form-group text-center offset-1.5 w-100">
-                            <label for="mail">E-mail :</label>
-                            <input type="text" id="mail" name="mail" class="form-control fontAwesome" placeholder="Mail...">
-                        </div>
-                        <div class="form-group text-center offset-1.5 w-100">
-                            <label for="telephone">Téléphone :</label>
-                            <input type="text" id="telephone" name="telephone" class="form-control fontAwesome" placeholder="Téléphone...">
-                        </div>
-                        <div class="form-group text-center offset-1.5 w-100">
-                            <label for="identifiant">identifiant :</label>
-                            <input type="text" id="identifiant" name="identifiant" class="form-control fontAwesome" placeholder="identifiant...">
-                        </div>
-                        <div class="form-group text-center offset-1.5 w-100">
-                            <label for="mdp">Mot de passe :</label>
-                            <input type="text" id="mdp" name="mdp" class="form-control fontAwesome" placeholder="mdp...">
-                        </div>
-                        <div class="form-group text-center offset-1.5 w-100">
-                            <label for="adresse">Adresse :</label>
-                            <input type="text" id="adresse" name="adresse" class="form-control fontAwesome" placeholder="Adresse...">
-                        </div>
-                        <label for="ddn">Date de naissance :</label>
-                        <input type="text" id="ddn" name="ddn" class="form-control fontAwesome" placeholder="Date de naissance...">
+                    <legend>Modification d'un client</legend>
+                    <?= form_open("clients/cliModif/" . $cli_detail->CAT_ID, 'class="form_control"'); ?>
+                    <div class="form-group text-center">
+                        <label for="lastname" class="sr-only">Nom</label>
+                        <input type="text" id="lastname" name="lastname" class="form-control text-center" value="<?php echo set_value('lastname',$cli_detail->CLI_NOM); ?>">
+                        <?php echo form_error('lastname'); ?>
+                    </div>
+                    <div class="form-group text-center">
+                        <label for="firstname" class="sr-only">Prénom</label>
+                        <input type="text" id="firstname" name="firstname" class="form-control text-center" value="<?php echo set_value('firstname',$cli_detail->CLI_PRENOM); ?>">
+                        <?php echo form_error('firstname'); ?>
+                    </div>
+                    <div class="form-group text-center">
+                        <label for="mail" class="sr-only">E-mail</label>
+                        <input type="email" id="mail" name="mail" class="form-control text-center" value="<?php echo set_value('mail',$cli_detail->CLI_MAIL); ?>">
+                        <?php echo form_error('mail'); ?>
+                    </div>
+                    <div class="form-group text-center">
+                        <label for="cell" class="sr-only">Téléphone</label>
+                        <input type="text" id="cell" name="cell" class="form-control text-center" value="<?php echo set_value('cell',$cli_detail->CLI_TEL); ?>">
+                        <?php echo form_error('cell'); ?>
+                    </div>
+                    <div class="form-group text-center">
+                        <label for="street" class="sr-only">Adresse (utilisé pour la facturation)</label>
+                        <input type="text" id="street" name="street" class="form-control text-center" value="<?php echo set_value('street',$cli_detail->CLI_ADRESSE_FACTURATION); ?>">
+                        <?php echo form_error('street'); ?>
+                    </div>
+                    <div class="form-group text-center">
+                        <label for="city" class="sr-only">Ville</label>
+                        <input type="text" id=city name=city class="form-control text-center" value="<?php echo set_value('city',$cli_detail->CLI_VILLE); ?>">
+                        <?php echo form_error('city'); ?>
+                    </div>
+                    <div class="form-group text-center">
+                        <label for=zipcode class="sr-only">Code Postal</label>
+                        <input type="text" id=zipcode name=zipcode class="form-control text-center" value="<?php echo set_value('zipcode',$cli_detail->CLI_CP); ?>">
+                        <?php echo form_error('zipcode'); ?>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" id="modif" name="modif" value="Modifier cette catégorie">
+                    </div>
+                    <?= form_close(); ?>
+                </fieldset>
             </div>
-            <div class="form-group text-center offset-1.5 w-100">
-                <label for="ville">Ville :</label>
-                <input type="text" id="ville" name="ville" class="form-control fontAwesome" placeholder="ville...">
-            </div>
-            <div class="form-group text-center offset-1.5 w-100">
-                <label for="cp">Code postal :</label>
-                <input type="number" id="cp" name="cp" class="form-control fontAwesome" placeholder="Code postal...">
-            </div>
-            </form>
-            <div class="form-group text-center offset-1.5 w-100">
-                <input type="submit" id="ok" name="ok" value="modifier">
-            </div>
+            <br>
         </div>
-        </fieldset>
-        <br>
     </div>
 </div>
+<div class="text-center">
+    <a href="<?php echo site_url("clients1/cli_list"); ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" title="Retour à la page précédente">Retour à la page précédente</a>
+</div>
+<br>

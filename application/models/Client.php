@@ -13,54 +13,48 @@ class Client extends CI_Model
         $select_cli = $this->db->query("SELECT * FROM clients ORDER BY CLI_ID ASC");
         return $select_cli->result();
     }
-    //--------------------------------------------------------detail----------------------
     /**
-     * \brief affichage du detail
-     * \param id id du fournisseur
-     * \return table variable(info du fourni)
-     * \autor Augustin LEGRIS
-     * \date 26/05/2020
+     * \brief Selection du detail
+     * \param id = id de la categorie
+     * \return Selection d'un certain client par appel de son ID dans le formulaire
+     * \autor Grillet Stéphane
+     * \date 28/05/2020
      */
-    public function clientTab($id)
+    public function cli_detail($id)
     {
-        $detail = $this->db->where("CLI_ID", $id)->get('clients'); // requêtes
-
+        $detail = $this->db->where("CLI_ID", $id)->get('clients');
         return $detail->row();
     }
-    //---------------------------------------------------------ajout----------------------
     /**
-     * \brief ajout d'un fournisseur
-     * \param add fournisseur a ajouté
-     * \return table de variables
-     * \autor Augustin LEGRIS
-     * \date 26/05/2020
+     * \brief Ajout dans la table, par l'insert, du formulaire
+     * \return Création dans la table par un formulaire d'un nouveau client
+     * \autor Grillet Stéphane
+     * \date 28/05/2020
      */
-    public function clientAjout($add)
+    public function cliAjouts($ajouts)
     {
-        $this->db->insert('clients', $add);
+        $this->db->insert('clients', $ajouts);
     }
-    //---------------------------------------------------------maj---------------------
     /**
-     * \brief maj d'un fournisseur
-     * \param id id du fournisseur
-     * \param maj variable à ajouter
-     * \return table de variables
-     * \autor Augustin LEGRIS
-     * \date 26/05/2020
+     * \brief Modification de la table, par l'update, du formulaire
+     * \return Update de la table par un formulaire
+     * \autor Grillet Stéphane
+     * \date 28/05/2020
      */
-    public function ClientModif($id, $maj)
+    public function cliModif($id, $update)
     {
-        $this->db->update('clients', $maj, 'CLI_ID=' . $id);
+        $this->db->update('clients', $update, 'CLI_ID=' . $id);
     }
-    //-----------------------------------------------------------suppression------------
     /**
-     * \brief supression d'un fournisseur
-     * \param id id du fournisseur a supprimé
-     * \autor Augustin LEGRIS
-     * \date 26/05/2020
+     * \brief Suppression dans la table, par le delete, d'une catégorie
+     * \param id = id du client
+     * \return Delete d'une catégorie contenu dans la table
+     * \autor Grillet Stéphane
+     * \date 28/05/2020
      */
-    public function delClient($id)
+    public function cliSuppr($id)
     {
-        $this->db->delete('clients', 'FOU_ID=' . $id);
+
+        $this->db->delete('clients', 'CLI_ID=' . $id);
     }
 }

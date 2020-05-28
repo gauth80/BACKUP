@@ -1,11 +1,10 @@
 <div class="col-12">
     <div class="row">
 
-        <!----------------------------------------- Formulaire ajouts--------------------------------------------->
         <div class=" container col-8">
             <div class="col-12">
                 <fieldset class="row">
-                    <legend>Ajout d'une catégorie</legend>
+                    <legend>Création d'une catégorie</legend>
                     <?= form_open("categories/catAjouts", 'class="form_control"'); ?>
                     <div class="form-group text-center">
                         <label for="libelle" class="sr-only">Libellé</label>

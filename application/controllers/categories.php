@@ -53,6 +53,7 @@ class Categories extends CI_Controller
   {
     $data["select_cat"] = $this->Categorie->select_cat();
     $data["detail"] = $this->Categorie->detail($id);
+    
     if ($this->input->post()) {
       $this->form_validation->set_rules('libelle', 'libelle', "required", array('required' => 'Veuillez renseigner ce champ.'));
       $this->form_validation->set_rules('cat_cat', 'cat_cat', 'required', array('required' => 'Veuillez renseigner ce champ.'));
@@ -77,8 +78,8 @@ class Categories extends CI_Controller
     }
   }
   /**
-   * \brief page de modification d'une catégorie
-   * \return  page formulaire de modification d'une catégorie
+   * \brief Suppression d'une catégorie
+   * \return  Boutton de suppression d'une catégorie
    * \author Grillet Stéphane
    * \date 11/05/2020
    */
