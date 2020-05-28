@@ -22,7 +22,7 @@ class Clients extends CI_Controller
    * \author Grillet Stéphane
    * \date 28/05/2020
    */
-  public function cliAjout()
+  public function cliAjouts()
   {
 
     $resultajout = $this->input->post();
@@ -31,14 +31,15 @@ class Clients extends CI_Controller
     $this->form_validation->set_rules('city', 'city', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('street', 'street', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('zipcode', 'zipcode', 'required', array('required' => 'Veuillez renseigner ce champ.'));
+    $this->form_validation->set_rules('ddn', 'date de naissance', 'required', array('required' => 'Veuillez renseigner votre %s.'));
     $this->form_validation->set_rules('cell', 'cell', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('mail', 'mail', 'required', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_rules('password', 'password', 'required', array('required' => 'Veuillez renseigner ce champ.'));
-    $this->form_validation->set_rules('comfirm_password', 'comfirm_password', 'requiredrequired|matches[password]', array('required' => 'Veuillez renseigner ce champ.'));
+    $this->form_validation->set_rules('comfirm_password', 'comfirm_password', 'required|matches[password]', array('required' => 'Veuillez renseigner ce champ.'));
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
     if ($this->form_validation->run() == false) {
-      $this->templates->display('clients1/cli_list');
+      $this->templates->display('clients1/cliAjouts');
     } else {
       $ajout = array(
         'CLI_NOM' => $resultajout['lastname'],
@@ -46,14 +47,13 @@ class Clients extends CI_Controller
         'CLI_VILLE' => $resultajout['city'],
         'CLI_ADRESSE_FACTURATION' => $resultajout['street'],
         'CLI_CP' => $resultajout['zipcode'],
-        'CLI_DDN' => $resultajout['zipcode'],
+        'CLI_DDN' => $resultajout['ddn'],
         'CLI_TEL' => $resultajout['cell'],
         'CLI_MAIL' => $resultajout['mail'],
-        'CLI_MDP' => password_hash($resultajout['mdp'], PASSWORD_DEFAULT),
-        'CLI_DATE_INSCRIPTION' => date('Y-m-d')
+        'CLI_MDP' => password_hash($resultajout['password'], PASSWORD_DEFAULT),
       );
-      $this->Client->cliAjout($ajout);
-      redirect('clients1/cli_list');
+      $this->Client->cliAjouts($ajout);
+      redirect('Clients/cli_list');
     }
   }
   /**
@@ -64,7 +64,7 @@ class Clients extends CI_Controller
    */
   public function cliModif($id)
   {
-    $data["cli_detail"] = $this->Client->cli_detail($id);
+    $data["select_cli"] = $this->Client->cli_detail($id);
 
     $resultmodif = $this->input->post();
     $this->form_validation->set_rules('lastname', 'lastname', 'required', array('required' => 'Veuillez renseigner ce champ.'));
@@ -103,6 +103,6 @@ class Clients extends CI_Controller
   {
     $row = $this->Client->cli_detail($id);
     $this->Client->cliSuppr($id);
-    redirect('clients1/cli_list');
+    redirect('Clients/cli_list');
   }
 }

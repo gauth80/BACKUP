@@ -5,7 +5,7 @@
             <div class="col-12">
                 <fieldset class="row">
                     <legend>Modification d'un client</legend>
-                    <?= form_open("clients/cliModif/" . $cli_detail->CAT_ID, 'class="form_control"'); ?>
+                    <?= form_open("Clients/cliModif/" . $cli_detail->CLI_ID, 'class="form_control"'); ?>
                     <div class="form-group text-center">
                         <label for="lastname" class="sr-only">Nom</label>
                         <input type="text" id="lastname" name="lastname" class="form-control text-center" value="<?php echo set_value('lastname',$cli_detail->CLI_NOM); ?>">
@@ -52,6 +52,6 @@
     </div>
 </div>
 <div class="text-center">
-    <a href="<?php echo site_url("clients1/cli_list"); ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" title="Retour à la page précédente">Retour à la page précédente</a>
+    <a href="<?php echo site_url("Clients/cli_list"); ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" title="Retour à la page précédente">Retour à la page précédente</a>
 </div>
 <br>
