@@ -105,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="row ml-0 mr-0">
                         <!--3reme barre-->
                         <nav class="navbar navbar-expand-xl navbar-dark thirdNav col-xl-12 align-bottom px-0 py-0">
@@ -115,7 +115,6 @@
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse pl-0" id="target3">
-
                                 <ul class="navbar-nav ml-auto pl-0 pr-0 m-0">
                                     <div class="dropdown nav-link pl-4">
                                         <button type="button" data-toggle="dropdown">Guit/Basse

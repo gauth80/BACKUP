@@ -1,8 +1,6 @@
+<<<<<<< HEAD
 <?php
 
-/**
- * 	Pour ne pas trop s'y perdre, se qui est en Maj fais partie de la bdd
- */
 class Produits_model extends CI_Model {
 	public function __construct() {
 		$this->load->database();
@@ -13,20 +11,17 @@ class Produits_model extends CI_Model {
 			     ->join('categorie', 'categorie.CAT_ID = produits.CAT_ID')
 			     //aff produits si diff de 0
 				 ->having('PRO_STOCK_PHYSIQUE != 0');
-						  
 		$query = $this->db->get('produits');
 		return $query->result();
 	}
 
 	public function get_produits_for_personnal() {
-		$this->db->order_by('produits.PRO_ID', 'DESC');
-						  
+		$this->db->order_by('produits.PRO_ID', 'DESC');				  
 		$query = $this->db->get('produits');
 		return $query->result();
 	}
 	
 	public function insert_produits($pro_img, $slug) {
-
 		$data = array(
 			'PRO_LIBELLE' => $this->input->post('pro_lib'),
 			'PRO_REF' => $this->input->post('pro_ref'),
@@ -53,7 +48,6 @@ class Produits_model extends CI_Model {
 			'CAT_ID' => $this->input->post('cat_exist'),
 			'PRO_SLUG' => $slug,
 			'PRO_PHOTO' => $pro_img
-
             );
 
             $this->db->where('PRO_ID', $this->input->post('pro_exist'));
@@ -70,7 +64,6 @@ class Produits_model extends CI_Model {
 		
 		$this->db->select('*')
 				 ->order_by('CAT_ID', 'ASC');
-
 		$query = $this->db->get('categorie');
 		return $query->result();
 	}

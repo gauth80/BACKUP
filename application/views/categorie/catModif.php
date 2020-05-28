@@ -1,7 +1,6 @@
 <div class="col-12">
     <div class="row">
 
-        <!----------------------------------------- Formulaire ajouts--------------------------------------------->
         <div class=" container col-8">
             <div class="col-12">
                 <fieldset class="row">

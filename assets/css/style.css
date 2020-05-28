@@ -14,6 +14,7 @@
 @import url('pages/accueil.css');
 @import url('pages/produits.css');
 @import url('pages/assistance.css');
+@import url('pages/personnel.css');
 
 .fontAwesome {
 	font-family: Helvetica, 'FontAwesome', sans-serif;}
@@ -44,15 +45,13 @@ body{
 
 h1,h2{
 	text-indent:30px;
-	color:navy;font-size:2rem;}
-
-
+	color:navy;
+	font-size:2rem;}
 
 [alt]{
 	transition:all .2s;
 	display:inline-flex;}
 
-/*les media query se place toujours a la fin augustin :) */
 .Panier {
 	max-width: 12.5%;
 	height: auto;

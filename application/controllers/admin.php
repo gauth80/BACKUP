@@ -42,66 +42,72 @@ class Admin extends CI_Controller
   {
     $this->templates->display('BonLiv');
   }
+  //------------------------------------------------------------------------------------------------------
+
+
+
   /**
-   * \brief Formulaire de création d'une nouvelle session
-   * \return Formulaire de création d'une nouvelle session
+   * \brief Formulaire de création d'une nouvelle session client
+   * \return Formulaire de création d'une nouvelle session client
    * \author Grillet Stéphane
    * \date 19/05/2020
    */
-  public function new_session()
+  public function new_session_client()
   {
-    $data = array(
-      'CLI_ID' => '',
-      'CLI_NOM' => '',
-      'CLI_PRENOM' => '',
-      'CLi_MAIL' => '',
-      'CLi_TYPE' => '',
-      'CLi_ADRESSE_FACTURATION' => '',
-      'CLi_COEFFICIENT' => ''
+
+    $requete = $this->admin->session_client;
+
+    $this->session->set_userdata('client', TRUE);
+    $dataClient = array(
+      'CLI_ID' => $requete->CLI_ID,
+      'CLI_PRENOM' => $requete->CLI_PRENOM,
+      'CLI_MAIL' => $requete->CLI_MAIL,
+      'CLI_TYPE' => $requete->CLI_TYPE,
+      'CLI_ADRESSE_FACTURATION' => $requete->CLI_ADRESSE_FACTURATION,
+      'CLI_COEFFICIENT' => $requete->CLI_COEFFICIENT
     );
-    $this->session->userdata($data);
+    $this->session->set_userdata('sess_client', $dataClient);
   }
   /**
-   * \brief Formulaire de création d'une nouvelle session admin
-   * \return Formulaire de création d'une nouvelle session admin
-   * \author Grillet Stéphane
-   * \date 19/05/2020
-   */
-  public function new_session_admin()
-  {
-    $dataAdmin = array(
-      'CLI_ID' => '',
-      'CLI_NOM' => '',
-      'CLI_PRENOM' => '',
-      'CLi_MAIL' => '',
-      'CLi_TYPE' => '',
-      'CLi_ADRESSE_FACTURATION' => '',
-      'CLi_COEFFICIENT' => ''
-    );
-    $this->session->userdata($dataAdmin);
-  }
-  /**
-   * \brief Suppression d'une session
-   * \return Suppression d'une session
+   * \brief Suppression d'une session client
+   * \return Suppression d'une session client
    * \author Grillet Stéphane
    * \date 20/05/2020
    */
   public function sup_session()
   {
-    $array_items = array('id', 'nom', 'prenom', 'email', 'type', 'adresse', 'coefficient');
-
-    $this->session->unset_userdata($array_items);
+    $this->session->unset_userdata('client', 'sess_client');
+    $this->session->sess_destroy('client', 'sess_client');
   }
   /**
-   * \brief Suppression d'une session
-   * \return Suppression d'une session
+   * \brief Formulaire de création d'une nouvelle session admin
+   * \return Formulaire de création d'une nouvelle session admin
    * \author Grillet Stéphane
-   * \date 20/05/2020
+   * \date 26/05/2020
+   */
+  public function new_session_admin()
+  {
+
+    $requete = $this->admin->session_admin;
+
+    $this->session->set_userdata('admin', TRUE);
+    $dataAdmin = array(
+      'PER_ID' => $requete->PER_ID,
+      'PER_MATRICULE' => $requete->PER_MATRICULE,
+      'PER_SERVICE' => $requete->PER_SERVICE,
+      'COEFFICIENT_COMMERCIAL' => $requete->COEFFICIENT_COMMERCIAL
+    );
+    $this->session->set_userdata('sess_admin', $dataAdmin);
+  }
+  /**
+   * \brief Suppression d'une session client
+   * \return Suppression d'une session client
+   * \author Grillet Stéphane
+   * \date 26/05/2020
    */
   public function sup_session_admin()
   {
-    $array_admins = array('id', 'nom', 'prenom', 'email', 'type', 'adresse', 'coefficient');
-
-    $this->session->unset_userdata($array_admins);
+    $this->session->unset_userdata('admin', 'sess_admin');
+    $this->session->sess_destroy('admin', 'sess_admin');
   }
 }
