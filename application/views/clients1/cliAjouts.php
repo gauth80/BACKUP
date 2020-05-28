@@ -32,6 +32,11 @@
                         <?php echo form_error('zipcode'); ?>
                     </div>
                     <div class="form-group text-center">
+                        <label for="ddn" class="sr-only">date de naissance</label>
+                        <input type="date" id="ddn" name="ddn" class="form-control text-center" placeholder="Date de naissance">
+                        <?php echo form_error('ddn'); ?>
+                    </div>
+                    <div class="form-group text-center">
                         <label for="cell" class="sr-only">Téléphone</label>
                         <input type="text" id="cell" name="cell" class="form-control text-center" placeholder="Téléphone">
                         <?php echo form_error('cell'); ?>
@@ -62,6 +67,6 @@
     </div>
 </div>
 <div class="text-center">
-    <a href="<?php echo site_url("clients1/cli_list"); ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" title="Retour à la page précédente">Retour à la page précédente</a>
+    <a href="<?php echo site_url("Clients/cli_list"); ?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" title="Retour à la page précédente">Retour à la page précédente</a>
 </div>
 <br>

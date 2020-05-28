@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <a href="<?php echo site_url("clients1/cliAjouts"); ?>"> Ajouter un nouveau client</a>
+    <a href="<?php echo site_url("Clients/cliAjouts"); ?>"> Ajouter un nouveau client</a>
     <table class="table table-striped table-hover table-bordered">
         <thead>
             <tr>
@@ -20,9 +20,9 @@
                     <td><?php echo $row->CLI_PRENOM ?></td>
                     <td><?php echo $row->CLI_MAIL ?></td>
                     <td><?php echo $row->CLI_TEL ?></td>
-                    <td><a href="<?php echo site_url("clients1/cliModif/") . $row->CLI_ID; ?>" class="btn btn-dark">Modifier</a>
+                    <td><a href="<?php echo site_url("Clients/cliModif/") . $row->CLI_ID; ?>" class="btn btn-dark">Modifier</a>
                     <td>
-                        <?= form_open("clients1/cliSuppr/" . $row->CAT_ID) ?>
+                        <?= form_open("Clients/cliSuppr/" . $row->CLI_ID) ?>
                         <input type="submit" name="sup" id="sup" class="btn btn-dark" value="Supprimer">
                         <?= form_close(); ?>
                     </td>
