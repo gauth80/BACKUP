@@ -1,9 +1,9 @@
 
-                <h3>Supprimer un produits</h3>
-                <?= form_open('produits/delete_produits', ["class" => "col-sm-12 col-lg-9 mt-2"]); ?>
+                <h3 class="text-dark col-auto h3-produits">Supprimer un produits</h3>
+                <?= form_open('produits/delete_produits', ["class" => "col-sm-12 col-lg-9 mt-2 form-produits"]); ?>
 
                 <div class="row">
-                    <p><i>PRUDENCE:</i>&nbsp;Il n' y pas de Javascripts pour vous avertir</p>
+                    <p class="col-10 offset-1 mt-3"><i>PRUDENCE:</i>&nbsp;&lt;!&gt;&nbsp;Il n' y pas de Javascripts pour vous avertir</p>
                 </div>
                 <div class="form-group row">
 
@@ -17,5 +17,5 @@
 
 
 
-                <?= form_submit("delete_pro", "supprimer", ["class" => "btn btn-custom my-2 mx-2"], ["type" => "submit"]);?>
+                <?= form_submit("delete_pro", "supprimer", ["class" => "btn btn-custom my-2 mx-2 col-auto"], ["type" => "submit"]);?>
                 <?= form_close(); ?>

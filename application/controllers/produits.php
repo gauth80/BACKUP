@@ -7,19 +7,6 @@
 *   <op> Appliquez la transition des tables en Jquery ou Js
 *   <op> Image de substitue en cas d'echec d'upload
 
-
-//11/05/2020
-*   1]  Si besoin de rensseignement sur l'emplois du code me contacter ou se ref à Devdoc/userGuide CI3
-*   2]  Si code trop verbeux, se posez la question pourquoi il est verbeux ?
-*   3]  $slug est un identifiant référent
-*   4]  Un helper n'est pas relier avec une base de donnée
-*   5]  Si aucune redirection fonctionne, se référée au problème 2]
-*   6]  Souvenez vous que c'est Lundi.. 
-
-//13/05/2020
-*   1] en un mot, SORCELERIE..
-*   2] Souvenez vous que c'est Mercredi..
-
 */
 
 
@@ -161,4 +148,12 @@ class Produits extends CI_Controller
             redirect('administration/index');
         }
     }
+
+    public function details($slug) {
+
+        $detail = $this->produits_model->get_produits($slug);
+        $data['detail'] = $detail;
+        $this->templates->display('produits/detail', $data);     
+    }
+
 }

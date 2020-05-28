@@ -73,5 +73,12 @@ class Produits_model extends CI_Model {
 		$query = $this->db->get('categorie');
 		return $query->result();
 	}
+
+	public function get_produits($slug) {
+
+	$detail = $this->db->where("PRO_SLUG",$slug)->get("produits");
+	return $detail->row();
+
+	}
 	
 }

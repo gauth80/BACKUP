@@ -1,6 +1,6 @@
   
-                <h3>Mis à jour du produits</h3>
-                <?= form_open_multipart('produits/modifiez_produits', ["class" => "col-sm-12 col-lg-9 mt-2"]); ?>
+                <h3 class="text-dark col-auto h3-produits">Mis à jour du produits</h3>
+                <?= form_open_multipart('produits/modifiez_produits', ["class" => "col-sm-12 col-lg-9 mt-2 form-produits"]); ?>
                 <?php validation_errors();?>
                     <div class="form-group row">
                         <label for="proExist" class="offset-sm-1">Choisir un produits existant *</label>
@@ -21,13 +21,13 @@
                     </div>
 
                     <div class="form-group row <?= empty(form_error('pro_lib')) ? '' : 'has-error';?>">
-                        <label for="libelle" class="offset-sm-1">Le libelle&nbsp;:&nbsp;*</label>
+                        <label for="libelle" class="offset-sm-1 col-10">Le libelle&nbsp;:&nbsp;*</label>
                         <input type="text" name="pro_lib" id="libelle" class="form-control w-75 offset-sm-1" placeholder="Gipson">
                         <span class="text-warning offset-sm-1"><?= form_error('pro_lib');?></span>
                     </div>
 
                     <div class="form-group row <?= empty(form_error('pro_ref')) ? '' : 'has-error';?>">
-                        <label for="ref" class="offset-sm-1">La ref&nbsp;:&nbsp;*</label>
+                        <label for="ref" class="offset-sm-1 col-10">La ref&nbsp;:&nbsp;*</label>
                         <input type="text" name="pro_ref" id="ref" class="form-control w-75 offset-sm-1" placeholder="gui000">
                         <span class="text-warning offset-sm-1"><?= form_error('pro_ref');?></span>
                     </div>
@@ -54,10 +54,10 @@
      
                     <div class="form-group row <?= empty(form_error('err_img')) ? '' : 'has-error';?>">
                         <label for="stock" class="offset-sm-1">Modifiez l'image&nbsp;:&nbsp;*</label>
-                        <input type="file" name="img" id="stock" class="form-control offset-sm-1">
+                        <input type="file" name="img" id="stock" class="form-control offset-sm-1 w-75">
                         <span class="text-warning offset-sm-1"><?= form_error('err_img');?></span>
                     </div>
 
-                <?= form_submit("modifiez_pro", "Modifiez", ["class" => "btn btn-custom my-2 mx-2"], ["type" => "submit"]);?>
+                <?= form_submit("modifiez_pro", "Modifiez", ["class" => "btn btn-custom my-2 mx-2 col-auto"], ["type" => "submit"]);?>
                 <?= form_close(); ?>
  
