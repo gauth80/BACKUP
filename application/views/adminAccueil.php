@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="col-4">
-                <img src="<?php echo base_url('assets/img/personnel/teste.png') ;?>" alt="lorem" class="img-personnel m-0 p-0 img-fluid"> 
+                <img src="<?php echo base_url('assets/img/personnel/teste.png') ;?>" alt="lorem" class="img-personnel m-0 p-0 img-fluid d-sm-none"> 
             </div>        
 
 </div>
