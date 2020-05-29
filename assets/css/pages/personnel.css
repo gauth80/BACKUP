@@ -1,10 +1,30 @@
-.btnpers{
+.btnperss{
     background-color: tan;
     font-weight:500;
 }
-.btnpers:hover {
-    background-color: rgb(219, 157, 75);
+.btnordi{
+    background-color: grey;
+    font-weight:500;
+    color: ghostwhite;
 }
+.btnordi:hover{
+    color: rgba(248, 248, 255, 0.904);
+}
+table thead{
+    text-align: center;
+}
+
+.table-active{
+    background-color:#e6e6e6!important;
+    font-weight: 600;
+}
+.btnperss{
+    font-weight: 600!important;
+}
+.btnpers:hover {
+    background-color: ghostwhite;
+    box-shadow:inset 3px 3px 5px grey;
+    text-shadow: 0 0 10px white;}
 .img-personnel {
     width:100vw;
 }
@@ -13,6 +33,20 @@
     color:  darkorange!important;
 }
 
+@media (max-width: 1200px){
+    [class="btn btnordi offset-xs-6 offset-md-6 offset-lg-6 col-auto"]{
+        background-color: grey;
+        font-weight:500;
+        right: 5%;
+    }
+}
+@media (max-width: 767px){
+    [class="btn btnordi offset-xs-6 offset-md-6 offset-lg-6 col-auto"]{
+        background-color: grey;
+        font-weight:500;
+        left: 44%;
+    }
+}
 
 @media (max-width: 575px){
     .titre-liste{
@@ -34,8 +68,11 @@
     float: left;
     font-weight: bold;
         }
-    [class="btn btnpers offset-xs-6 offset-sm-6 offset-md-6 offset-lg-6 col-auto"]{
-        left: 44%;
+    [class="btn btnordi offset-xs-6 offset-md-6 offset-lg-6 col-auto"]{
+        display: none;
+    }
+    [class="text-dark titre-liste text-center py-3 m-0"]{
+        display: none;
     }
     .table-active{
         background-color:#b55500!important;
@@ -67,4 +104,5 @@
         background-color: #303030;
         color: ghostwhite!important;
     }
+
     }
