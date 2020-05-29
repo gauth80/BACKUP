@@ -1,4 +1,17 @@
 <?php
+<<<<<<< HEAD
+=======
+/*  Spec personnel
+*   TODO
+*   <imp> delete aussi l'image lors d'un delete produits, egalement lors d'un update
+*   <imp> & <op> Responsive a faire
+*   <op> Faire un helper upload image et le charger dans les deux methodes
+*   <op> Appliquez la transition des tables en Jquery ou Js
+*   <op> Image de substitue en cas d'echec d'upload
+
+*/
+
+>>>>>>> refs/remotes/origin/Gauthier
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -131,8 +144,16 @@ class Produits extends CI_Controller {
     }
 
     public function details($slug) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/Gauthier
         $detail = $this->produits_model->get_produits($slug);
         $data['detail'] = $detail;
         $this->templates->display('produits/detail', $data);     
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/Gauthier
 }

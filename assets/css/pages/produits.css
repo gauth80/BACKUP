@@ -128,4 +128,29 @@
 	margin-top:6rem !important;
 }
 
+<<<<<<< HEAD
+=======
+.h3-produits {
+border-radius:0 0 25px 0;
+padding:10px 15px;
+box-shadow:2px 2px 3px gray;
+text-decoration:underline;
+text-decoration-style:solid;
+text-decoration-style:unset;
+width:max-content;
+font-weight:500;
+transform:skew(-8deg);}
 
+/*detail*/
+.wrap-detail>div>a, .wrap-detail>div>h2 {
+	color:navy;
+	font-size:calc(100% + 1.25rem);
+	font-weight:500;
+}
+.wrap-detail div a:hover{
+	text-decoration:none;}
+>>>>>>> refs/remotes/origin/Gauthier
+
+.hr-detail {
+	background: orangered;
+}
