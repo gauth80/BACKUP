@@ -48,13 +48,10 @@ h1,h2{
 	color:navy;
 	font-size:2rem;}
 
-
-
 [alt]{
 	transition:all .2s;
 	display:inline-flex;}
 
-/*les media query se place toujours a la fin augustin :) */
 .Panier {
 	max-width: 12.5%;
 	height: auto;

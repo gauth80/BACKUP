@@ -4,7 +4,7 @@
 <div class="row my-0 py-0">
 	<div class="col-11 offset-1">
 		<p>Point mobile a faire <br>
-		peut être mettre une sidebar sur le coté gauche si réalisable en AJAX</p>
+
 	</div>
 </div>
 <section class="row py-5">
@@ -30,7 +30,7 @@
 
 					<p><u>REF</u>&nbsp;:&nbsp;<?php echo $pro->PRO_REF ;?></p>
 
-					<a href="" class="btn">Lire plus</a>
+					<a href="<?php echo site_url('/produits/details/').$pro->PRO_SLUG ;?>" class="btn">Lire plus</a>
 					<p class="price"><?php echo $pro->PRO_PRIX_ACHAT ;?>&nbsp;€</p>
 				</div>
 			</div>

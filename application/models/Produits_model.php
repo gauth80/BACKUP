@@ -1,36 +1,27 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-/**
- * 	Pour ne pas trop s'y perdre, se qui est en Maj fais partie de la bdd
- */
-class Produits_model extends CI_Model
-{
-	public function __construct()
-	{
+
+<?php
+
+class Produits_model extends CI_Model {
+	public function __construct() {
 		$this->load->database();
 	}
 
-	public function get_produits_for_client()
-	{
+	public function get_produits_for_client() {
 		$this->db->order_by('produits.PRO_ID', 'DESC')
-			->join('categorie', 'categorie.CAT_ID = produits.CAT_ID')
-			//aff produits si diff de 0
-			->having('PRO_STOCK_PHYSIQUE != 0');
-
+			     ->join('categorie', 'categorie.CAT_ID = produits.CAT_ID')
+			     //aff produits si diff de 0
+				 ->having('PRO_STOCK_PHYSIQUE != 0');
 		$query = $this->db->get('produits');
 		return $query->result();
 	}
 
-	public function get_produits_for_personnal()
-	{
-		$this->db->order_by('produits.PRO_ID', 'ASC');
-
+	public function get_produits_for_personnal() {
+		$this->db->order_by('produits.PRO_ID', 'DESC');				  
 		$query = $this->db->get('produits');
 		return $query->result();
 	}
-
-	public function insert_produits($pro_img, $slug)
-	{
-
+	
+	public function insert_produits($pro_img, $slug) {
 		$data = array(
 			'PRO_LIBELLE' => $this->input->post('pro_lib'),
 			'PRO_REF' => $this->input->post('pro_ref'),
@@ -46,10 +37,9 @@ class Produits_model extends CI_Model
 		return $this->db->set($data)->insert('produits');
 	}
 
-	public function update_produits($pro_img, $slug)
-	{
+	public function update_produits($pro_img, $slug) {
 
-		$data = array(
+        $data = array(
 			'PRO_LIBELLE' => $this->input->post('pro_lib'),
 			'PRO_REF' => $this->input->post('pro_ref'),
 			'PRO_DESCRIPTION' => $this->input->post('pro_desc'),
@@ -58,26 +48,31 @@ class Produits_model extends CI_Model
 			'CAT_ID' => $this->input->post('cat_exist'),
 			'PRO_SLUG' => $slug,
 			'PRO_PHOTO' => $pro_img
+            );
 
-		);
-
-		$this->db->where('PRO_ID', $this->input->post('pro_exist'));
-		return $this->db->update('produits', $data);
+            $this->db->where('PRO_ID', $this->input->post('pro_exist'));
+            return $this->db->update('produits', $data);
 	}
 
-	public function delete_produits($id)
-	{
-		$this->db->where('PRO_ID', $this->input->post('pro_exist'));
-		$this->db->delete('produits');
-		return true;
+	public function delete_produits($id) {
+        $this->db->where('PRO_ID', $this->input->post('pro_exist'));
+        $this->db->delete('produits');
+        return true;
 	}
 
-	public function get_categories_data()
-	{
+	public function get_categories_data() {
+		
 		$this->db->select('*')
-			->order_by('CAT_ID', 'ASC');
-
+				 ->order_by('CAT_ID', 'ASC');
 		$query = $this->db->get('categorie');
 		return $query->result();
 	}
+
+	public function get_produits($slug) {
+
+	$detail = $this->db->where("PRO_SLUG",$slug)->get("produits");
+	return $detail->row();
+
+	}
+
 }

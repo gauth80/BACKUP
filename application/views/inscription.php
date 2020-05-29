@@ -1,3 +1,4 @@
+
 <!--TODO config->form_validation | js->infobulle() css->res pointbreak lg(992) && xs(-578)-->
 <div class="row bk-form-ins col-12 m-0 px-0 py-2">
     <?= form_open('clients/inscription', ["class" => "col-sm-12 col-lg-4 mt-2"]); ?>
@@ -65,3 +66,4 @@
         <img class="wrap-form img-fluid" src="<?php echo base_url('assets/img/form/note.png') ?>">
     </figure>
 </div>
+
