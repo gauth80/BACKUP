@@ -38,7 +38,7 @@ class Clients extends CI_Controller
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
     if ($this->form_validation->run() == false) {
-      $this->templates->display('clients1/cliAjouts');
+      $this->templates->display('clients/cliAjouts');
     } else {
       $ajout = array(
         'CLI_NOM' => $resultajout['lastname'],
