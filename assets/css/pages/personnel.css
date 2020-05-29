@@ -99,7 +99,7 @@ table thead{
             text-decoration:none;
             color:inherit;
         }
-    [class="text-dark titre-liste text-center py-3 m-0"]{ /* Champion !!*/
+    [class="text-dark titre-liste text-center py-3 m-0"]{
         text-align: center;
         background-color: #303030;
         color: ghostwhite!important;
