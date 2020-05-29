@@ -11,7 +11,7 @@ class Fournisseurs extends CI_Controller
   public function fourni_list()
   {
     $data["fournisseurs"]=$this->fournisseur->fourniList();
-    $this->templates->display('fournisseurs1/fourni_list', $data);
+    $this->templates->display('fournisseurs/fourni_list', $data);
   }
   /**
    * \brief page d'ajout fournisseur
@@ -32,7 +32,7 @@ class Fournisseurs extends CI_Controller
 
       if($this->form_validation->run() == FALSE)
       {
-        $this->templates->display('fournisseurs1/fourniAjouts');
+        $this->templates->display('fournisseurs/fourniAjouts');
       }
       else
       {
@@ -45,7 +45,7 @@ class Fournisseurs extends CI_Controller
       }
     }
     else{
-          $this->templates->display('fournisseurs1/fourniAjouts');
+          $this->templates->display('fournisseurs/fourniAjouts');
         }  
    }
   /**
@@ -70,7 +70,7 @@ class Fournisseurs extends CI_Controller
 
       if($this->form_validation->run() == FALSE)
       {
-          $this->templates->display('fournisseurs1/fourniModif',$data);
+          $this->templates->display('fournisseurs/fourniModif',$data);
       }
       else
       {
@@ -83,7 +83,7 @@ class Fournisseurs extends CI_Controller
       }
     }
     else{
-          $this->templates->display('fournisseurs1/fourniModif',$data);
+          $this->templates->display('fournisseurs/fourniModif',$data);
         }    
    }
     /**

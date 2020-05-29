@@ -14,7 +14,7 @@ class Clients extends CI_Controller
   public function cli_list()
   {
     $data['select_cli'] = $this->Client->select_cli();
-    $this->templates->display('clients1/cli_list', $data);
+    $this->templates->display('clients/cli_list', $data);
   }
   /**
    * \brief page d'ajout d'un client
@@ -38,7 +38,7 @@ class Clients extends CI_Controller
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
     if ($this->form_validation->run() == false) {
-      $this->templates->display('clients1/cliAjouts');
+      $this->templates->display('clients/cliAjouts');
     } else {
       $ajout = array(
         'CLI_NOM' => $resultajout['lastname'],
@@ -75,7 +75,7 @@ class Clients extends CI_Controller
     $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
     if ($this->form_validation->run() == false) {
-      $this->templates->display('clients1/cliModif', $data);
+      $this->templates->display('clients/cliModif', $data);
     } else {
       $resultmodif = $this->input->post();
       $modif = array(
@@ -92,7 +92,7 @@ class Clients extends CI_Controller
       redirect('Clients/cli_list');
     }
   } else {
-    $this->templates->display('clients1/cliModif', $data);
+    $this->templates->display('clients/cliModif', $data);
   }
   }
   /**
