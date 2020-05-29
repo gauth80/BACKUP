@@ -1,27 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-=======
-/*
-*	teste unitaire
-
-*	Contact/inscription
-
-*	<imp>	A rajoutée sur champs email rules => is_unique[table.champs]
-*	<imp>	# -- semble passée dans champs email(soucie d'injection permanente)
-*	<op>	Problème de translate pour la régle alpha_numeric_spaces
-
-*	Produits/create/update
-*	<imp>	# -- passe, a rectifiez
-*	Info:
-
-*	Chaque tableau multidimentionel est associer a un path, ce path c'est controller/method référent aux class
-*	Une librairy externe a CI a étais installé, elle traduits chaques erreurs de champs en français, inutile d'utiliser
-*	Set_message('')
-
-*/
-
->>>>>>> refs/remotes/origin/Gauthier
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $config = array(
@@ -86,21 +64,13 @@ $config = array(
 		array(
 			'field' => 'pro_lib',
 			'label' => 'libelle',
-<<<<<<< HEAD
 			'rules' => 'required|min_length[1]|max_length[50]|trim|regex_match[/^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)*$/]'
-=======
-			'rules' => 'required|min_length[1]|max_length[255]|trim|regex_match[/^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)*$/]'
->>>>>>> refs/remotes/origin/Gauthier
 		),
 
 		array(
 			'field' => 'pro_ref',
 			'label' => 'référence',
-<<<<<<< HEAD
-			'rules' => 'required|min_length[3]|max_length[7]|trim|is_unique[produits.PRO_REF]|regex_match[/^[a-zA-Z]{3,4}[0-9]{3,4}$/]'
-=======
 			'rules' => 'required|min_length[3]|max_length[8]|trim|is_unique[produits.PRO_REF]|regex_match[/^[a-zA-Z]{3,4}[0-9]{3,4}$/]'
->>>>>>> refs/remotes/origin/Gauthier
 		),
 
 		array(
@@ -128,21 +98,13 @@ $config = array(
 			//rex_slugify
 			'field' => 'pro_lib',
 			'label' => 'libelle',
-<<<<<<< HEAD
-			'rules' => 'required|min_length[1]|max_length[50]|trim|regex_match[/^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)*$/]'
-=======
 			'rules' => 'required|min_length[1]|max_length[255]|trim|regex_match[/^[a-zA-Z0-9]+(?:\s[a-zA-Z0-9]+)*$/]'
->>>>>>> refs/remotes/origin/Gauthier
 		),
 
 		array(
 			'field' => 'pro_ref',
 			'label' => 'référence',
-<<<<<<< HEAD
-			'rules' => 'required|min_length[3]|max_length[7]|trim|is_unique[produits.PRO_REF]|regex_match[/^[a-zA-Z]{3,4}[0-9]{3,4}$/]'
-=======
 			'rules' => 'required|min_length[3]|max_length[8]|trim|is_unique[produits.PRO_REF]|regex_match[/^[a-zA-Z]{3,4}[0-9]{3,4}$/]'
->>>>>>> refs/remotes/origin/Gauthier
 		),
 
 		array(
@@ -164,7 +126,4 @@ $config = array(
 			'rules' => 'required|min_length[8]|max_length[999]|trim|regex_match[/^[a-zA-Z0-9][^#<>-]{8,999}$/]'
 		)
 	)
-
-	
-
 );

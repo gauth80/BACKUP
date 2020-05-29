@@ -4,10 +4,7 @@
 <div class="row my-0 py-0">
 	<div class="col-11 offset-1">
 		<p>Point mobile a faire <br>
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/Gauthier
 	</div>
 </div>
 <section class="row py-5">
@@ -34,11 +31,7 @@
 					<p><u>REF</u>&nbsp;:&nbsp;<?php echo $pro->PRO_REF ;?></p>
 
 					<a href="<?php echo site_url('/produits/details/').$pro->PRO_SLUG ;?>" class="btn">Lire plus</a>
-<<<<<<< HEAD
 					<p class="price"><?php echo $pro->PRO_PRIX_ACHAT ;?>&nbsp;€</p>
-=======
-					<p class="price"><?php echo $pro->PRO_PRIX_ACHAT;?>&nbsp;€</p>
->>>>>>> refs/remotes/origin/Gauthier
 				</div>
 			</div>
 		</div>

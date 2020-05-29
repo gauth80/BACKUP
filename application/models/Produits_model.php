@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 
 class Produits_model extends CI_Model {
@@ -74,8 +74,5 @@ class Produits_model extends CI_Model {
 	return $detail->row();
 
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> refs/remotes/origin/Gauthier
+
 }
